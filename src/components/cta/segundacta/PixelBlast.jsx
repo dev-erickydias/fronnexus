@@ -365,7 +365,8 @@ const PixelBlast = ({
       });
       renderer.domElement.style.width = '100%';
       renderer.domElement.style.height = '100%';
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      const isMobile = window.innerWidth < 768;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 2));
       container.appendChild(renderer.domElement);
       const uniforms = {
         uResolution: { value: new THREE.Vector2(0, 0) },

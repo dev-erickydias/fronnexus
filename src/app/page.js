@@ -1,14 +1,19 @@
-// app/page.js
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import ClientHomeProjectInfo from '../components/client/ClientHomeProjectInfo';
-import ClientSegundaCTA from '../components/client/ClientSegundaCTA';
 
 const HeaderBg = dynamic(() => import('../components/Header/HeaderBg'), {
   loading: () => null,
 });
 const ServicesSection = dynamic(
   () => import('../components/services/ServicesSection'),
+  { loading: () => null },
+);
+const ClientHomeProjectInfo = dynamic(
+  () => import('../components/client/ClientHomeProjectInfo'),
+  { loading: () => null },
+);
+const ClientSegundaCTA = dynamic(
+  () => import('../components/client/ClientSegundaCTA'),
   { loading: () => null },
 );
 

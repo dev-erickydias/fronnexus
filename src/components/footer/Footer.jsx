@@ -45,7 +45,7 @@ export default function Footer() {
           width={150}
           height={150}
           className="mb-4 md:mb-0 h-auto w-auto"
-          priority
+          loading="lazy"
         />
 
         {/* Social icons */}
@@ -57,6 +57,7 @@ export default function Footer() {
               width={24}
               height={24}
               className="size-6 hover:opacity-80 transition-opacity"
+              loading="lazy"
             />
           </Link>
 
@@ -67,6 +68,7 @@ export default function Footer() {
               width={24}
               height={24}
               className="size-6 hover:opacity-80 transition-opacity"
+              loading="lazy"
             />
           </Link>
 
@@ -77,6 +79,7 @@ export default function Footer() {
               width={24}
               height={24}
               className="size-6 hover:opacity-80 transition-opacity"
+              loading="lazy"
             />
           </Link>
 
@@ -87,6 +90,7 @@ export default function Footer() {
               width={24}
               height={24}
               className="size-6 hover:opacity-80 transition-opacity"
+              loading="lazy"
             />
           </Link>
 
@@ -97,6 +101,7 @@ export default function Footer() {
               width={24}
               height={24}
               className="size-6 hover:opacity-80 transition-opacity"
+              loading="lazy"
             />
           </Link>
         </div>

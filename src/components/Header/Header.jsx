@@ -64,6 +64,7 @@ export default function Header() {
             height={32}
             className="h-auto w-auto"
             priority
+            loading="eager"
           />
         </Link>
 
