@@ -103,13 +103,11 @@ export const Plasma = ({
 
     const directionMultiplier = direction === 'reverse' ? -1.0 : 1.0;
 
-    const isMobile = window.innerWidth < 768;
     const renderer = new Renderer({
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 2),
-      premultipliedAlpha: true,
+      dpr: Math.min(window.devicePixelRatio || 1, 2),
     });
     const gl = renderer.gl;
     const canvas = gl.canvas;

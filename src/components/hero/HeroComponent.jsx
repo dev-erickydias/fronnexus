@@ -1,4 +1,5 @@
 export default function HeroComponent({ title, description, btn }) {
+  console.log(title, description, btn);
   return (
     <header className="bg-background px-6 md:px-60 py-16">
       <div className="flex flex-col md:flex-row items-center justify-center gap-10">

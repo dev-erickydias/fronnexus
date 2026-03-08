@@ -1,5 +1,7 @@
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
+import ClientHomeProjectInfo from '../components/client/ClientHomeProjectInfo';
+import ClientSegundaCTA from '../components/client/ClientSegundaCTA';
 
 const HeaderBg = dynamic(() => import('../components/Header/HeaderBg'), {
   loading: () => null,
@@ -8,25 +10,17 @@ const ServicesSection = dynamic(
   () => import('../components/services/ServicesSection'),
   { loading: () => null },
 );
-const ClientHomeProjectInfo = dynamic(
-  () => import('../components/client/ClientHomeProjectInfo'),
-  { loading: () => null },
-);
-const ClientSegundaCTA = dynamic(
-  () => import('../components/client/ClientSegundaCTA'),
-  { loading: () => null },
-);
 
 export default function Home() {
   return (
     <>
       <Suspense fallback={null}>
         <HeaderBg
-          title="Empowering your"
-          highlight="digital presence"
-          subtitle="with precision."
-          description="We craft seamless web experiences that merge creativity, technology, and strategy."
-          buttonText="Meet Our Team"
+          title="We Design, Build &"
+          highlight="Scale Your Digital"
+          subtitle="Presence."
+          description="Fronnexus is a global digital agency specializing in front-end development, UI/UX design, data analysis, and quality assurance. We partner with startups and established businesses to craft high-performance web experiences that convert visitors into customers."
+          buttonText="Explore Our Services"
           buttonLink="/about"
         />
       </Suspense>
@@ -37,16 +31,20 @@ export default function Home() {
 
       <Suspense fallback={null}>
         <ClientSegundaCTA
-          title="Turn your idea into digital reality"
-          subtitle="From concept to launch, we build web solutions that connect you to your audience."
-          buttonText="want my project online"
+          title="Turn your idea into"
+          subtitle="digital reality."
+          buttonText="Start Your Project"
         />
       </Suspense>
 
       <ClientHomeProjectInfo />
 
       <Suspense fallback={null}>
-        <ClientSegundaCTA />
+        <ClientSegundaCTA
+          title="Ready to grow your"
+          subtitle="online presence?"
+          buttonText="Let's Talk"
+        />
       </Suspense>
     </>
   );
