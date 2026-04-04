@@ -43,3 +43,6 @@ next-env.d.ts
 
 # temp build artifacts
 /tmp/
+
+# marketing posts (local only)
+/posts
