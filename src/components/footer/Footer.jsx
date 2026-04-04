@@ -58,14 +58,14 @@ export default function Footer() {
               priority
             />
             <p className="text-sm text-primary-70 max-w-xs leading-relaxed">
-              {t('footer.brand')}
+              {t('footer.brandDescription')}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
             <h4 className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
-              {t('footer.navigation')}
+              {t('footer.navigationTitle')}
             </h4>
             <ul className="space-y-2.5">
               {footerLinks.map((link) => (
@@ -84,7 +84,7 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
-              {t('footer.connectWithUs')}
+              {t('footer.connectTitle')}
             </h4>
             <div className="flex flex-wrap gap-3">
               {SOCIAL.map((s) => (
@@ -107,7 +107,7 @@ export default function Footer() {
               ))}
             </div>
             <p className="text-xs text-primary-70 mt-4 leading-relaxed">
-              {t('footer.followUs')}
+              {t('footer.socialFollowText')}
             </p>
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-[var(--stroke-container-divider)] flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-primary-70">
-            &copy; {new Date().getFullYear()} Fronnexus. {t('footer.rights')}
+            &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </p>
           <Link
             href="/terms/responsability"
