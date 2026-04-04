@@ -369,7 +369,7 @@ body {
 }
 .lang-switcher__btn--active {
   color: #fff;
-  background: var(--accent);
+  background: #7c3aed;
 }
 .lang-switcher__btn--active:hover {
   background: var(--accent);

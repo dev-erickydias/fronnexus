@@ -64,9 +64,9 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
+            <p className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
               {t('footer.navigationTitle')}
-            </h4>
+            </p>
             <ul className="space-y-2.5">
               {footerLinks.map((link) => (
                 <li key={link.href}>
@@ -83,9 +83,9 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
+            <p className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
               {t('footer.connectTitle')}
-            </h4>
+            </p>
             <div className="flex flex-wrap gap-3">
               {SOCIAL.map((s) => (
                 <Link
