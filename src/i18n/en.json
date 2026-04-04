@@ -1,0 +1,301 @@
+{
+  "nav": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "projects": "Projects",
+    "getInTouch": "Get in Touch",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+
+  "hero": {
+    "badge": "Digital Agency",
+    "home": {
+      "title": "We Design, Build &",
+      "highlight": "Scale Your Digital",
+      "subtitle": "Presence.",
+      "description": "Fronnexus is a global digital agency specializing in front-end development, UI/UX design, data analysis, and quality assurance. We partner with startups and established businesses to craft high-performance web experiences that convert visitors into customers.",
+      "buttonText": "Explore Our Services"
+    },
+    "about": {
+      "title": "Built on Passion,",
+      "highlight": "Driven by",
+      "subtitle": "Precision.",
+      "description": "Fronnexus is a multicultural digital agency operating globally. We blend design thinking, modern technology, and strategic data analysis to build digital products that help businesses scale. Every pixel, every line of code — crafted with purpose.",
+      "buttonText": "See Our Work"
+    },
+    "projects": {
+      "title": "Built with Code.",
+      "highlight": "Driven by",
+      "subtitle": "Design.",
+      "description": "Every project we deliver combines clean architecture, thoughtful design, and measurable results. Explore our portfolio to see how we've helped clients across industries transform their digital presence and achieve real growth.",
+      "buttonText": "About Our Process"
+    }
+  },
+
+  "services": {
+    "badge": "What We Do",
+    "title": "End-to-End Digital Services",
+    "description": "From visual identity to flawless code and data-driven strategy, Fronnexus delivers a complete suite of digital services tailored to help your business stand out, perform better, and grow faster in an increasingly competitive market.",
+    "frontEnd": {
+      "title": "Front-End Development",
+      "description": "We build fast, accessible, and responsive interfaces using React, Next.js, and Tailwind CSS. Our code is clean, scalable, and optimized for performance — delivering sub-second load times and smooth user interactions."
+    },
+    "webDesign": {
+      "title": "Web Design & UI/UX",
+      "description": "From wireframes to pixel-perfect layouts, we design user-centered experiences that look stunning and convert. We use Figma for prototyping and iterate closely with clients to ensure every detail aligns with their brand."
+    },
+    "dataAnalysis": {
+      "title": "Data Analysis & Insights",
+      "description": "We turn raw data into actionable dashboards, reports, and visualizations that drive smarter decisions. Whether it's tracking KPIs, user behavior, or market trends — we make your data work for you."
+    },
+    "qa": {
+      "title": "Quality Assurance",
+      "description": "Rigorous testing across devices and browsers ensures every release is stable, performant, and bug-free. We use automated and manual QA workflows to catch issues before they reach your users."
+    }
+  },
+
+  "projects": {
+    "badge": "Our Work",
+    "title": "Real Projects, Real Impact",
+    "description": "Explore some of our recent work — where design, development, and strategy come together to solve real problems.",
+    "visitSite": "Visit site",
+    "details": "Details",
+    "viewAll": "View all projects",
+    "errorLoading": "Could not load projects from the database.",
+    "projectImageAlt": "Project image",
+    "projectFallbackName": "Project",
+    "noDescription": "No description available.",
+    "featuredWork": {
+      "title": "Featured Work",
+      "description": "A curated selection of projects showcasing our expertise in front-end development, full-stack architecture, and data-driven design."
+    }
+  },
+
+  "projectCard": {
+    "technologies": "technologies",
+    "unnamedProject": "Unnamed Project",
+    "about": "About",
+    "descriptionNotAvailable": "Description not available.",
+    "na": "n/a",
+    "code": "Code",
+    "website": "Website"
+  },
+
+  "popup": {
+    "projectDetails": "Project details",
+    "close": "Close",
+    "openProject": "Open project",
+    "technologies": "Technologies",
+    "description": "Description"
+  },
+
+  "about": {
+    "badge": "About Us",
+    "agencyName": "Fronnexus",
+    "agencyTagline": "Digital Agency — Global Operations",
+    "agencyDescription1": "Fronnexus is a digital agency founded on the belief that great technology should be accessible to every business. We specialize in front-end development, UI/UX design, data analysis, and quality assurance — delivering end-to-end solutions that help companies establish a powerful online presence.",
+    "agencyDescription2": "Our multicultural team operates globally, bringing diverse perspectives to every project. We work with startups launching their first product and established businesses looking to modernize their digital experience. Precision, creativity, and measurable results define everything we do.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "loadingTeam": "Loading team...",
+    "teamMember": "Team member"
+  },
+
+  "contact": {
+    "badge": "Get in Touch",
+    "title": "Let's Build Something Great Together",
+    "description": "Whether you need a brand-new website, a redesign, or a custom digital solution, our team is ready to bring your vision to life. Tell us about your project and we'll get back to you within 24 hours.",
+    "labels": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone",
+      "phoneOptional": "(optional)",
+      "country": "Country",
+      "preferredLanguage": "Preferred Language",
+      "projectDetails": "Project Details",
+      "servicesLegend": "What can we help you with?",
+      "servicesHint": "Select all services that apply to your project."
+    },
+    "placeholders": {
+      "firstName": "e.g. John",
+      "lastName": "e.g. Doe",
+      "email": "you@company.com",
+      "phone": "+1 (555) 000-0000",
+      "country": "Where are you based?",
+      "language": "How should we communicate?",
+      "message": "Describe your project, goals, timeline, and any specific requirements. The more detail you provide, the better we can tailor our response to your needs."
+    },
+    "languages": {
+      "english": "English",
+      "spanish": "Spanish",
+      "portuguese": "Portuguese"
+    },
+    "services": {
+      "frontend": {
+        "label": "Front-End Development",
+        "desc": "React, Next.js, responsive UI"
+      },
+      "data": {
+        "label": "Data Analysis",
+        "desc": "Dashboards, insights, reports"
+      },
+      "webdesign": {
+        "label": "Web Design",
+        "desc": "UI/UX, branding, prototypes"
+      },
+      "qa": {
+        "label": "Quality Assurance",
+        "desc": "Testing, audits, optimization"
+      },
+      "fullstack": {
+        "label": "Full-Stack Solution",
+        "desc": "End-to-end development"
+      },
+      "other": {
+        "label": "Other",
+        "desc": "Tell us in your message"
+      }
+    },
+    "terms": {
+      "prefix": "I agree to the",
+      "linkText": "Terms of Service & Privacy Policy",
+      "suffix": "and consent to Fronnexus processing my data to respond to this inquiry."
+    },
+    "success": {
+      "title": "Message sent successfully!",
+      "message": "Thank you for reaching out. Our team will review your inquiry and get back to you within 24 hours."
+    },
+    "error": {
+      "title": "Something went wrong.",
+      "message": "Please try again or contact us directly at erickyhenriquesd@gmail.com"
+    },
+    "submitButton": "Send Message",
+    "submitting": "Sending...",
+    "disclaimer": "We typically respond within 1 business day. Your information is kept confidential."
+  },
+
+  "validation": {
+    "firstNameRequired": "First name is required.",
+    "firstNameMin": "First name must be at least 2 characters.",
+    "lastNameRequired": "Last name is required.",
+    "lastNameMin": "Last name must be at least 2 characters.",
+    "emailRequired": "E-mail is required.",
+    "emailInvalid": "E-mail format is invalid.",
+    "phoneInvalid": "Please enter a valid phone number (at least 8 digits).",
+    "countryRequired": "Please select a country.",
+    "languageRequired": "Please select a language.",
+    "serviceRequired": "Please select a service.",
+    "messageMin": "Message must be at least 10 characters long.",
+    "termsRequired": "You must accept the terms to continue."
+  },
+
+  "cta": {
+    "primeira": {
+      "card1Title": "Ericky",
+      "card1Text": "Your content here",
+      "card2Title": "Card 2",
+      "card2Text": "Your content here",
+      "card3Title": "Card 3",
+      "card3Text": "Your content here"
+    },
+    "segunda": {
+      "defaultTitle": "Let's Create Something",
+      "defaultHighlight": "Amazing Together",
+      "defaultSubtitle": "From strategy to launch, our team is ready to help you build a digital presence that stands out and delivers real results.",
+      "defaultButton": "Contact Us"
+    },
+    "home1": {
+      "title": "Turn your idea into",
+      "subtitle": "digital reality.",
+      "buttonText": "Start Your Project"
+    },
+    "home2": {
+      "title": "Ready to grow your",
+      "subtitle": "online presence?",
+      "buttonText": "Let's Talk"
+    },
+    "about": {
+      "title": "Want to join our team or",
+      "subtitle": "start a project?",
+      "buttonText": "Get in Touch"
+    },
+    "projects": {
+      "title": "Have a project in mind?",
+      "subtitle": "Let's discuss how we can bring it to life with strategy, design, and code.",
+      "buttonText": "Start a Conversation"
+    }
+  },
+
+  "footer": {
+    "logoAlt": "Fronnexus Logo",
+    "brandDescription": "We are a global digital agency crafting high-performance websites, apps, and data-driven solutions. From concept to launch, Fronnexus turns your ideas into seamless digital experiences that drive real business growth.",
+    "navigationTitle": "Navigation",
+    "connectTitle": "Connect With Us",
+    "socialFollowText": "Follow us for updates on new projects, design tips, and behind-the-scenes content.",
+    "copyright": "Fronnexus. All rights reserved.",
+    "termsLink": "Terms & Privacy",
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    }
+  },
+
+  "terms": {
+    "pageTitle": "Terms of Responsibility and Data Protection",
+    "lastUpdated": "Last updated:",
+    "section1": {
+      "title": "1. Introduction",
+      "content": "Fronnexus is committed to maintaining transparency and responsibility in all its development projects and partnerships. This document defines the principles of responsibility, ethical use, and protection of data applied to all services and digital products developed by our team."
+    },
+    "section2": {
+      "title": "2. Developer Responsibility",
+      "content": "The Fronnexus team ensures that each project is developed according to industry best practices in performance, accessibility, and security. All code and resources provided are subject to periodic review, ensuring compliance with legal and ethical standards."
+    },
+    "section3": {
+      "title": "3. Data Protection and Privacy",
+      "content1": "Fronnexus strictly complies with current data protection legislation, including the General Data Protection Law (LGPD) and the GDPR, when applicable. The collection and use of user information are limited to what is essential for the functioning and improvement of our services.",
+      "content2": "Personal data is stored securely and never shared with third parties without explicit user consent."
+    },
+    "section4": {
+      "title": "4. Intellectual Property",
+      "content": "All source code, design, and visual identity produced by Fronnexus are intellectual property of the company or its clients, as defined in the project contract. Unauthorized reproduction or distribution is strictly prohibited."
+    },
+    "section5": {
+      "title": "5. Limitation of Liability",
+      "content": "Fronnexus is not responsible for damages or losses resulting from the misuse of developed solutions or from third-party integrations not approved by the team. Each client is responsible for maintaining security credentials and complying with the intended purpose of the product."
+    },
+    "section6": {
+      "title": "6. Changes to the Terms",
+      "content": "Fronnexus reserves the right to modify these Terms of Responsibility at any time, with prior notice on our official communication channels. The date of the latest update will always be displayed at the top of this document."
+    },
+    "section7": {
+      "title": "7. Contact",
+      "content": "If you have any questions about this document or about how Fronnexus handles your information, contact our support team via:",
+      "emailLabel": "Email: support@fronnexus.com",
+      "websiteLabel": "Website: https://fronnexus.com"
+    },
+    "footerCopyright": "Fronnexus. All rights reserved."
+  },
+
+  "meta": {
+    "home": {
+      "title": "Fronnexus — Digital Agency",
+      "description": "Fronnexus crafts seamless digital experiences with precision and creativity. Front-end development, web design, data analysis, and QA."
+    }
+  },
+
+  "skills": {
+    "tailwind": "Tailwind CSS",
+    "figma": "Figma",
+    "react": "React",
+    "nextjs": "Next.js",
+    "nodejs": "Node.js",
+    "typescript": "TypeScript",
+    "supabase": "Supabase",
+    "git": "Git"
+  }
+}

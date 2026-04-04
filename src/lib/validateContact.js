@@ -5,21 +5,21 @@ export function validateContactForm(values) {
   const isEmpty = (v) => !v || String(v).trim() === '';
 
   if (isEmpty(values.firstName)) {
-    errors.firstName = 'First name is required.';
+    errors.firstName = 'validation.firstNameRequired';
   } else if (values.firstName.trim().length < 2) {
-    errors.firstName = 'First name must be at least 2 characters.';
+    errors.firstName = 'validation.firstNameMin';
   }
 
   if (isEmpty(values.lastName)) {
-    errors.lastName = 'Last name is required.';
+    errors.lastName = 'validation.lastNameRequired';
   } else if (values.lastName.trim().length < 2) {
-    errors.lastName = 'Last name must be at least 2 characters.';
+    errors.lastName = 'validation.lastNameMin';
   }
 
   if (isEmpty(values.email)) {
-    errors.email = 'E-mail is required.';
+    errors.email = 'validation.emailRequired';
   } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-    errors.email = 'E-mail format is invalid.';
+    errors.email = 'validation.emailInvalid';
   }
 
   if (!isEmpty(values.phone)) {
@@ -28,19 +28,19 @@ export function validateContactForm(values) {
       !phoneRegex.test(values.phone) ||
       values.phone.replace(/\D/g, '').length < 8
     ) {
-      errors.phone = 'Please enter a valid phone number (at least 8 digits).';
+      errors.phone = 'validation.phoneInvalid';
     }
   }
 
-  if (isEmpty(values.country)) errors.country = 'Please select a country.';
-  if (isEmpty(values.language)) errors.language = 'Please select a language.';
-  if (isEmpty(values.service)) errors.service = 'Please select a service.';
+  if (isEmpty(values.country)) errors.country = 'validation.countryRequired';
+  if (isEmpty(values.language)) errors.language = 'validation.languageRequired';
+  if (isEmpty(values.service)) errors.service = 'validation.serviceRequired';
 
   if (isEmpty(values.message) || values.message.trim().length < 10) {
-    errors.message = 'Message must be at least 10 characters long.';
+    errors.message = 'validation.messageMin';
   }
 
-  if (!values.terms) errors.terms = 'You must accept the terms to continue.';
+  if (!values.terms) errors.terms = 'validation.termsRequired';
 
   return errors;
 }

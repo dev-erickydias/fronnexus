@@ -1,0 +1,301 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "aboutUs": "Nosotros",
+    "projects": "Proyectos",
+    "getInTouch": "Contáctanos",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+
+  "hero": {
+    "badge": "Agencia Digital",
+    "home": {
+      "title": "Diseñamos, Construimos y",
+      "highlight": "Escalamos tu Presencia",
+      "subtitle": "Digital.",
+      "description": "Fronnexus es una agencia digital global especializada en desarrollo front-end, diseño UI/UX, análisis de datos y aseguramiento de calidad. Nos asociamos con startups y empresas consolidadas para crear experiencias web de alto rendimiento que convierten visitantes en clientes.",
+      "buttonText": "Explora Nuestros Servicios"
+    },
+    "about": {
+      "title": "Construido con Pasión,",
+      "highlight": "Impulsado por la",
+      "subtitle": "Precisión.",
+      "description": "Fronnexus es una agencia digital multicultural con operaciones globales. Combinamos pensamiento de diseño, tecnología moderna y análisis estratégico de datos para crear productos digitales que ayudan a las empresas a escalar. Cada píxel, cada línea de código — diseñado con propósito.",
+      "buttonText": "Conoce Nuestro Trabajo"
+    },
+    "projects": {
+      "title": "Construido con Código.",
+      "highlight": "Impulsado por el",
+      "subtitle": "Diseño.",
+      "description": "Cada proyecto que entregamos combina arquitectura limpia, diseño cuidadoso y resultados medibles. Explora nuestro portafolio para descubrir cómo hemos ayudado a clientes de diversas industrias a transformar su presencia digital y lograr un crecimiento real.",
+      "buttonText": "Sobre Nuestro Proceso"
+    }
+  },
+
+  "services": {
+    "badge": "Lo Que Hacemos",
+    "title": "Servicios Digitales de Principio a Fin",
+    "description": "Desde la identidad visual hasta un código impecable y una estrategia basada en datos, Fronnexus ofrece una suite completa de servicios digitales diseñados para ayudar a tu negocio a destacar, rendir mejor y crecer más rápido en un mercado cada vez más competitivo.",
+    "frontEnd": {
+      "title": "Desarrollo Front-End",
+      "description": "Construimos interfaces rápidas, accesibles y responsivas utilizando React, Next.js y Tailwind CSS. Nuestro código es limpio, escalable y optimizado para el rendimiento — ofreciendo tiempos de carga inferiores a un segundo e una interacción fluida con el usuario."
+    },
+    "webDesign": {
+      "title": "Diseño Web y UI/UX",
+      "description": "Desde wireframes hasta diseños pixel-perfect, creamos experiencias centradas en el usuario que lucen increíbles y convierten. Utilizamos Figma para prototipos e iteramos junto a nuestros clientes para asegurar que cada detalle esté alineado con su marca."
+    },
+    "dataAnalysis": {
+      "title": "Análisis de Datos e Insights",
+      "description": "Convertimos datos en bruto en dashboards, informes y visualizaciones accionables que impulsan decisiones más inteligentes. Ya sea el seguimiento de KPIs, comportamiento de usuarios o tendencias del mercado — hacemos que tus datos trabajen para ti."
+    },
+    "qa": {
+      "title": "Aseguramiento de Calidad",
+      "description": "Pruebas rigurosas en distintos dispositivos y navegadores garantizan que cada lanzamiento sea estable, eficiente y libre de errores. Utilizamos flujos de QA automatizados y manuales para detectar problemas antes de que lleguen a tus usuarios."
+    }
+  },
+
+  "projects": {
+    "badge": "Nuestro Trabajo",
+    "title": "Proyectos Reales, Impacto Real",
+    "description": "Explora algunos de nuestros trabajos recientes — donde diseño, desarrollo y estrategia se unen para resolver problemas reales.",
+    "visitSite": "Visitar sitio",
+    "details": "Detalles",
+    "viewAll": "Ver todos los proyectos",
+    "errorLoading": "No se pudieron cargar los proyectos desde la base de datos.",
+    "projectImageAlt": "Imagen del proyecto",
+    "projectFallbackName": "Proyecto",
+    "noDescription": "No hay descripción disponible.",
+    "featuredWork": {
+      "title": "Trabajo Destacado",
+      "description": "Una selección curada de proyectos que muestra nuestra experiencia en desarrollo front-end, arquitectura full-stack y diseño basado en datos."
+    }
+  },
+
+  "projectCard": {
+    "technologies": "tecnologías",
+    "unnamedProject": "Proyecto sin nombre",
+    "about": "Acerca de",
+    "descriptionNotAvailable": "Descripción no disponible.",
+    "na": "n/d",
+    "code": "Código",
+    "website": "Sitio web"
+  },
+
+  "popup": {
+    "projectDetails": "Detalles del proyecto",
+    "close": "Cerrar",
+    "openProject": "Abrir proyecto",
+    "technologies": "Tecnologías",
+    "description": "Descripción"
+  },
+
+  "about": {
+    "badge": "Nosotros",
+    "agencyName": "Fronnexus",
+    "agencyTagline": "Agencia Digital — Operaciones Globales",
+    "agencyDescription1": "Fronnexus es una agencia digital fundada con la convicción de que la gran tecnología debe ser accesible para todas las empresas. Nos especializamos en desarrollo front-end, diseño UI/UX, análisis de datos y aseguramiento de calidad — ofreciendo soluciones integrales que ayudan a las empresas a establecer una poderosa presencia en línea.",
+    "agencyDescription2": "Nuestro equipo multicultural opera a nivel global, aportando perspectivas diversas a cada proyecto. Trabajamos con startups que lanzan su primer producto y con empresas consolidadas que buscan modernizar su experiencia digital. Precisión, creatividad y resultados medibles definen todo lo que hacemos.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "loadingTeam": "Cargando equipo...",
+    "teamMember": "Miembro del equipo"
+  },
+
+  "contact": {
+    "badge": "Contáctanos",
+    "title": "Construyamos Algo Grandioso Juntos",
+    "description": "Ya sea que necesites un sitio web nuevo, un rediseño o una solución digital personalizada, nuestro equipo está listo para dar vida a tu visión. Cuéntanos sobre tu proyecto y te responderemos en un plazo de 24 horas.",
+    "labels": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "phoneOptional": "(opcional)",
+      "country": "País",
+      "preferredLanguage": "Idioma preferido",
+      "projectDetails": "Detalles del proyecto",
+      "servicesLegend": "¿En qué podemos ayudarte?",
+      "servicesHint": "Selecciona todos los servicios que apliquen a tu proyecto."
+    },
+    "placeholders": {
+      "firstName": "ej. Juan",
+      "lastName": "ej. García",
+      "email": "tu@empresa.com",
+      "phone": "+34 600 000 000",
+      "country": "¿Dónde te encuentras?",
+      "language": "¿Cómo prefieres que nos comuniquemos?",
+      "message": "Describe tu proyecto, objetivos, plazos y cualquier requisito específico. Cuantos más detalles proporciones, mejor podremos adaptar nuestra respuesta a tus necesidades."
+    },
+    "languages": {
+      "english": "Inglés",
+      "spanish": "Español",
+      "portuguese": "Portugués"
+    },
+    "services": {
+      "frontend": {
+        "label": "Desarrollo Front-End",
+        "desc": "React, Next.js, UI responsiva"
+      },
+      "data": {
+        "label": "Análisis de Datos",
+        "desc": "Dashboards, insights, informes"
+      },
+      "webdesign": {
+        "label": "Diseño Web",
+        "desc": "UI/UX, branding, prototipos"
+      },
+      "qa": {
+        "label": "Aseguramiento de Calidad",
+        "desc": "Testing, auditorías, optimización"
+      },
+      "fullstack": {
+        "label": "Solución Full-Stack",
+        "desc": "Desarrollo integral"
+      },
+      "other": {
+        "label": "Otro",
+        "desc": "Cuéntanos en tu mensaje"
+      }
+    },
+    "terms": {
+      "prefix": "Acepto los",
+      "linkText": "Términos de Servicio y Política de Privacidad",
+      "suffix": "y autorizo a Fronnexus a procesar mis datos para responder a esta consulta."
+    },
+    "success": {
+      "title": "¡Mensaje enviado con éxito!",
+      "message": "Gracias por comunicarte con nosotros. Nuestro equipo revisará tu consulta y te responderá en un plazo de 24 horas."
+    },
+    "error": {
+      "title": "Algo salió mal.",
+      "message": "Por favor, inténtalo de nuevo o contáctanos directamente a erickyhenriquesd@gmail.com"
+    },
+    "submitButton": "Enviar Mensaje",
+    "submitting": "Enviando...",
+    "disclaimer": "Normalmente respondemos en 1 día hábil. Tu información se mantiene confidencial."
+  },
+
+  "validation": {
+    "firstNameRequired": "El nombre es obligatorio.",
+    "firstNameMin": "El nombre debe tener al menos 2 caracteres.",
+    "lastNameRequired": "El apellido es obligatorio.",
+    "lastNameMin": "El apellido debe tener al menos 2 caracteres.",
+    "emailRequired": "El correo electrónico es obligatorio.",
+    "emailInvalid": "El formato del correo electrónico no es válido.",
+    "phoneInvalid": "Ingresa un número de teléfono válido (al menos 8 dígitos).",
+    "countryRequired": "Selecciona un país.",
+    "languageRequired": "Selecciona un idioma.",
+    "serviceRequired": "Selecciona un servicio.",
+    "messageMin": "El mensaje debe tener al menos 10 caracteres.",
+    "termsRequired": "Debes aceptar los términos para continuar."
+  },
+
+  "cta": {
+    "primeira": {
+      "card1Title": "Ericky",
+      "card1Text": "Tu contenido aquí",
+      "card2Title": "Tarjeta 2",
+      "card2Text": "Tu contenido aquí",
+      "card3Title": "Tarjeta 3",
+      "card3Text": "Tu contenido aquí"
+    },
+    "segunda": {
+      "defaultTitle": "Creemos Algo",
+      "defaultHighlight": "Increíble Juntos",
+      "defaultSubtitle": "Desde la estrategia hasta el lanzamiento, nuestro equipo está listo para ayudarte a construir una presencia digital que destaque y genere resultados reales.",
+      "defaultButton": "Contáctanos"
+    },
+    "home1": {
+      "title": "Convierte tu idea en",
+      "subtitle": "realidad digital.",
+      "buttonText": "Inicia Tu Proyecto"
+    },
+    "home2": {
+      "title": "¿Listo para hacer crecer tu",
+      "subtitle": "presencia en línea?",
+      "buttonText": "Hablemos"
+    },
+    "about": {
+      "title": "¿Quieres unirte a nuestro equipo o",
+      "subtitle": "iniciar un proyecto?",
+      "buttonText": "Contáctanos"
+    },
+    "projects": {
+      "title": "¿Tienes un proyecto en mente?",
+      "subtitle": "Hablemos sobre cómo podemos darle vida con estrategia, diseño y código.",
+      "buttonText": "Inicia una Conversación"
+    }
+  },
+
+  "footer": {
+    "logoAlt": "Logo de Fronnexus",
+    "brandDescription": "Somos una agencia digital global que crea sitios web de alto rendimiento, aplicaciones y soluciones basadas en datos. Desde el concepto hasta el lanzamiento, Fronnexus transforma tus ideas en experiencias digitales fluidas que impulsan el crecimiento real de tu negocio.",
+    "navigationTitle": "Navegación",
+    "connectTitle": "Conéctate con Nosotros",
+    "socialFollowText": "Síguenos para actualizaciones sobre nuevos proyectos, consejos de diseño y contenido detrás de cámaras.",
+    "copyright": "Fronnexus. Todos los derechos reservados.",
+    "termsLink": "Términos y Privacidad",
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    }
+  },
+
+  "terms": {
+    "pageTitle": "Términos de Responsabilidad y Protección de Datos",
+    "lastUpdated": "Última actualización:",
+    "section1": {
+      "title": "1. Introducción",
+      "content": "Fronnexus se compromete a mantener la transparencia y la responsabilidad en todos sus proyectos de desarrollo y asociaciones. Este documento define los principios de responsabilidad, uso ético y protección de datos aplicados a todos los servicios y productos digitales desarrollados por nuestro equipo."
+    },
+    "section2": {
+      "title": "2. Responsabilidad del Desarrollador",
+      "content": "El equipo de Fronnexus asegura que cada proyecto se desarrolla de acuerdo con las mejores prácticas de la industria en rendimiento, accesibilidad y seguridad. Todo el código y los recursos proporcionados están sujetos a revisión periódica, garantizando el cumplimiento de los estándares legales y éticos."
+    },
+    "section3": {
+      "title": "3. Protección de Datos y Privacidad",
+      "content1": "Fronnexus cumple estrictamente con la legislación vigente en materia de protección de datos, incluyendo la Ley General de Protección de Datos (LGPD) y el RGPD, cuando corresponda. La recopilación y el uso de la información de los usuarios se limita a lo esencial para el funcionamiento y la mejora de nuestros servicios.",
+      "content2": "Los datos personales se almacenan de forma segura y nunca se comparten con terceros sin el consentimiento explícito del usuario."
+    },
+    "section4": {
+      "title": "4. Propiedad Intelectual",
+      "content": "Todo el código fuente, diseño e identidad visual producidos por Fronnexus son propiedad intelectual de la empresa o de sus clientes, según lo definido en el contrato del proyecto. La reproducción o distribución no autorizada está estrictamente prohibida."
+    },
+    "section5": {
+      "title": "5. Limitación de Responsabilidad",
+      "content": "Fronnexus no se hace responsable de daños o pérdidas derivados del uso indebido de las soluciones desarrolladas o de integraciones con terceros no aprobadas por el equipo. Cada cliente es responsable de mantener las credenciales de seguridad y de cumplir con el propósito previsto del producto."
+    },
+    "section6": {
+      "title": "6. Modificaciones de los Términos",
+      "content": "Fronnexus se reserva el derecho de modificar estos Términos de Responsabilidad en cualquier momento, con aviso previo a través de nuestros canales oficiales de comunicación. La fecha de la última actualización se mostrará siempre en la parte superior de este documento."
+    },
+    "section7": {
+      "title": "7. Contacto",
+      "content": "Si tienes alguna pregunta sobre este documento o sobre cómo Fronnexus gestiona tu información, contacta a nuestro equipo de soporte a través de:",
+      "emailLabel": "Correo: support@fronnexus.com",
+      "websiteLabel": "Sitio web: https://fronnexus.com"
+    },
+    "footerCopyright": "Fronnexus. Todos los derechos reservados."
+  },
+
+  "meta": {
+    "home": {
+      "title": "Fronnexus — Agencia Digital",
+      "description": "Fronnexus crea experiencias digitales fluidas con precisión y creatividad. Desarrollo front-end, diseño web, análisis de datos y QA."
+    }
+  },
+
+  "skills": {
+    "tailwind": "Tailwind CSS",
+    "figma": "Figma",
+    "react": "React",
+    "nextjs": "Next.js",
+    "nodejs": "Node.js",
+    "typescript": "TypeScript",
+    "supabase": "Supabase",
+    "git": "Git"
+  }
+}

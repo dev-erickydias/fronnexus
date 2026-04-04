@@ -1,121 +1,103 @@
 // app/terms/responsability/page.jsx
 'use client';
 
+import { useI18n } from '../../../i18n/I18nContext';
+
 export default function TermsPage() {
+  const { t } = useI18n();
+
   return (
     <main className="max-w-4xl mx-auto px-6 py-16 text-primary-70">
       {/* Title */}
       <header className="mb-10 text-center">
         <h1 className="text-4xl font-bold text-foreground mb-3">
-          Terms of Responsibility and Data Protection
+          {t('terms.pageTitle')}
         </h1>
         <p className="text-sm text-primary-70">
-          Last updated: {new Date().toLocaleDateString('en-US')}
+          {t('terms.lastUpdated')} {new Date().toLocaleDateString('en-US')}
         </p>
       </header>
 
       {/* Section 1 */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-foreground mb-3">
-          1. Introduction
+          {t('terms.section1.title')}
         </h2>
         <p className="leading-relaxed">
-          Fronnexus is committed to maintaining transparency and responsibility
-          in all its development projects and partnerships. This document
-          defines the principles of responsibility, ethical use, and protection
-          of data applied to all services and digital products developed by our
-          team.
+          {t('terms.section1.content')}
         </p>
       </section>
 
       {/* Section 2 */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-foreground mb-3">
-          2. Developer Responsibility
+          {t('terms.section2.title')}
         </h2>
         <p className="leading-relaxed">
-          The Fronnexus team ensures that each project is developed according to
-          industry best practices in performance, accessibility, and security.
-          All code and resources provided are subject to periodic review,
-          ensuring compliance with legal and ethical standards.
+          {t('terms.section2.content')}
         </p>
       </section>
 
       {/* Section 3 */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-foreground mb-3">
-          3. Data Protection and Privacy
+          {t('terms.section3.title')}
         </h2>
         <p className="leading-relaxed">
-          Fronnexus strictly complies with current data protection legislation,
-          including the General Data Protection Law (LGPD) and the GDPR, when
-          applicable. The collection and use of user information are limited to
-          what is essential for the functioning and improvement of our services.
+          {t('terms.section3.content1')}
         </p>
         <p className="mt-2 leading-relaxed">
-          Personal data is stored securely and never shared with third parties
-          without explicit user consent.
+          {t('terms.section3.content2')}
         </p>
       </section>
 
       {/* Section 4 */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-foreground mb-3">
-          4. Intellectual Property
+          {t('terms.section4.title')}
         </h2>
         <p className="leading-relaxed">
-          All source code, design, and visual identity produced by Fronnexus are
-          intellectual property of the company or its clients, as defined in the
-          project contract. Unauthorized reproduction or distribution is
-          strictly prohibited.
+          {t('terms.section4.content')}
         </p>
       </section>
 
       {/* Section 5 */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-foreground mb-3">
-          5. Limitation of Liability
+          {t('terms.section5.title')}
         </h2>
         <p className="leading-relaxed">
-          Fronnexus is not responsible for damages or losses resulting from the
-          misuse of developed solutions or from third-party integrations not
-          approved by the team. Each client is responsible for maintaining
-          security credentials and complying with the intended purpose of the
-          product.
+          {t('terms.section5.content')}
         </p>
       </section>
 
       {/* Section 6 */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-foreground mb-3">
-          6. Changes to the Terms
+          {t('terms.section6.title')}
         </h2>
         <p className="leading-relaxed">
-          Fronnexus reserves the right to modify these Terms of Responsibility
-          at any time, with prior notice on our official communication channels.
-          The date of the latest update will always be displayed at the top of
-          this document.
+          {t('terms.section6.content')}
         </p>
       </section>
 
       {/* Section 7 */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold text-foreground mb-3">
-          7. Contact
+          {t('terms.section7.title')}
         </h2>
         <p className="leading-relaxed">
-          If you have any questions about this document or about how Fronnexus
-          handles your information, contact our support team via:
+          {t('terms.section7.content')}
         </p>
         <ul className="list-disc ml-6 mt-2">
-          <li>Email: support@fronnexus.com</li>
-          <li>Website: https://fronnexus.com</li>
+          <li>{t('terms.section7.emailLabel')}</li>
+          <li>{t('terms.section7.websiteLabel')}</li>
         </ul>
       </section>
 
       {/* Footer */}
       <footer className="text-center mt-16 text-sm text-primary-70 border-t border-white/10 pt-6">
-        <p>© {new Date().getFullYear()} Fronnexus. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} {t('terms.footerCopyright')}</p>
       </footer>
     </main>
   );

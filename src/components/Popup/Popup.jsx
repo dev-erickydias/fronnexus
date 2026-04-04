@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import { useEffect, useCallback, useRef } from 'react';
+import { useI18n } from '../../i18n/I18nContext';
 
 export default function Popup({ open, onClose, project }) {
+  const { t } = useI18n();
   const closeBtnRef = useRef(null);
   const onEsc = useCallback((e) => e.key === 'Escape' && onClose(), [onClose]);
 
@@ -32,7 +34,7 @@ export default function Popup({ open, onClose, project }) {
   const techArray = Array.isArray(technologies)
     ? technologies
     : typeof technologies === 'string'
-    ? technologies.split(',').map((t) => t.trim()).filter(Boolean)
+    ? technologies.split(',').map((tech) => tech.trim()).filter(Boolean)
     : [];
 
   return (
@@ -40,7 +42,7 @@ export default function Popup({ open, onClose, project }) {
       className="fixed inset-0 z-[60] flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
-      aria-label={name || 'Project details'}
+      aria-label={name || t('popup.projectDetails')}
       onClick={onClose}
     >
       {/* Backdrop */}
@@ -60,7 +62,7 @@ export default function Popup({ open, onClose, project }) {
             ref={closeBtnRef}
             onClick={onClose}
             className="p-2 rounded-xl text-primary-70 hover:text-primary hover:bg-[var(--surface-subtle)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(139,92,246,0.4)] transition"
-            aria-label="Close"
+            aria-label={t('popup.close')}
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -92,7 +94,7 @@ export default function Popup({ open, onClose, project }) {
                   rel="noopener noreferrer"
                   className="btn-shine inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#8b5cf6] text-sm font-medium text-white shadow-lg shadow-[rgba(139,92,246,0.2)] hover:bg-[#7c3aed] transition-all w-fit"
                 >
-                  Open project
+                  {t('popup.openProject')}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -102,15 +104,15 @@ export default function Popup({ open, onClose, project }) {
               {techArray.length > 0 && (
                 <div>
                   <p className="text-xs uppercase tracking-wide text-primary-70 mb-2">
-                    Technologies
+                    {t('popup.technologies')}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {techArray.map((t, i) => (
+                    {techArray.map((tech, i) => (
                       <span
                         key={`popup-tech-${i}`}
                         className="px-2.5 py-1 rounded-full border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-xs font-medium text-primary-70"
                       >
-                        {t}
+                        {tech}
                       </span>
                     ))}
                   </div>
@@ -125,7 +127,7 @@ export default function Popup({ open, onClose, project }) {
               <div className="h-px w-full bg-[var(--stroke-container-divider)]" />
               <div>
                 <p className="text-xs uppercase tracking-wide text-primary-70 mb-2">
-                  Description
+                  {t('popup.description')}
                 </p>
                 <p className="text-sm leading-relaxed text-primary whitespace-pre-line">
                   {medium_description || long_description}

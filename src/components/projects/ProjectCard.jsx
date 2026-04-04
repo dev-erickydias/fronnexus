@@ -1,5 +1,7 @@
 'use client';
 
+import { useI18n } from '../../i18n/I18nContext';
+
 export default function ProjectCard({
   nome,
   url_image,
@@ -9,6 +11,8 @@ export default function ProjectCard({
   tecnologias = [],
   reversed = false,
 }) {
+  const { t } = useI18n();
+
   return (
     <article
       className={[
@@ -22,7 +26,7 @@ export default function ProjectCard({
         <div className="h-64 md:h-full w-full">
           <img
             src={url_image || '/placeholder.svg'}
-            alt={nome || 'Project'}
+            alt={nome || t('projectCard.unnamedProject')}
             className="h-full w-full object-cover transition-transform duration-700 ease-in-out hover:scale-105"
             loading="lazy"
           />
@@ -34,28 +38,28 @@ export default function ProjectCard({
         {/* Tech count badge */}
         <div className="flex items-center gap-2 mb-3">
           <span className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-primary-70">
-            {tecnologias.length} technologies
+            {tecnologias.length} {t('projectCard.technologies')}
           </span>
         </div>
 
         <h3 className="text-2xl font-semibold tracking-tight text-primary">
-          {nome || 'Unnamed Project'}
+          {nome || t('projectCard.unnamedProject')}
         </h3>
 
         {/* Tech tags */}
         <div className="mt-4 flex flex-wrap gap-2">
           {tecnologias.length > 0 ? (
-            tecnologias.map((t, i) => (
+            tecnologias.map((tech, i) => (
               <span
                 key={i}
                 className="text-xs px-2.5 py-1 rounded-full border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-primary-70"
               >
-                {String(t).toLowerCase()}
+                {String(tech).toLowerCase()}
               </span>
             ))
           ) : (
             <span className="text-xs px-2.5 py-1 rounded-full border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-primary-70">
-              n/a
+              {t('projectCard.na')}
             </span>
           )}
         </div>
@@ -64,10 +68,10 @@ export default function ProjectCard({
         <div className="mt-6 space-y-4">
           <div>
             <p className="text-xs uppercase tracking-widest text-primary-70 mb-1">
-              About
+              {t('projectCard.about')}
             </p>
             <p className="text-sm text-primary leading-relaxed">
-              {long_description || 'Description not available.'}
+              {long_description || t('projectCard.descriptionNotAvailable')}
             </p>
           </div>
         </div>
@@ -84,7 +88,7 @@ export default function ProjectCard({
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
               </svg>
-              Code
+              {t('projectCard.code')}
             </a>
           )}
 
@@ -98,7 +102,7 @@ export default function ProjectCard({
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" />
               </svg>
-              Website
+              {t('projectCard.website')}
             </a>
           )}
         </div>

@@ -4,21 +4,17 @@ import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import MobileMenu from '../modals/MobileMenu';
+import LanguageSwitcher from './LanguageSwitcher';
 import { FiMenu } from 'react-icons/fi';
 import { IoCloseOutline } from 'react-icons/io5';
 import { usePathname } from 'next/navigation';
-
-const NAV_ITEMS = [
-  { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Get in Touch', href: '/contact', isButton: true },
-];
+import { useI18n } from '../../i18n/I18nContext';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { t } = useI18n();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -26,11 +22,18 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const navItems = useMemo(() => [
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.aboutUs'), href: '/about' },
+    { name: t('nav.projects'), href: '/projects' },
+    { name: t('nav.getInTouch'), href: '/contact', isButton: true },
+  ], [t]);
+
   const { links, cta } = useMemo(() => {
-    const links = NAV_ITEMS.filter((i) => !i.isButton);
-    const cta = NAV_ITEMS.find((i) => i.isButton) || null;
+    const links = navItems.filter((i) => !i.isButton);
+    const cta = navItems.find((i) => i.isButton) || null;
     return { links, cta };
-  }, []);
+  }, [navItems]);
 
   const isActive = (href) => {
     if (href === '/') return pathname === '/';
@@ -90,6 +93,8 @@ export default function Header() {
             );
           })}
 
+          <LanguageSwitcher />
+
           {cta && (
             <Link
               href={cta.href}
@@ -108,7 +113,7 @@ export default function Header() {
         <button
           className="lg:hidden ml-auto p-2 rounded-xl text-primary hover:bg-[var(--surface-subtle)] transition-colors"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={mobileMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
         >
@@ -119,7 +124,7 @@ export default function Header() {
       <MobileMenu
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
-        navItems={NAV_ITEMS}
+        navItems={navItems}
       />
     </header>
   );

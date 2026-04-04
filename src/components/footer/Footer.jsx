@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useI18n } from '../../i18n/I18nContext';
 
 function usePrefersDark() {
   const [isDark, setIsDark] = useState(false);
@@ -25,13 +26,6 @@ function iconPath(name, isDark) {
   return `/assets/icons/${name}${isDark ? 'Dark' : ''}.svg`;
 }
 
-const FOOTER_LINKS = [
-  { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Get in Touch', href: '/contact' },
-];
-
 const SOCIAL = [
   { name: 'github', label: 'GitHub', href: 'https://github.com/Fronnexu' },
   { name: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/company/fronnexus' },
@@ -40,6 +34,14 @@ const SOCIAL = [
 
 export default function Footer() {
   const isDark = usePrefersDark();
+  const { t } = useI18n();
+
+  const footerLinks = [
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.aboutUs'), href: '/about' },
+    { name: t('nav.projects'), href: '/projects' },
+    { name: t('nav.getInTouch'), href: '/contact' },
+  ];
 
   return (
     <footer className="border-t border-[var(--stroke-container-divider)] bg-background">
@@ -56,19 +58,17 @@ export default function Footer() {
               priority
             />
             <p className="text-sm text-primary-70 max-w-xs leading-relaxed">
-              We are a global digital agency crafting high-performance websites, apps,
-              and data-driven solutions. From concept to launch, Fronnexus turns your
-              ideas into seamless digital experiences that drive real business growth.
+              {t('footer.brand')}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
             <h4 className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
-              Navigation
+              {t('footer.navigation')}
             </h4>
             <ul className="space-y-2.5">
-              {FOOTER_LINKS.map((link) => (
+              {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -84,7 +84,7 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
-              Connect With Us
+              {t('footer.connectWithUs')}
             </h4>
             <div className="flex flex-wrap gap-3">
               {SOCIAL.map((s) => (
@@ -107,7 +107,7 @@ export default function Footer() {
               ))}
             </div>
             <p className="text-xs text-primary-70 mt-4 leading-relaxed">
-              Follow us for updates on new projects, design tips, and behind-the-scenes content.
+              {t('footer.followUs')}
             </p>
           </div>
         </div>
@@ -115,13 +115,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-[var(--stroke-container-divider)] flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-primary-70">
-            &copy; {new Date().getFullYear()} Fronnexus. All rights reserved.
+            &copy; {new Date().getFullYear()} Fronnexus. {t('footer.rights')}
           </p>
           <Link
             href="/terms/responsability"
             className="text-xs text-primary-70 hover:text-[#8b5cf6] transition-colors"
           >
-            Terms &amp; Privacy
+            {t('footer.termsLink')}
           </Link>
         </div>
       </div>

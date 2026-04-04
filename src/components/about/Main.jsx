@@ -4,8 +4,11 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { getWorkers } from '../../services/supabase';
 import ScrollReveal from '../utils/ScrollReveal';
+import { useI18n } from '../../i18n/I18nContext';
 
 function AgencyCard() {
+  const { t } = useI18n();
+
   return (
     <ScrollReveal>
       <div className="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row-reverse md:max-w-4xl md:mx-auto">
@@ -19,21 +22,15 @@ function AgencyCard() {
 
         <div className="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border border-[rgba(139,92,246,0.2)] bg-[rgba(139,92,246,0.08)] text-[#a78bfa] w-fit mb-3">
-            About Us
+            {t('about.badge')}
           </span>
-          <h2 className="text-2xl font-bold text-primary">Fronnexus</h2>
-          <p className="text-sm text-[#8b5cf6] font-medium mt-1">Digital Agency &mdash; Global Operations</p>
+          <h2 className="text-2xl font-bold text-primary">{t('about.agencyName')}</h2>
+          <p className="text-sm text-[#8b5cf6] font-medium mt-1">{t('about.agencyTagline')}</p>
           <p className="mt-4 text-sm text-primary-70 leading-relaxed">
-            Fronnexus is a digital agency founded on the belief that great technology
-            should be accessible to every business. We specialize in front-end development,
-            UI/UX design, data analysis, and quality assurance &mdash; delivering end-to-end
-            solutions that help companies establish a powerful online presence.
+            {t('about.agencyDescription1')}
           </p>
           <p className="mt-3 text-sm text-primary-70 leading-relaxed">
-            Our multicultural team operates globally, bringing diverse perspectives to every
-            project. We work with startups launching their first product and established
-            businesses looking to modernize their digital experience. Precision, creativity,
-            and measurable results define everything we do.
+            {t('about.agencyDescription2')}
           </p>
           <div className="flex flex-wrap gap-2 mt-5">
             <a
@@ -42,7 +39,7 @@ function AgencyCard() {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-xs font-medium text-primary hover:border-[rgba(139,92,246,0.3)] transition-all"
             >
-              GitHub
+              {t('about.github')}
             </a>
             <a
               href="https://www.linkedin.com/company/fronnexus"
@@ -50,7 +47,7 @@ function AgencyCard() {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-xs font-medium text-primary hover:border-[rgba(139,92,246,0.3)] transition-all"
             >
-              LinkedIn
+              {t('about.linkedin')}
             </a>
             <a
               href="https://www.instagram.com/fronnexus"
@@ -58,7 +55,7 @@ function AgencyCard() {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-xs font-medium text-primary hover:border-[rgba(139,92,246,0.3)] transition-all"
             >
-              Instagram
+              {t('about.instagram')}
             </a>
           </div>
         </div>
@@ -68,6 +65,7 @@ function AgencyCard() {
 }
 
 function TeamMemberCard({ person, index }) {
+  const { t } = useI18n();
   const reversed = index % 2 === 1;
   return (
     <ScrollReveal delay={index * 100}>
@@ -79,7 +77,7 @@ function TeamMemberCard({ person, index }) {
         <div className="md:w-1/2">
           <Image
             src={person.image || '/placeholder.svg'}
-            alt={person.alt || person.name || 'Team member'}
+            alt={person.alt || person.name || t('about.teamMember')}
             width={800}
             height={600}
             priority={index === 0}
@@ -107,19 +105,19 @@ function TeamMemberCard({ person, index }) {
             {person.github && (
               <a href={person.github} target="_blank" rel="noreferrer"
                 className="px-3 py-2 rounded-xl border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-xs font-medium text-primary hover:border-[rgba(139,92,246,0.3)] transition-all">
-                GitHub
+                {t('about.github')}
               </a>
             )}
             {person.linkedin && (
               <a href={person.linkedin} target="_blank" rel="noreferrer"
                 className="px-3 py-2 rounded-xl border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-xs font-medium text-primary hover:border-[rgba(139,92,246,0.3)] transition-all">
-                LinkedIn
+                {t('about.linkedin')}
               </a>
             )}
             {person.instagram && (
               <a href={person.instagram} target="_blank" rel="noreferrer"
                 className="px-3 py-2 rounded-xl border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-xs font-medium text-primary hover:border-[rgba(139,92,246,0.3)] transition-all">
-                Instagram
+                {t('about.instagram')}
               </a>
             )}
           </div>
@@ -153,7 +151,7 @@ export default function Main() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] text-center text-primary">
         <div className="w-10 h-10 border-4 border-[#8b5cf6] border-t-transparent rounded-full animate-spin mb-3" />
-        <p>Loading team...</p>
+        <p>{t('about.loadingTeam')}</p>
       </div>
     );
   }

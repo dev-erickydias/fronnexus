@@ -6,6 +6,7 @@ import ProjectCard from '../../components/projects/ProjectCard';
 import SegundaCTA from '../../components/cta/segundacta/SegundaCTA';
 import HeaderBg from '../../components/Header/HeaderBg';
 import ScrollReveal from '../../components/utils/ScrollReveal';
+import { useI18n } from '../../i18n/I18nContext';
 
 function toArrayMaybe(v) {
   if (Array.isArray(v)) return v;
@@ -52,6 +53,7 @@ function normalizeRecord(rec = {}) {
 }
 
 export default function ProjectsPage() {
+  const { t } = useI18n();
   const [projetos, setProjetos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -88,21 +90,20 @@ export default function ProjectsPage() {
   return (
     <main className="space-y-10">
       <HeaderBg
-        title="Built with Code."
-        highlight="Driven by"
-        subtitle="Design."
-        description="Every project we deliver combines clean architecture, thoughtful design, and measurable results. Explore our portfolio to see how we've helped clients across industries transform their digital presence and achieve real growth."
-        buttonText="About Our Process"
+        title={t('hero.projects.title')}
+        highlight={t('hero.projects.highlight')}
+        subtitle={t('hero.projects.subtitle')}
+        description={t('hero.projects.description')}
+        buttonText={t('hero.projects.buttonText')}
         buttonLink="/about"
       />
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 space-y-8 pb-10">
         <ScrollReveal>
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-primary">Featured Work</h2>
+            <h2 className="text-2xl font-bold text-primary">{t('projects.featuredWork.title')}</h2>
             <p className="mt-2 text-primary-70 text-sm max-w-xl mx-auto">
-              A curated selection of projects showcasing our expertise in front-end development,
-              full-stack architecture, and data-driven design.
+              {t('projects.featuredWork.description')}
             </p>
           </div>
         </ScrollReveal>
@@ -123,9 +124,9 @@ export default function ProjectsPage() {
       </section>
 
       <SegundaCTA
-        title="Have a project in mind?"
-        subtitle="Let's discuss how we can bring it to life with strategy, design, and code."
-        buttonText="Start a Conversation"
+        title={t('cta.projects.title')}
+        subtitle={t('cta.projects.subtitle')}
+        buttonText={t('cta.projects.buttonText')}
       />
     </main>
   );

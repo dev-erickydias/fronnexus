@@ -3,6 +3,7 @@
 import Link from 'next/link';
 
 export default function HeaderBg({
+  badge = 'Digital Agency',
   title = '',
   highlight = '',
   subtitle = '',
@@ -15,17 +16,17 @@ export default function HeaderBg({
       {/* Animated gradient background */}
       <div className="absolute inset-0 -z-20 bg-background" />
 
-      {/* Floating orbs */}
+      {/* Floating orbs — boosted in dark mode */}
       <div
-        className="absolute -z-10 top-[10%] left-[15%] w-[500px] h-[500px] rounded-full opacity-30 blur-[100px] animate-float-1"
+        className="absolute -z-10 top-[10%] left-[15%] w-[500px] h-[500px] rounded-full opacity-30 dark:opacity-60 blur-[100px] animate-float-1"
         style={{ background: 'radial-gradient(circle, #8b5cf6 0%, transparent 70%)' }}
       />
       <div
-        className="absolute -z-10 top-[30%] right-[10%] w-[400px] h-[400px] rounded-full opacity-20 blur-[80px] animate-float-2"
+        className="absolute -z-10 top-[30%] right-[10%] w-[400px] h-[400px] rounded-full opacity-20 dark:opacity-50 blur-[80px] animate-float-2"
         style={{ background: 'radial-gradient(circle, #a78bfa 0%, transparent 70%)' }}
       />
       <div
-        className="absolute -z-10 bottom-[10%] left-[40%] w-[350px] h-[350px] rounded-full opacity-25 blur-[90px] animate-float-3"
+        className="absolute -z-10 bottom-[10%] left-[40%] w-[350px] h-[350px] rounded-full opacity-25 dark:opacity-55 blur-[90px] animate-float-3"
         style={{ background: 'radial-gradient(circle, #7c3aed 0%, transparent 70%)' }}
       />
 
@@ -49,7 +50,7 @@ export default function HeaderBg({
           <div className="animate-hero-text mb-6">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border border-[rgba(139,92,246,0.2)] bg-[rgba(139,92,246,0.1)] text-[#a78bfa]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] animate-pulse" />
-              Digital Agency
+              {badge}
             </span>
           </div>
 

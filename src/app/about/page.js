@@ -1,19 +1,24 @@
+'use client';
+
 import { Suspense } from 'react';
 import Main from '../../components/about/Main';
 import Skills from '../../components/about/Skills';
 import HeaderBg from '../../components/Header/HeaderBg';
 import SegundaCTA from '../../components/cta/segundacta/SegundaCTA';
+import { useI18n } from '../../i18n/I18nContext';
 
 export default function AboutPage() {
+  const { t } = useI18n();
+
   return (
     <section className="bg-background text-primary">
       <Suspense fallback={null}>
         <HeaderBg
-          title="Built on Passion,"
-          highlight="Driven by"
-          subtitle="Precision."
-          description="Fronnexus is a multicultural digital agency operating globally. We blend design thinking, modern technology, and strategic data analysis to build digital products that help businesses scale. Every pixel, every line of code — crafted with purpose."
-          buttonText="See Our Work"
+          title={t('hero.about.title')}
+          highlight={t('hero.about.highlight')}
+          subtitle={t('hero.about.subtitle')}
+          description={t('hero.about.description')}
+          buttonText={t('hero.about.buttonText')}
           buttonLink="/projects"
         />
       </Suspense>
@@ -23,9 +28,9 @@ export default function AboutPage() {
       <Main />
 
       <SegundaCTA
-        title="Want to join our team or"
-        subtitle="start a project?"
-        buttonText="Get in Touch"
+        title={t('cta.about.title')}
+        subtitle={t('cta.about.subtitle')}
+        buttonText={t('cta.about.buttonText')}
       />
     </section>
   );

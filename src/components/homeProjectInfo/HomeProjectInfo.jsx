@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { getProjects } from '../../services/supabase';
 import Popup from '../../components/Popup/Popup.jsx';
 import ScrollReveal from '../utils/ScrollReveal';
+import { useI18n } from '../../i18n/I18nContext';
 
 function asArray(technologies) {
   if (Array.isArray(technologies)) return technologies;
@@ -17,6 +18,7 @@ function asArray(technologies) {
 }
 
 export default function HomeProjectInfo() {
+  const { t } = useI18n();
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -30,7 +32,7 @@ export default function HomeProjectInfo() {
         setProjects(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error(err);
-        setError('Could not load projects from the database.');
+        setError(t('projects.errorLoading'));
         setProjects([]);
       } finally {
         setLoading(false);
@@ -66,14 +68,13 @@ export default function HomeProjectInfo() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border border-[rgba(139,92,246,0.2)] bg-[rgba(139,92,246,0.08)] text-[#a78bfa] mb-4">
-                Our Work
+                {t('projects.badge')}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">
-                Real Projects, Real Impact
+                {t('projects.title')}
               </h2>
               <p className="mt-4 text-primary-70 max-w-2xl mx-auto text-base leading-relaxed">
-                Explore some of our recent work — where design, development, and
-                strategy come together to solve real problems.
+                {t('projects.description')}
               </p>
               <div className="mt-6 h-0.5 w-16 mx-auto bg-gradient-to-r from-[#a78bfa] via-[#8b5cf6] to-[#7c3aed] rounded-full" />
             </div>
@@ -94,7 +95,7 @@ export default function HomeProjectInfo() {
                           p?.image ||
                           'https://images.unsplash.com/photo-1498654077810-12f23ce4c6b7?q=80&w=1200&auto=format&fit=crop'
                         }
-                        alt={p?.name || 'Project image'}
+                        alt={p?.name || t('projects.projectImageAlt')}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -103,10 +104,10 @@ export default function HomeProjectInfo() {
                     {/* Content */}
                     <div className="p-6 flex flex-col flex-1">
                       <h3 className="text-lg font-semibold text-primary group-hover:text-[#8b5cf6] transition-colors">
-                        {p?.name || 'Project'}
+                        {p?.name || t('projects.projectFallbackName')}
                       </h3>
                       <p className="mt-2 text-sm text-primary-70 leading-relaxed flex-1">
-                        {p?.short_description || 'No description available.'}
+                        {p?.short_description || t('projects.noDescription')}
                       </p>
 
                       {/* Tech tags */}
@@ -137,14 +138,14 @@ export default function HomeProjectInfo() {
                             rel="noopener noreferrer"
                             className="text-sm font-medium text-[#8b5cf6] hover:text-[#7c3aed] transition-colors"
                           >
-                            Visit site &rarr;
+                            {t('projects.visitSite')} &rarr;
                           </Link>
                         )}
                         <button
                           onClick={() => setSelected(p)}
                           className="text-sm font-medium text-primary-70 hover:text-primary transition-colors"
                         >
-                          Details
+                          {t('projects.details')}
                         </button>
                       </div>
                     </div>
@@ -161,7 +162,7 @@ export default function HomeProjectInfo() {
                 href="/projects"
                 className="btn-shine inline-flex items-center gap-2 rounded-xl bg-[var(--surface-subtle)] border border-[var(--stroke-container-divider)] px-6 py-3 text-sm font-semibold text-primary hover:border-[rgba(139,92,246,0.3)] transition-all"
               >
-                View all projects
+                {t('projects.viewAll')}
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>

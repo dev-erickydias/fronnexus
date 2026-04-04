@@ -1,7 +1,10 @@
+'use client';
+
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import ClientHomeProjectInfo from '../components/client/ClientHomeProjectInfo';
 import ClientSegundaCTA from '../components/client/ClientSegundaCTA';
+import { useI18n } from '../i18n/I18nContext';
 
 const HeaderBg = dynamic(() => import('../components/Header/HeaderBg'), {
   loading: () => null,
@@ -12,15 +15,17 @@ const ServicesSection = dynamic(
 );
 
 export default function Home() {
+  const { t } = useI18n();
+
   return (
     <>
       <Suspense fallback={null}>
         <HeaderBg
-          title="We Design, Build &"
-          highlight="Scale Your Digital"
-          subtitle="Presence."
-          description="Fronnexus is a global digital agency specializing in front-end development, UI/UX design, data analysis, and quality assurance. We partner with startups and established businesses to craft high-performance web experiences that convert visitors into customers."
-          buttonText="Explore Our Services"
+          title={t('hero.home.title')}
+          highlight={t('hero.home.highlight')}
+          subtitle={t('hero.home.subtitle')}
+          description={t('hero.home.description')}
+          buttonText={t('hero.home.buttonText')}
           buttonLink="/about"
         />
       </Suspense>
@@ -31,9 +36,9 @@ export default function Home() {
 
       <Suspense fallback={null}>
         <ClientSegundaCTA
-          title="Turn your idea into"
-          subtitle="digital reality."
-          buttonText="Start Your Project"
+          title={t('cta.home1.title')}
+          subtitle={t('cta.home1.subtitle')}
+          buttonText={t('cta.home1.buttonText')}
         />
       </Suspense>
 
@@ -41,9 +46,9 @@ export default function Home() {
 
       <Suspense fallback={null}>
         <ClientSegundaCTA
-          title="Ready to grow your"
-          subtitle="online presence?"
-          buttonText="Let's Talk"
+          title={t('cta.home2.title')}
+          subtitle={t('cta.home2.subtitle')}
+          buttonText={t('cta.home2.buttonText')}
         />
       </Suspense>
     </>
