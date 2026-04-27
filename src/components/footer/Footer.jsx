@@ -2,12 +2,10 @@
 import Link from 'next/link';
 import { useI18n } from '../../i18n/I18nContext';
 
+// GitHub é mostrado dentro de /projects (showcase técnico) — não
+// como rede social no footer. Aqui ficam só as redes voltadas pra
+// cliente final (institucional).
 const SOCIAL = [
-  {
-    name: 'github',
-    label: 'GitHub',
-    href: 'https://github.com/dev-erickydias',
-  },
   {
     name: 'linkedin',
     label: 'LinkedIn',

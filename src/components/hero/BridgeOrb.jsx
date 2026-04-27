@@ -33,7 +33,10 @@ export default function BridgeOrb({ className = '' }) {
       typeof window !== 'undefined' &&
       (window.innerWidth < 768 ||
         window.matchMedia('(pointer: coarse)').matches);
-    const PARTICLE_COUNT = isMobile ? 140 : 400;
+    // Tightened mobile budget for Lighthouse 90+ on low-end Androids.
+    // 80 particles is still visually rich (each carries the bridge
+    // gradient color), but ~43% less per-frame matrix math than 140.
+    const PARTICLE_COUNT = isMobile ? 80 : 400;
     const PIXEL_RATIO_CAP = isMobile ? 1.25 : 2;
 
     // ── Scene + camera ────────────────────────────────────────

@@ -47,9 +47,9 @@
   --mist-50:  #f5f1ea;           /* primary text */
   --mist-100: #ebe6dd;
   --mist-200: #d8d2c7;
-  --mist-300: #b8b2a7;
-  --mist-400: #94a3b8;           /* secondary text */
-  --mist-500: #64748b;
+  --mist-300: #c4bdb1;           /* lifted from b8b2a7 — body text contrast */
+  --mist-400: #a8b4c5;           /* secondary text — bumped from 94a3b8 to clear WCAG AA 4.5:1 vs night-950 */
+  --mist-500: #758296;           /* lifted slightly so disabled states still read */
   --mist-600: #475569;
   --mist-700: #334155;
 

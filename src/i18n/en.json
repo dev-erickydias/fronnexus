@@ -271,7 +271,7 @@
         "id": "landing",
         "name": "Landing page",
         "tag": "Web",
-        "price": "$ 600",
+        "price": "$ 220",
         "summary": "One page that sells.",
         "features": [
           "Custom design (not a template)",
@@ -285,7 +285,7 @@
         "id": "site",
         "name": "Company website",
         "tag": "Web",
-        "price": "$ 1,100",
+        "price": "$ 450",
         "summary": "Full presence for a serious business.",
         "features": [
           "Up to 6 pages",
@@ -300,7 +300,7 @@
         "id": "webapp",
         "name": "Custom web app",
         "tag": "Web",
-        "price": "$ 3,000",
+        "price": "$ 1,100",
         "summary": "MVP, internal tool, SaaS feature.",
         "features": [
           "Discovery + formal scope",
@@ -314,7 +314,7 @@
         "id": "marketing",
         "name": "Digital marketing",
         "tag": "Marketing",
-        "price": "$ 450",
+        "price": "$ 140",
         "priceSuffix": "/mo",
         "summary": "Traffic and presence that turn into customers.",
         "features": [
@@ -329,7 +329,7 @@
         "id": "consulting-hour",
         "name": "1:1 consulting",
         "tag": "Consulting",
-        "price": "$ 90",
+        "price": "$ 35",
         "priceSuffix": "/h",
         "summary": "By the hour to unblock a decision.",
         "features": [
@@ -343,7 +343,7 @@
         "id": "consulting-pack",
         "name": "8-hour pack",
         "tag": "Consulting",
-        "price": "$ 600",
+        "price": "$ 230",
         "summary": "Structured follow-through.",
         "features": [
           "8 hours to use within 30 days",
@@ -356,7 +356,7 @@
         "id": "analysis",
         "name": "Analytics & dashboards",
         "tag": "Data",
-        "price": "$ 380",
+        "price": "$ 140",
         "summary": "Stop guessing — measure.",
         "features": [
           "GA4 / Plausible setup",
@@ -403,7 +403,6 @@
     "made": "Crafted with care in",
     "terms": "Terms",
     "privacy": "Privacy",
-    "github": "GitHub",
     "linkedin": "LinkedIn",
     "instagram": "Instagram"
   },
@@ -437,7 +436,7 @@
       { "title": "9. Limitation of Liability", "body": "Under no circumstances shall the Provider's total liability exceed the amount paid by the Client in the 12 months prior to the event giving rise to the claim. The Provider is not liable for: (a) indirect damages, lost profits, or lost opportunities; (b) third-party service unavailability (Vercel, Supabase, GitHub, Resend); (c) cyberattacks not arising from proven negligence by the Provider; (d) Client's misuse of Deliverables." },
       { "title": "10. Indemnification", "body": "The Client shall indemnify the Provider for any damage, fine, or action arising from: (a) content (texts, images, trademarks) provided by the Client that violates third-party rights; (b) illegal use of Deliverables; (c) false statements about authorship or ownership of material delivered to the Provider." },
       { "title": "11. Termination", "body": "By either party: with 15 days written notice, no justification required. Amounts for hours worked and expenses incurred are due. For default: immediate, no refund of amounts already paid. Force majeure: suspends the agreement at no cost to either party for up to 60 days; thereafter, either party may terminate." },
-      { "title": "12. Maintenance and Support", "body": "Continuous maintenance and support are NOT included in the development contract unless expressly stated. Monthly retainer packages are contracted separately. After the 30-day warranty, adjustments are billed per the current consulting rate (USD 90/hr)." },
+      { "title": "12. Maintenance and Support", "body": "Continuous maintenance and support are NOT included in the development contract unless expressly stated. Monthly retainer packages are contracted separately. After the 30-day warranty, adjustments are billed per the current consulting rate (USD 35/hr)." },
       { "title": "13. Jurisdiction and Governing Law", "body": "This agreement is governed by the laws of the Federative Republic of Brazil. The forum of the Provider's headquarters at the time of dispute is elected to settle any controversies, with express waiver of any other, however privileged. For international clients, disputes will be resolved via online mediation by an independent chamber, with fallback to arbitration in Portuguese under Brazilian Law 9.307/96." },
       { "title": "14. Changes to These Terms", "body": "The Provider may update these Terms at any time. Material changes will be communicated 30 days in advance to active Clients. Continued use of Services after notice implies acceptance. Ongoing contracts remain governed by the version in force on the date of acceptance." },
       { "title": "15. General Provisions", "body": "Independence of clauses: the invalidity of any clause does not affect the others. Entire agreement: these Terms together with the accepted Proposal constitute the entire understanding between the parties. Notices: sent to each party's registered contact email. Assignment: the Client cannot assign this contract without written consent of the Provider." }

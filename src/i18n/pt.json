@@ -271,7 +271,7 @@
         "id": "landing",
         "name": "Landing page",
         "tag": "Web",
-        "price": "R$ 2.500",
+        "price": "R$ 980",
         "summary": "Página única que vende.",
         "features": [
           "Design sob medida (não é template)",
@@ -285,7 +285,7 @@
         "id": "site",
         "name": "Site institucional",
         "tag": "Web",
-        "price": "R$ 4.500",
+        "price": "R$ 1.980",
         "summary": "Presença completa pra empresa séria.",
         "features": [
           "Até 6 páginas",
@@ -300,7 +300,7 @@
         "id": "webapp",
         "name": "Web app sob medida",
         "tag": "Web",
-        "price": "R$ 12.000",
+        "price": "R$ 4.500",
         "summary": "MVP, sistema interno, ferramenta SaaS.",
         "features": [
           "Discovery + escopo formal",
@@ -314,7 +314,7 @@
         "id": "marketing",
         "name": "Marketing digital",
         "tag": "Marketing",
-        "price": "R$ 1.800",
+        "price": "R$ 590",
         "priceSuffix": "/mês",
         "summary": "Tráfego e presença que viram cliente.",
         "features": [
@@ -329,7 +329,7 @@
         "id": "consulting-hour",
         "name": "Consultoria 1:1",
         "tag": "Consultoria",
-        "price": "R$ 350",
+        "price": "R$ 150",
         "priceSuffix": "/h",
         "summary": "Hora avulsa pra destravar uma decisão.",
         "features": [
@@ -343,7 +343,7 @@
         "id": "consulting-pack",
         "name": "Pacote 8 horas",
         "tag": "Consultoria",
-        "price": "R$ 2.500",
+        "price": "R$ 980",
         "summary": "Acompanhamento estruturado.",
         "features": [
           "8 horas pra usar em 30 dias",
@@ -356,7 +356,7 @@
         "id": "analysis",
         "name": "Análise & dashboards",
         "tag": "Dados",
-        "price": "R$ 1.500",
+        "price": "R$ 590",
         "summary": "Pare de chutar — meça.",
         "features": [
           "Setup GA4 / Plausible",
@@ -403,7 +403,6 @@
     "made": "Feito com cuidado em",
     "terms": "Termos",
     "privacy": "Privacidade",
-    "github": "GitHub",
     "linkedin": "LinkedIn",
     "instagram": "Instagram"
   },
@@ -437,7 +436,7 @@
       { "title": "9. Limitação de Responsabilidade", "body": "Em nenhuma hipótese a responsabilidade total da Prestadora excederá o valor pago pelo Cliente nos 12 meses anteriores ao evento que originou a reclamação. A Prestadora não responde por: (a) danos indiretos, lucros cessantes ou perda de oportunidade; (b) indisponibilidade de serviços de terceiros (Vercel, Supabase, GitHub, Resend); (c) ataques cibernéticos não decorrentes de negligência comprovada da Prestadora; (d) uso indevido dos Entregáveis pelo Cliente." },
       { "title": "10. Indenização", "body": "O Cliente indenizará a Prestadora por qualquer dano, multa ou ação decorrente de: (a) conteúdo (textos, imagens, marcas) fornecido pelo Cliente que viole direitos de terceiros; (b) uso ilegal dos Entregáveis; (c) declarações falsas sobre a autoria ou propriedade do material entregue à Prestadora." },
       { "title": "11. Rescisão", "body": "Por qualquer das partes: com aviso prévio por escrito de 15 dias, sem necessidade de justificativa. Os valores referentes a horas trabalhadas e despesas incorridas serão devidos. Por inadimplência: imediata, sem reembolso dos valores já pagos. Por força maior: suspende o contrato sem ônus para qualquer parte por até 60 dias; após, qualquer parte pode rescindir." },
-      { "title": "12. Manutenção e Suporte", "body": "Manutenção e suporte contínuo NÃO estão incluídos no contrato de desenvolvimento, salvo previsão expressa. Pacotes de retainer mensal são contratados separadamente. Após os 30 dias de garantia, ajustes são cobrados conforme tabela de hora-consultoria vigente (R$ 350/h)." },
+      { "title": "12. Manutenção e Suporte", "body": "Manutenção e suporte contínuo NÃO estão incluídos no contrato de desenvolvimento, salvo previsão expressa. Pacotes de retainer mensal são contratados separadamente. Após os 30 dias de garantia, ajustes são cobrados conforme tabela de hora-consultoria vigente (R$ 150/h)." },
       { "title": "13. Foro e Lei Aplicável", "body": "Este contrato é regido pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca da sede da Prestadora à época do litígio para dirimir quaisquer controvérsias, com renúncia expressa a qualquer outro, por mais privilegiado que seja. Para clientes internacionais, eventuais disputas serão resolvidas via mediação online por câmara independente, com fallback para arbitragem em português conforme Lei 9.307/96." },
       { "title": "14. Alterações destes Termos", "body": "A Prestadora pode atualizar estes Termos a qualquer momento. Alterações materiais serão comunicadas com 30 dias de antecedência aos Clientes ativos. O uso continuado dos Serviços após a comunicação implica aceitação. Contratos em andamento permanecem regidos pela versão vigente na data do aceite." },
       { "title": "15. Disposições Gerais", "body": "Independência das cláusulas: a invalidade de qualquer cláusula não afeta as demais. Acordo integral: estes Termos, junto com a Proposta aceita, constituem o entendimento integral entre as partes. Notificações: enviadas para o e-mail de contato registrado de cada parte. Cessão: o Cliente não pode ceder este contrato sem consentimento escrito da Prestadora." }

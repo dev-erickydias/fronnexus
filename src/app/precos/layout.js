@@ -1,12 +1,12 @@
 export const metadata = {
   title: 'Preços',
   description:
-    'Pacotes transparentes de desenvolvimento web, marketing digital, consultoria e dados — a partir de R$ 2.500 (landing) até R$ 12k+ (web app).',
+    'Pacotes acessíveis: landing a partir de R$ 980, site institucional R$ 1.980, marketing digital R$ 590/mês, consultoria R$ 150/h.',
   alternates: { canonical: '/precos' },
   openGraph: {
     title: 'Preços — Fronnexus',
     description:
-      'Sites a partir de R$ 2.500. Marketing R$ 1.800/mês. Consultoria R$ 350/h. Sem mistério.',
+      'Landing R$ 980. Site R$ 1.980. Marketing R$ 590/mês. Consultoria R$ 150/h. Sem mistério.',
   },
 };
 

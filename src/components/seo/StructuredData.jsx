@@ -26,7 +26,6 @@ const ORGANIZATION = {
   logo: `${SITE_URL}/icons/logo-512.png`,
   founder: { '@type': 'Person', name: FOUNDER },
   sameAs: [
-    'https://github.com/dev-erickydias',
     'https://www.linkedin.com/company/fronnexus',
     'https://www.instagram.com/fronnexus',
   ],
