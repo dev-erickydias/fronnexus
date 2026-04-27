@@ -1,56 +1,37 @@
 'use client';
-
-import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import ClientHomeProjectInfo from '../components/client/ClientHomeProjectInfo';
-import ClientSegundaCTA from '../components/client/ClientSegundaCTA';
-import { useI18n } from '../i18n/I18nContext';
+import Hero from '../components/hero/Hero';
 
-const HeaderBg = dynamic(() => import('../components/Header/HeaderBg'), {
-  loading: () => null,
-});
+// Below-the-fold sections lazy-loaded — keeps the hero LCP fast
+// and defers Three.js + heavy components until needed.
 const ServicesSection = dynamic(
   () => import('../components/services/ServicesSection'),
   { loading: () => null },
 );
+const ShowcaseSection = dynamic(
+  () => import('../components/projects/ShowcaseSection'),
+  { loading: () => null },
+);
+const ProcessSection = dynamic(
+  () => import('../components/process/ProcessSection'),
+  { loading: () => null },
+);
+const CtaPrimary = dynamic(() => import('../components/cta/CtaPrimary'), {
+  loading: () => null,
+});
+const CtaSecondary = dynamic(() => import('../components/cta/CtaSecondary'), {
+  loading: () => null,
+});
 
 export default function Home() {
-  const { t } = useI18n();
-
   return (
     <>
-      <Suspense fallback={null}>
-        <HeaderBg
-          title={t('hero.home.title')}
-          highlight={t('hero.home.highlight')}
-          subtitle={t('hero.home.subtitle')}
-          description={t('hero.home.description')}
-          buttonText={t('hero.home.buttonText')}
-          buttonLink="/about"
-        />
-      </Suspense>
-
-      <Suspense fallback={null}>
-        <ServicesSection />
-      </Suspense>
-
-      <Suspense fallback={null}>
-        <ClientSegundaCTA
-          title={t('cta.home1.title')}
-          subtitle={t('cta.home1.subtitle')}
-          buttonText={t('cta.home1.buttonText')}
-        />
-      </Suspense>
-
-      <ClientHomeProjectInfo />
-
-      <Suspense fallback={null}>
-        <ClientSegundaCTA
-          title={t('cta.home2.title')}
-          subtitle={t('cta.home2.subtitle')}
-          buttonText={t('cta.home2.buttonText')}
-        />
-      </Suspense>
+      <Hero />
+      <ServicesSection />
+      <CtaPrimary />
+      <ShowcaseSection />
+      <ProcessSection />
+      <CtaSecondary />
     </>
   );
 }
