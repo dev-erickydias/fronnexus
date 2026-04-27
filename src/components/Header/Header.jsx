@@ -27,6 +27,7 @@ export default function Header() {
       { name: t('nav.home'), href: '/' },
       { name: t('nav.about'), href: '/about' },
       { name: t('nav.services'), href: '/#services' },
+      { name: t('nav.pricing'), href: '/precos' },
       { name: t('nav.projects'), href: '/projects' },
       { name: t('nav.contact'), href: '/contact', isCta: true },
     ],

@@ -8,6 +8,7 @@
     "home": "Início",
     "about": "Sobre",
     "services": "Serviços",
+    "pricing": "Preços",
     "projects": "Projetos",
     "contact": "Contato",
     "openMenu": "Abrir menu",
@@ -254,6 +255,142 @@
       "whatsappLabel": "Falar no WhatsApp",
       "whatsappHint": "Mais rápido que e-mail"
     }
+  },
+
+  "pricing": {
+    "label": "Preços",
+    "title": "Preço na cara,",
+    "highlight": "sem mistério",
+    "after": ".",
+    "intro": "Saiu daqui sabendo se cabe no seu orçamento. Tudo escopo fechado, prazo combinado, sem surpresa.",
+    "tableTitle": "Pacotes principais",
+    "perMonth": "/mês",
+    "fromLabel": "a partir de",
+    "tiers": [
+      {
+        "id": "landing",
+        "name": "Landing page",
+        "tag": "Web",
+        "price": "R$ 2.500",
+        "summary": "Página única que vende.",
+        "features": [
+          "Design sob medida (não é template)",
+          "Mobile-first, Lighthouse 90+",
+          "Formulário com integração de e-mail",
+          "Deploy + domínio configurado",
+          "Entrega em 7 dias úteis"
+        ]
+      },
+      {
+        "id": "site",
+        "name": "Site institucional",
+        "tag": "Web",
+        "price": "R$ 4.500",
+        "summary": "Presença completa pra empresa séria.",
+        "features": [
+          "Até 6 páginas",
+          "Blog ou portfolio integrado",
+          "SEO técnico embutido (sitemap + schema)",
+          "Multi-idioma se precisar",
+          "Entrega em 14 dias úteis"
+        ],
+        "highlighted": true
+      },
+      {
+        "id": "webapp",
+        "name": "Web app sob medida",
+        "tag": "Web",
+        "price": "R$ 12.000",
+        "summary": "MVP, sistema interno, ferramenta SaaS.",
+        "features": [
+          "Discovery + escopo formal",
+          "Banco de dados + auth + dashboards",
+          "API pronta pra escalar",
+          "Próximas 30 dias de ajustes incluídos",
+          "Prazo combinado conforme escopo"
+        ]
+      },
+      {
+        "id": "marketing",
+        "name": "Marketing digital",
+        "tag": "Marketing",
+        "price": "R$ 1.800",
+        "priceSuffix": "/mês",
+        "summary": "Tráfego e presença que viram cliente.",
+        "features": [
+          "Estratégia de funil AARRR",
+          "Conteúdo + SEO técnico",
+          "Gestão de Google Ads / Meta (verba à parte)",
+          "Relatório mensal honesto",
+          "Mínimo 3 meses"
+        ]
+      },
+      {
+        "id": "consulting-hour",
+        "name": "Consultoria 1:1",
+        "tag": "Consultoria",
+        "price": "R$ 350",
+        "priceSuffix": "/h",
+        "summary": "Hora avulsa pra destravar uma decisão.",
+        "features": [
+          "Pague por hora, sem fidelidade",
+          "Áudio + transcrição da chamada",
+          "Plano de ação por escrito",
+          "Resposta no WhatsApp por 7 dias depois"
+        ]
+      },
+      {
+        "id": "consulting-pack",
+        "name": "Pacote 8 horas",
+        "tag": "Consultoria",
+        "price": "R$ 2.500",
+        "summary": "Acompanhamento estruturado.",
+        "features": [
+          "8 horas pra usar em 30 dias",
+          "Diagnóstico estratégico inicial",
+          "Roadmap de crescimento por escrito",
+          "Revisão pós-30 dias inclusa"
+        ]
+      },
+      {
+        "id": "analysis",
+        "name": "Análise & dashboards",
+        "tag": "Dados",
+        "price": "R$ 1.500",
+        "summary": "Pare de chutar — meça.",
+        "features": [
+          "Setup GA4 / Plausible",
+          "Dashboard customizado",
+          "Eventos e conversões mapeados",
+          "Treino de 1h pra você ler sozinho"
+        ]
+      }
+    ],
+    "ctaTitle": "Não cabe?",
+    "ctaSub": "Tem orçamento mais apertado ou precisa de algo fora dessa lista? Conversa rápida e a gente pensa junto.",
+    "ctaButton": "Falar comigo",
+    "noteTitle": "O que sempre vem incluso",
+    "notes": [
+      "Reuniões por chamada quantas precisar",
+      "Acesso ao código no GitHub do dia 1",
+      "Garantia de 30 dias pós-entrega para ajustes",
+      "Sem fidelidade, sem multa por sair",
+      "Pagamento parcelado — entrada + na entrega"
+    ]
+  },
+
+  "cases": {
+    "label": "Caso real",
+    "industry": "Setor",
+    "location": "Local",
+    "year": "Ano",
+    "stack": "Stack",
+    "viewLive": "Ver projeto ao vivo",
+    "viewCode": "Ver código",
+    "problem": "O problema",
+    "approach": "Como atacamos",
+    "outcome": "O resultado",
+    "back": "← Todos os casos"
   },
 
   "footer": {
