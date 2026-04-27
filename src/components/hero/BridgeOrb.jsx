@@ -26,6 +26,16 @@ export default function BridgeOrb({ className = '' }) {
       window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Mobile budget: fewer particles, lower DPR, no resize observer
+    // overhead. Desktop gets the full cinematic treatment. We branch
+    // off viewport width because hardwareConcurrency lies on iOS.
+    const isMobile =
+      typeof window !== 'undefined' &&
+      (window.innerWidth < 768 ||
+        window.matchMedia('(pointer: coarse)').matches);
+    const PARTICLE_COUNT = isMobile ? 140 : 400;
+    const PIXEL_RATIO_CAP = isMobile ? 1.25 : 2;
+
     // ── Scene + camera ────────────────────────────────────────
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -41,7 +51,7 @@ export default function BridgeOrb({ className = '' }) {
       alpha: true,
       powerPreference: 'high-performance',
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, PIXEL_RATIO_CAP));
     renderer.setSize(mount.clientWidth, mount.clientHeight);
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
@@ -69,7 +79,9 @@ export default function BridgeOrb({ className = '' }) {
     scene.add(inner);
 
     // ── Particle field — the "connection threads" ─────────────
-    const PARTICLE_COUNT = 400;
+    // Count comes from the device profile decided above (140 mobile,
+    // 400 desktop). All allocations sized once so the GC stays
+    // happy during the whole animation lifetime.
     const positions = new Float32Array(PARTICLE_COUNT * 3);
     const colors = new Float32Array(PARTICLE_COUNT * 3);
     const speeds = new Float32Array(PARTICLE_COUNT);
@@ -134,7 +146,7 @@ export default function BridgeOrb({ className = '' }) {
     const ro = new ResizeObserver(onResize);
     ro.observe(mount);
 
-    // ── Mouse parallax ────────────────────────────────────────
+    // ── Mouse parallax (desktop only — saves CPU on mobile) ───
     let targetRotX = 0;
     let targetRotY = 0;
     function onMouse(e) {
@@ -144,7 +156,23 @@ export default function BridgeOrb({ className = '' }) {
       targetRotY = nx * 0.6;
       targetRotX = ny * 0.4;
     }
-    window.addEventListener('mousemove', onMouse, { passive: true });
+    if (!isMobile) {
+      window.addEventListener('mousemove', onMouse, { passive: true });
+    }
+
+    // Pause animation when the canvas leaves the viewport — we still
+    // hold the WebGL context alive but stop the per-frame work.
+    let inView = true;
+    const visibilityObserver =
+      typeof IntersectionObserver !== 'undefined'
+        ? new IntersectionObserver(
+            ([entry]) => {
+              inView = entry.isIntersecting;
+            },
+            { threshold: 0 },
+          )
+        : null;
+    if (visibilityObserver) visibilityObserver.observe(mount);
 
     // ── Animation loop ────────────────────────────────────────
     let frameId;
@@ -152,6 +180,11 @@ export default function BridgeOrb({ className = '' }) {
     const clock = new THREE.Clock();
 
     function tick() {
+      if (!inView) {
+        // Schedule another check, but skip the per-frame work
+        frameId = requestAnimationFrame(tick);
+        return;
+      }
       const dt = clock.getDelta();
       elapsed += dt;
 
@@ -195,7 +228,8 @@ export default function BridgeOrb({ className = '' }) {
     // ── Cleanup ───────────────────────────────────────────────
     return () => {
       cancelAnimationFrame(frameId);
-      window.removeEventListener('mousemove', onMouse);
+      if (!isMobile) window.removeEventListener('mousemove', onMouse);
+      if (visibilityObserver) visibilityObserver.disconnect();
       ro.disconnect();
       coreGeo.dispose();
       coreMat.dispose();

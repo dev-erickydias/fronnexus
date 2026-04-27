@@ -8,6 +8,7 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
+    "pricing": "Pricing",
     "projects": "Work",
     "contact": "Contact",
     "openMenu": "Open menu",
@@ -254,6 +255,142 @@
       "whatsappLabel": "Chat on WhatsApp",
       "whatsappHint": "Faster than email"
     }
+  },
+
+  "pricing": {
+    "label": "Pricing",
+    "title": "Pricing on the table,",
+    "highlight": "no mystery",
+    "after": ".",
+    "intro": "You leave here knowing whether it fits your budget. Fixed scope, agreed timeline, no surprises.",
+    "tableTitle": "Main packages",
+    "perMonth": "/mo",
+    "fromLabel": "from",
+    "tiers": [
+      {
+        "id": "landing",
+        "name": "Landing page",
+        "tag": "Web",
+        "price": "$ 600",
+        "summary": "One page that sells.",
+        "features": [
+          "Custom design (not a template)",
+          "Mobile-first, Lighthouse 90+",
+          "Email-integrated form",
+          "Deploy + domain configured",
+          "Delivered in 7 business days"
+        ]
+      },
+      {
+        "id": "site",
+        "name": "Company website",
+        "tag": "Web",
+        "price": "$ 1,100",
+        "summary": "Full presence for a serious business.",
+        "features": [
+          "Up to 6 pages",
+          "Blog or portfolio integrated",
+          "Technical SEO baked in (sitemap + schema)",
+          "Multi-language if needed",
+          "Delivered in 14 business days"
+        ],
+        "highlighted": true
+      },
+      {
+        "id": "webapp",
+        "name": "Custom web app",
+        "tag": "Web",
+        "price": "$ 3,000",
+        "summary": "MVP, internal tool, SaaS feature.",
+        "features": [
+          "Discovery + formal scope",
+          "Database + auth + dashboards",
+          "Production-ready API",
+          "Next 30 days of tweaks included",
+          "Timeline agreed per scope"
+        ]
+      },
+      {
+        "id": "marketing",
+        "name": "Digital marketing",
+        "tag": "Marketing",
+        "price": "$ 450",
+        "priceSuffix": "/mo",
+        "summary": "Traffic and presence that turn into customers.",
+        "features": [
+          "AARRR funnel strategy",
+          "Content + technical SEO",
+          "Google Ads / Meta management (ad spend separate)",
+          "Honest monthly report",
+          "Minimum 3 months"
+        ]
+      },
+      {
+        "id": "consulting-hour",
+        "name": "1:1 consulting",
+        "tag": "Consulting",
+        "price": "$ 90",
+        "priceSuffix": "/h",
+        "summary": "By the hour to unblock a decision.",
+        "features": [
+          "Pay hourly, no retainer",
+          "Audio + transcript of the call",
+          "Written action plan",
+          "WhatsApp follow-up for 7 days"
+        ]
+      },
+      {
+        "id": "consulting-pack",
+        "name": "8-hour pack",
+        "tag": "Consulting",
+        "price": "$ 600",
+        "summary": "Structured follow-through.",
+        "features": [
+          "8 hours to use within 30 days",
+          "Initial strategic diagnosis",
+          "Written growth roadmap",
+          "Post-30-day review included"
+        ]
+      },
+      {
+        "id": "analysis",
+        "name": "Analytics & dashboards",
+        "tag": "Data",
+        "price": "$ 380",
+        "summary": "Stop guessing — measure.",
+        "features": [
+          "GA4 / Plausible setup",
+          "Custom dashboard",
+          "Events and conversions mapped",
+          "1-hour training so you read it yourself"
+        ]
+      }
+    ],
+    "ctaTitle": "Doesn't fit?",
+    "ctaSub": "Tighter budget or need something off this list? Quick chat and we figure it out together.",
+    "ctaButton": "Let's talk",
+    "noteTitle": "What's always included",
+    "notes": [
+      "As many calls as you need",
+      "GitHub repo access from day 1",
+      "30-day post-delivery guarantee for tweaks",
+      "No retainer lock-in, no exit fee",
+      "Split payment — deposit + on delivery"
+    ]
+  },
+
+  "cases": {
+    "label": "Real case",
+    "industry": "Industry",
+    "location": "Location",
+    "year": "Year",
+    "stack": "Stack",
+    "viewLive": "View live project",
+    "viewCode": "View code",
+    "problem": "The problem",
+    "approach": "How we tackled it",
+    "outcome": "The outcome",
+    "back": "← All cases"
   },
 
   "footer": {
