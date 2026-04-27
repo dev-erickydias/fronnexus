@@ -1,364 +1,363 @@
 'use client';
-
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { validateContactForm } from '../../lib/validateContact';
-import ScrollReveal from '../utils/ScrollReveal';
+import { useState } from 'react';
 import { useI18n } from '../../i18n/I18nContext';
+import Reveal from '../Animation/Reveal';
+import SplitWords from '../Animation/SplitWords';
 
-const inputBase =
-  'w-full px-4 py-3 rounded-xl border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-primary text-sm placeholder:text-primary-70 focus:outline-none focus:ring-2 focus:ring-[rgba(139,92,246,0.3)] focus:border-[rgba(139,92,246,0.3)] transition-all';
+// WhatsApp number is read at build time from NEXT_PUBLIC_WHATSAPP env
+// (digits only, with country code, e.g. 5511999999999). Empty string
+// hides the WhatsApp shortcut entirely — useful while you don't have
+// a public number set up yet.
+const WHATSAPP = (process.env.NEXT_PUBLIC_WHATSAPP || '').replace(/\D/g, '');
+
+// ────────────────────────────────────────────────────────────────
+// ContactForm — animated boutique contact form. Posts to
+// /api/send-email (existing endpoint). Inline validation + success
+// state; no external CSV/country fetcher (kept clean).
+// ────────────────────────────────────────────────────────────────
+
+const inputCls =
+  'w-full px-4 py-3 rounded-xl text-sm text-[var(--mist-50)] placeholder:text-[var(--mist-500)] transition-all duration-300 focus:outline-none';
+
+const inputStyle = {
+  background: 'rgba(20, 27, 45, 0.55)',
+  border: '1px solid var(--border-soft)',
+  colorScheme: 'dark',
+};
+
+const inputFocusStyle =
+  'focus:border-[var(--teal-500)] focus:ring-2 focus:ring-[rgba(94,234,212,0.18)]';
 
 export default function ContactForm() {
   const { t } = useI18n();
-  const [isSending, setIsSending] = useState(false);
-  const [sendResult, setSendResult] = useState(null);
+  const [state, setState] = useState({ status: 'idle', error: null });
 
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
-    country: '',
-    language: '',
-    service: [],
-    message: '',
-    terms: false,
+    company: '',
+    projectType: '',
+    budget: '',
+    details: '',
   });
 
-  const [errors, setErrors] = useState({});
-  const [countries, setCountries] = useState([]);
+  function update(name, value) {
+    setForm((f) => ({ ...f, [name]: value }));
+  }
 
-  const languages = [
-    { value: 'English', key: 'contact.languages.english' },
-    { value: 'Spanish', key: 'contact.languages.spanish' },
-    { value: 'Portuguese', key: 'contact.languages.portuguese' },
-  ];
-
-  useEffect(() => {
-    fetch('https://countriesnow.space/api/v0.1/countries')
-      .then((res) => res.json())
-      .then((data) => {
-        const sorted = data.data
-          .map((country) => ({
-            name: country.country,
-            code: country.iso2,
-          }))
-          .sort((a, b) => a.name.localeCompare(b.name));
-        setCountries(sorted);
-      })
-      .catch((err) => console.error('Error fetching countries:', err));
-  }, []);
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-
-    if (name === 'service') {
-      const updatedServices = checked
-        ? [...formData.service, value]
-        : formData.service.filter((s) => s !== value);
-
-      const next = { ...formData, service: updatedServices };
-      setFormData(next);
-      const fieldErrors = validateContactForm(next);
-      setErrors((prev) => ({ ...prev, service: fieldErrors.service }));
-    } else {
-      const next = {
-        ...formData,
-        [name]: type === 'checkbox' ? checked : value,
-      };
-      setFormData(next);
-      const fieldErrors = validateContactForm(next);
-      setErrors((prev) => ({ ...prev, [name]: fieldErrors[name] }));
-    }
-  };
-
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    const validationErrors = validateContactForm(formData);
-    setErrors(validationErrors);
-    if (Object.keys(validationErrors).length > 0) return;
+    if (
+      !form.firstName.trim() ||
+      !form.email.trim() ||
+      !form.details.trim()
+    ) {
+      setState({ status: 'error', error: 'required' });
+      return;
+    }
 
-    setIsSending(true);
-    setSendResult(null);
+    setState({ status: 'sending', error: null });
 
     try {
-      const response = await fetch('/api/send-email', {
+      const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(form),
       });
-
-      if (response.ok) {
-        setSendResult('success');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          country: '',
-          language: '',
-          service: [],
-          message: '',
-          terms: false,
-        });
-        setErrors({});
-      } else {
-        setSendResult('error');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSendResult('error');
-    } finally {
-      setIsSending(false);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setState({ status: 'sent', error: null });
+      setForm({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        company: '',
+        projectType: '',
+        budget: '',
+        details: '',
+      });
+    } catch (err) {
+      setState({ status: 'error', error: err.message });
     }
-  };
+  }
 
-  const serviceOptions = [
-    { value: 'frontend', key: 'frontend' },
-    { value: 'data', key: 'data' },
-    { value: 'webdesign', key: 'webdesign' },
-    { value: 'qa', key: 'qa' },
-    { value: 'fullstack', key: 'fullstack' },
-    { value: 'other', key: 'other' },
-  ];
+  const projectTypes = ['web', 'marketing', 'consulting', 'analysis', 'other'];
+  const budgets = ['small', 'medium', 'large', 'enterprise', 'tbd'];
 
   return (
-    <div className="min-h-screen px-4 py-20 flex flex-col items-center bg-background">
-      <div className="w-full max-w-2xl">
-        <ScrollReveal>
-          <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border border-[rgba(139,92,246,0.2)] bg-[rgba(139,92,246,0.08)] text-[#a78bfa] mb-4">
-              {t('contact.badge')}
-            </span>
-            <h1 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">
-              {t('contact.title')}
-            </h1>
-            <p className="mt-3 text-primary-70 text-base max-w-lg mx-auto leading-relaxed">
-              {t('contact.description')}
-            </p>
-          </div>
-        </ScrollReveal>
+    <section
+      className="relative section-pad pt-32"
+      aria-label={t('contact.label')}
+    >
+      <div className="container-narrow">
+        <Reveal>
+          <span className="label-tag inline-block mb-6">
+            ◇ {t('contact.label')}
+          </span>
+        </Reveal>
 
-        <ScrollReveal delay={100}>
-          <form
-            onSubmit={handleSubmit}
-            className="glass-card rounded-2xl p-6 md:p-8 space-y-5"
-          >
-            {/* Names */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-medium text-primary-70 mb-1.5">{t('contact.labels.firstName')}</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder={t('contact.placeholders.firstName')}
-                  className={`${inputBase} ${errors.firstName ? 'border-red-400' : ''}`}
-                  value={formData.firstName}
-                  onChange={handleChange}
-                />
-                {errors.firstName && (
-                  <p className="text-red-400 text-xs mt-1">{t(errors.firstName)}</p>
-                )}
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-primary-70 mb-1.5">{t('contact.labels.lastName')}</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder={t('contact.placeholders.lastName')}
-                  className={`${inputBase} ${errors.lastName ? 'border-red-400' : ''}`}
-                  value={formData.lastName}
-                  onChange={handleChange}
-                />
-                {errors.lastName && (
-                  <p className="text-red-400 text-xs mt-1">{t(errors.lastName)}</p>
-                )}
-              </div>
-            </div>
+        <h1 className="display-xl font-display mb-6 text-balance">
+          <SplitWords text={t('contact.title')} />{' '}
+          <span className="text-bridge">
+            <SplitWords text={t('contact.highlight')} delay={120} />
+          </span>
+          <SplitWords text={t('contact.after')} delay={240} />
+        </h1>
 
-            {/* Email & Phone */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-medium text-primary-70 mb-1.5">{t('contact.labels.email')}</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder={t('contact.placeholders.email')}
-                  className={`${inputBase} ${errors.email ? 'border-red-400' : ''}`}
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                {errors.email && (
-                  <p className="text-red-400 text-xs mt-1">{t(errors.email)}</p>
-                )}
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-primary-70 mb-1.5">{t('contact.labels.phone')} <span className="text-primary-70/60">{t('contact.labels.phoneOptional')}</span></label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder={t('contact.placeholders.phone')}
-                  className={`${inputBase} ${errors.phone ? 'border-red-400' : ''}`}
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
-                {errors.phone && (
-                  <p className="text-red-400 text-xs mt-1">{t(errors.phone)}</p>
-                )}
-              </div>
-            </div>
+        <Reveal delay={300}>
+          <p className="text-lg text-[var(--mist-300)] mb-8 text-pretty">
+            {t('contact.intro')}
+          </p>
+        </Reveal>
 
-            {/* Country & Language */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-medium text-primary-70 mb-1.5">{t('contact.labels.country')}</label>
-                <select
-                  name="country"
-                  className={`${inputBase} ${errors.country ? 'border-red-400' : ''}`}
-                  value={formData.country}
-                  onChange={handleChange}
-                >
-                  <option value="">{t('contact.placeholders.country')}</option>
-                  {countries.map((country) => (
-                    <option key={country.code} value={country.name}>
-                      {country.name}
-                    </option>
-                  ))}
-                </select>
-                {errors.country && (
-                  <p className="text-red-400 text-xs mt-1">{t(errors.country)}</p>
-                )}
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-primary-70 mb-1.5">{t('contact.labels.preferredLanguage')}</label>
-                <select
-                  name="language"
-                  className={`${inputBase} ${errors.language ? 'border-red-400' : ''}`}
-                  value={formData.language}
-                  onChange={handleChange}
-                >
-                  <option value="">{t('contact.placeholders.language')}</option>
-                  {languages.map((lang) => (
-                    <option key={lang.value} value={lang.value}>
-                      {t(lang.key)}
-                    </option>
-                  ))}
-                </select>
-                {errors.language && (
-                  <p className="text-red-400 text-xs mt-1">{t(errors.language)}</p>
-                )}
-              </div>
-            </div>
-
-            {/* Services */}
-            <fieldset className="space-y-3">
-              <legend className="text-sm font-medium text-primary mb-1">
-                {t('contact.labels.servicesLegend')}
-              </legend>
-              <p className="text-xs text-primary-70 mb-2">{t('contact.labels.servicesHint')}</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {serviceOptions.map((service) => (
-                  <label
-                    key={service.value}
-                    className={`flex items-start gap-2.5 px-3 py-2.5 rounded-xl border text-sm cursor-pointer transition-all ${
-                      formData.service.includes(service.value)
-                        ? 'border-[rgba(139,92,246,0.4)] bg-[rgba(139,92,246,0.08)] text-primary'
-                        : 'border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] text-primary-70 hover:border-[rgba(139,92,246,0.2)]'
-                    }`}
-                  >
-                    <input
-                      type="checkbox"
-                      name="service"
-                      value={service.value}
-                      checked={formData.service.includes(service.value)}
-                      onChange={handleChange}
-                      className="accent-[#8b5cf6] mt-0.5"
-                    />
-                    <div>
-                      <span className="font-medium">{t(`contact.services.${service.key}.label`)}</span>
-                      <span className="block text-xs text-primary-70 mt-0.5">{t(`contact.services.${service.key}.desc`)}</span>
-                    </div>
-                  </label>
-                ))}
-              </div>
-              {errors.service && (
-                <p className="text-red-400 text-xs mt-1">{t(errors.service)}</p>
-              )}
-            </fieldset>
-
-            {/* Message */}
-            <div>
-              <label className="block text-xs font-medium text-primary-70 mb-1.5">{t('contact.labels.projectDetails')}</label>
-              <textarea
-                name="message"
-                placeholder={t('contact.placeholders.message')}
-                className={`${inputBase} resize-none ${errors.message ? 'border-red-400' : ''}`}
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-              />
-              {errors.message && (
-                <p className="text-red-400 text-xs mt-1">{t(errors.message)}</p>
-              )}
-            </div>
-
-            {/* Terms */}
-            <div>
-              <label className="flex items-start gap-2.5 text-sm text-primary-70 cursor-pointer">
-                <input
-                  type="checkbox"
-                  name="terms"
-                  checked={formData.terms}
-                  onChange={handleChange}
-                  className="accent-[#8b5cf6] mt-0.5"
-                />
-                <span>
-                  {t('contact.terms.prefix')}{' '}
-                  <Link
-                    href="/terms/responsability"
-                    target="_blank"
-                    className="text-[#8b5cf6] hover:underline"
-                  >
-                    {t('contact.terms.linkText')}
-                  </Link>{' '}
-                  {t('contact.terms.suffix')}
-                </span>
-              </label>
-              {errors.terms && (
-                <p className="text-red-400 text-xs mt-1">{t(errors.terms)}</p>
-              )}
-            </div>
-
-            {/* Status messages */}
-            {sendResult === 'success' && (
-              <div className="p-4 text-green-700 dark:text-green-300 bg-green-500/10 border border-green-500/20 rounded-xl text-sm">
-                <p className="font-medium">{t('contact.success.title')}</p>
-                <p className="mt-1 text-xs opacity-80">{t('contact.success.message')}</p>
-              </div>
-            )}
-            {sendResult === 'error' && (
-              <div className="p-4 text-red-700 dark:text-red-300 bg-red-500/10 border border-red-500/20 rounded-xl text-sm">
-                <p className="font-medium">{t('contact.error.title')}</p>
-                <p className="mt-1 text-xs opacity-80">{t('contact.error.message')}</p>
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSending}
-              className="btn-shine w-full rounded-xl bg-[#8b5cf6] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[rgba(139,92,246,0.25)] transition-all duration-300 hover:bg-[#7c3aed] hover:shadow-[rgba(139,92,246,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
+        {WHATSAPP && (
+          <Reveal delay={380}>
+            <div
+              className="mb-12 p-5 sm:p-6 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(94,234,212,0.10), rgba(167,139,250,0.06))',
+                border: '1px solid var(--border-glow)',
+              }}
             >
-              {isSending ? t('contact.submitting') : t('contact.submitButton')}
-            </button>
+              <div className="flex-grow">
+                <p className="text-[var(--mist-50)] font-medium mb-1">
+                  {t('contact.info.whatsappLabel')}
+                </p>
+                <p className="text-sm text-[var(--mist-400)]">
+                  {t('contact.info.whatsappHint')}
+                </p>
+              </div>
+              <a
+                href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Olá, vim do site da Fronnexus.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-bridge"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                {t('contact.info.whatsappLabel')}
+              </a>
+            </div>
+          </Reveal>
+        )}
 
-            <p className="text-center text-xs text-primary-70 mt-2">
-              {t('contact.disclaimer')}
-            </p>
+        {state.status === 'sent' ? (
+          <Reveal kind="scale">
+            <div
+              className="glass p-10 sm:p-14 text-center"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(94,234,212,0.08), rgba(167,139,250,0.06))',
+                border: '1px solid var(--border-glow)',
+              }}
+            >
+              <h2 className="display-md font-display mb-4 text-bridge">
+                {t('contact.success.title')}
+              </h2>
+              <p className="text-lg text-[var(--mist-200)] text-pretty">
+                {t('contact.success.body')}
+              </p>
+            </div>
+          </Reveal>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <Reveal delay={400}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Field label={t('contact.labels.firstName')} required>
+                  <input
+                    type="text"
+                    className={`${inputCls} ${inputFocusStyle}`}
+                    style={inputStyle}
+                    placeholder={t('contact.placeholders.firstName')}
+                    value={form.firstName}
+                    onChange={(e) => update('firstName', e.target.value)}
+                    required
+                  />
+                </Field>
+                <Field label={t('contact.labels.lastName')}>
+                  <input
+                    type="text"
+                    className={`${inputCls} ${inputFocusStyle}`}
+                    style={inputStyle}
+                    placeholder={t('contact.placeholders.lastName')}
+                    value={form.lastName}
+                    onChange={(e) => update('lastName', e.target.value)}
+                  />
+                </Field>
+              </div>
+            </Reveal>
+
+            <Reveal delay={460}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Field label={t('contact.labels.email')} required>
+                  <input
+                    type="email"
+                    className={`${inputCls} ${inputFocusStyle}`}
+                    style={inputStyle}
+                    placeholder={t('contact.placeholders.email')}
+                    value={form.email}
+                    onChange={(e) => update('email', e.target.value)}
+                    required
+                  />
+                </Field>
+                <Field
+                  label={`${t('contact.labels.phone')} ${t('contact.labels.phoneOptional')}`}
+                >
+                  <input
+                    type="tel"
+                    className={`${inputCls} ${inputFocusStyle}`}
+                    style={inputStyle}
+                    placeholder={t('contact.placeholders.phone')}
+                    value={form.phone}
+                    onChange={(e) => update('phone', e.target.value)}
+                  />
+                </Field>
+              </div>
+            </Reveal>
+
+            <Reveal delay={520}>
+              <Field
+                label={`${t('contact.labels.company')} ${t('contact.labels.companyOptional')}`}
+              >
+                <input
+                  type="text"
+                  className={`${inputCls} ${inputFocusStyle}`}
+                  style={inputStyle}
+                  placeholder={t('contact.placeholders.company')}
+                  value={form.company}
+                  onChange={(e) => update('company', e.target.value)}
+                />
+              </Field>
+            </Reveal>
+
+            <Reveal delay={580}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Field
+                  label={t('contact.labels.projectType')}
+                  hint={t('contact.labels.projectTypeHint')}
+                >
+                  <select
+                    className={`${inputCls} ${inputFocusStyle}`}
+                    style={inputStyle}
+                    value={form.projectType}
+                    onChange={(e) => update('projectType', e.target.value)}
+                  >
+                    <option value="">—</option>
+                    {projectTypes.map((p) => (
+                      <option key={p} value={p}>
+                        {t(`contact.projectTypes.${p}`)}
+                      </option>
+                    ))}
+                  </select>
+                </Field>
+                <Field
+                  label={t('contact.labels.budget')}
+                  hint={t('contact.labels.budgetOptional')}
+                >
+                  <select
+                    className={`${inputCls} ${inputFocusStyle}`}
+                    style={inputStyle}
+                    value={form.budget}
+                    onChange={(e) => update('budget', e.target.value)}
+                  >
+                    <option value="">—</option>
+                    {budgets.map((b) => (
+                      <option key={b} value={b}>
+                        {t(`contact.budgets.${b}`)}
+                      </option>
+                    ))}
+                  </select>
+                </Field>
+              </div>
+            </Reveal>
+
+            <Reveal delay={640}>
+              <Field
+                label={t('contact.labels.projectDetails')}
+                hint={t('contact.labels.projectDetailsHint')}
+                required
+              >
+                <textarea
+                  rows={6}
+                  className={`${inputCls} ${inputFocusStyle} resize-y`}
+                  style={inputStyle}
+                  placeholder={t('contact.placeholders.details')}
+                  value={form.details}
+                  onChange={(e) => update('details', e.target.value)}
+                  required
+                />
+              </Field>
+            </Reveal>
+
+            {state.status === 'error' && (
+              <Reveal>
+                <div
+                  className="p-4 rounded-xl text-sm"
+                  style={{
+                    background: 'rgba(255,107,107,0.08)',
+                    border: '1px solid var(--border-coral)',
+                    color: 'var(--coral-300)',
+                  }}
+                >
+                  {t('contact.error.title')} — {t('contact.error.body')}
+                </div>
+              </Reveal>
+            )}
+
+            <Reveal delay={700}>
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <button
+                  type="submit"
+                  className="btn-bridge"
+                  disabled={state.status === 'sending'}
+                  style={{
+                    opacity: state.status === 'sending' ? 0.6 : 1,
+                    cursor: state.status === 'sending' ? 'wait' : 'pointer',
+                  }}
+                >
+                  {state.status === 'sending'
+                    ? t('contact.labels.submitting')
+                    : t('contact.labels.submit')}
+                  <span aria-hidden="true">→</span>
+                </button>
+
+                <div className="text-sm text-[var(--mist-400)] flex flex-col sm:flex-row sm:items-center sm:gap-3">
+                  <a
+                    href={`mailto:${t('contact.info.email')}`}
+                    className="text-[var(--teal-500)] hover:text-[var(--mist-50)]"
+                  >
+                    {t('contact.info.email')}
+                  </a>
+                  <span className="hidden sm:inline">·</span>
+                  <span>{t('contact.info.responseTime')}</span>
+                </div>
+              </div>
+            </Reveal>
           </form>
-        </ScrollReveal>
+        )}
       </div>
-    </div>
+    </section>
+  );
+}
+
+function Field({ label, hint, required, children }) {
+  return (
+    <label className="block">
+      <span className="block text-[11px] font-semibold tracking-[0.18em] uppercase mb-2 text-[var(--mist-300)]">
+        {label}
+        {required && <span className="text-coral ml-1">*</span>}
+      </span>
+      {children}
+      {hint && (
+        <span className="block mt-1.5 text-[11px] text-[var(--mist-500)]">
+          {hint}
+        </span>
+      )}
+    </label>
   );
 }

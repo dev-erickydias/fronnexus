@@ -1,7 +1,8 @@
-import en from "./en.json";
-import pt from "./pt.json";
-import es from "./es.json";
+import en from './en.json';
+import pt from './pt.json';
 
-export const translations = { en, pt, es };
-export const defaultLang = "en";
-export const supportedLangs = ["en", "pt", "es"];
+// PT-BR primary (Brazil/Portugal market). EN is the international toggle.
+// Spanish was dropped in v3 — re-add later if pipeline justifies it.
+export const translations = { pt, en };
+export const defaultLang = 'pt';
+export const supportedLangs = ['pt', 'en'];

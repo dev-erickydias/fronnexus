@@ -1,301 +1,301 @@
 {
+  "meta": {
+    "name": "Português",
+    "short": "PT",
+    "htmlLang": "pt-BR"
+  },
   "nav": {
     "home": "Início",
-    "aboutUs": "Sobre Nós",
+    "about": "Sobre",
+    "services": "Serviços",
     "projects": "Projetos",
-    "getInTouch": "Fale Conosco",
+    "contact": "Contato",
     "openMenu": "Abrir menu",
-    "closeMenu": "Fechar menu"
+    "closeMenu": "Fechar menu",
+    "language": "Idioma"
   },
 
   "hero": {
-    "badge": "Agência Digital",
-    "home": {
-      "title": "Criamos, Desenvolvemos &",
-      "highlight": "Escalamos Sua Presença",
-      "subtitle": "Digital.",
-      "description": "A Fronnexus é uma agência digital global especializada em desenvolvimento front-end, design UI/UX, análise de dados e garantia de qualidade. Ajudamos startups e empresas consolidadas a criar experiências web de alta performance que convertem visitantes em clientes.",
-      "buttonText": "Conheça Nossos Serviços"
-    },
-    "about": {
-      "title": "Construído com Paixão,",
-      "highlight": "Guiado pela",
-      "subtitle": "Precisão.",
-      "description": "A Fronnexus é uma agência digital multicultural com atuação global. Combinamos design thinking, tecnologia moderna e análise estratégica de dados para criar produtos digitais que ajudam empresas a escalar. Cada pixel, cada linha de código — feitos com propósito.",
-      "buttonText": "Veja Nosso Trabalho"
-    },
-    "projects": {
-      "title": "Feito com Código.",
-      "highlight": "Guiado pelo",
-      "subtitle": "Design.",
-      "description": "Cada projeto que entregamos combina arquitetura limpa, design criterioso e resultados mensuráveis. Explore nosso portfólio e veja como ajudamos clientes de diversos setores a transformar sua presença digital e alcançar crescimento real.",
-      "buttonText": "Sobre Nosso Processo"
+    "label": "Boutique digital",
+    "title": "Conectamos código",
+    "highlight": "com gente real",
+    "after": ".",
+    "description": "Sites, apps, marketing e consultoria de crescimento — feitos por mãos pequenas, com cuidado de quem entrega projeto bom como se fosse o seu.",
+    "primaryCta": "Vamos conversar",
+    "secondaryCta": "Ver o trabalho",
+    "scrollHint": "role para descobrir",
+    "stats": {
+      "projects": "Projetos entregues",
+      "stack": "Stack moderna",
+      "satisfaction": "Cliente satisfeito"
     }
   },
 
   "services": {
-    "badge": "O Que Fazemos",
-    "title": "Serviços Digitais Completos",
-    "description": "Da identidade visual ao código impecável e à estratégia orientada por dados, a Fronnexus entrega um conjunto completo de serviços digitais feitos sob medida para ajudar seu negócio a se destacar, performar melhor e crescer mais rápido em um mercado cada vez mais competitivo.",
-    "frontEnd": {
-      "title": "Desenvolvimento Front-End",
-      "description": "Construímos interfaces rápidas, acessíveis e responsivas usando React, Next.js e Tailwind CSS. Nosso código é limpo, escalável e otimizado para performance — entregando tempos de carregamento abaixo de um segundo e interações fluidas."
-    },
-    "webDesign": {
-      "title": "Web Design & UI/UX",
-      "description": "De wireframes a layouts pixel-perfect, criamos experiências centradas no usuário que são visualmente impactantes e convertem. Utilizamos Figma para prototipação e iteramos de perto com os clientes para garantir que cada detalhe esteja alinhado à marca."
-    },
-    "dataAnalysis": {
-      "title": "Análise de Dados & Insights",
-      "description": "Transformamos dados brutos em dashboards, relatórios e visualizações que impulsionam decisões mais inteligentes. Seja para acompanhar KPIs, comportamento do usuário ou tendências de mercado — fazemos seus dados trabalharem por você."
-    },
-    "qa": {
-      "title": "Garantia de Qualidade",
-      "description": "Testes rigorosos em diferentes dispositivos e navegadores garantem que cada release seja estável, performático e livre de bugs. Utilizamos fluxos de QA automatizados e manuais para identificar problemas antes que cheguem aos seus usuários."
+    "label": "O que fazemos",
+    "title": "Quatro frentes,",
+    "highlight": "um único objetivo",
+    "after": ": fazer seu negócio crescer.",
+    "intro": "Cobrimos do código ao crescimento. Você fala com uma pessoa só — eu — e a entrega chega inteira.",
+    "items": [
+      {
+        "id": "web",
+        "tag": "01 / Web",
+        "title": "Desenvolvimento web",
+        "subtitle": "Sites e aplicações que carregam rápido e convertem.",
+        "description": "Next.js, React, Tailwind. Performance acima de 90 no Lighthouse, SEO técnico embutido, animações que respeitam quem usa. Do MVP de startup ao site institucional.",
+        "deliverables": [
+          "Site institucional",
+          "Landing page de conversão",
+          "Web app sob medida",
+          "Integração com APIs e CMS"
+        ]
+      },
+      {
+        "id": "marketing",
+        "tag": "02 / Marketing",
+        "title": "Marketing digital",
+        "subtitle": "Tráfego que vira cliente — não vaidade.",
+        "description": "Estratégia de presença online focada no funil real: Aquisição, Ativação, Retenção, Receita, Recomendação. Gestão de conteúdo, SEO, ads pagos quando faz sentido.",
+        "deliverables": [
+          "Estratégia digital completa",
+          "SEO técnico + conteúdo",
+          "Gestão de ads (Google, Meta)",
+          "Calendário editorial"
+        ]
+      },
+      {
+        "id": "consulting",
+        "tag": "03 / Consultoria",
+        "title": "Consultoria de crescimento",
+        "subtitle": "Por onde começar — e o que fazer depois.",
+        "description": "Para quem está começando ou estagnou. Olho no negócio, mapa de oportunidades, próximos passos com prioridade. Sem promessa vazia, sem chavão de coach.",
+        "deliverables": [
+          "Diagnóstico estratégico",
+          "Roadmap de crescimento",
+          "Análise de concorrência",
+          "Mentoria contínua opcional"
+        ]
+      },
+      {
+        "id": "analysis",
+        "tag": "04 / Análise",
+        "title": "Análise & dados",
+        "subtitle": "Decisão guiada por número, não por achismo.",
+        "description": "Implementação de analytics, dashboards próprios, leitura honesta dos dados. Você descobre o que funciona — e para de gastar onde não compensa.",
+        "deliverables": [
+          "Setup de analytics (GA4, Plausible)",
+          "Dashboards customizados",
+          "Análise de funil e jornada",
+          "Relatórios mensais"
+        ]
+      }
+    ]
+  },
+
+  "showcase": {
+    "label": "Trabalho em destaque",
+    "title": "Projetos que",
+    "highlight": "saíram do GitHub",
+    "after": " pro mundo real.",
+    "intro": "Cada um foi um problema diferente — e cada um virou uma entrega que continua no ar.",
+    "viewLive": "Ver ao vivo",
+    "viewCode": "Ver código",
+    "tech": "Stack",
+    "loading": "Carregando projetos…",
+    "empty": "Nenhum projeto público com a tag de destaque ainda.",
+    "errorTitle": "Não foi possível carregar os projetos",
+    "errorRetry": "Tentar novamente",
+    "filters": {
+      "all": "Todos",
+      "web": "Web",
+      "marketing": "Marketing",
+      "saas": "SaaS"
     }
   },
 
-  "projects": {
-    "badge": "Nosso Trabalho",
-    "title": "Projetos Reais, Impacto Real",
-    "description": "Explore alguns dos nossos trabalhos recentes — onde design, desenvolvimento e estratégia se unem para resolver problemas reais.",
-    "visitSite": "Visitar site",
-    "details": "Detalhes",
-    "viewAll": "Ver todos os projetos",
-    "errorLoading": "Não foi possível carregar os projetos do banco de dados.",
-    "projectImageAlt": "Imagem do projeto",
-    "projectFallbackName": "Projeto",
-    "noDescription": "Nenhuma descrição disponível.",
-    "featuredWork": {
-      "title": "Trabalhos em Destaque",
-      "description": "Uma seleção curada de projetos que demonstram nossa expertise em desenvolvimento front-end, arquitetura full-stack e design orientado por dados."
-    }
+  "process": {
+    "label": "Como trabalhamos",
+    "title": "Quatro passos.",
+    "highlight": "Sem mistério.",
+    "intro": "Do primeiro café ao deploy. Você sempre sabe onde a gente está.",
+    "steps": [
+      {
+        "n": "01",
+        "title": "Conversa inicial",
+        "description": "Entendo o problema, o público, o orçamento. Saio com escopo e prazo. Sem proposta de 30 páginas — duas folhas resolvem."
+      },
+      {
+        "n": "02",
+        "title": "Design & estratégia",
+        "description": "Wireframes, identidade, copy. Você aprova cada etapa antes de virar código. Nada é surpresa."
+      },
+      {
+        "n": "03",
+        "title": "Construção",
+        "description": "Builds incrementais, link de preview por commit. Você acompanha em tempo real, dá feedback no caminho."
+      },
+      {
+        "n": "04",
+        "title": "Lançamento & continuidade",
+        "description": "Deploy, monitoramento, ajustes pós-lançamento. Manutenção e crescimento mensal opcional."
+      }
+    ]
   },
 
-  "projectCard": {
-    "technologies": "tecnologias",
-    "unnamedProject": "Projeto Sem Nome",
-    "about": "Sobre",
-    "descriptionNotAvailable": "Descrição não disponível.",
-    "na": "n/d",
-    "code": "Código",
-    "website": "Website"
+  "ctaPrimary": {
+    "title": "Pronto para tirar a ideia",
+    "highlight": "do papel?",
+    "description": "Mande uma mensagem. Respondo em até 24h com próximos passos claros — sem proposta inflada nem corretiva.",
+    "button": "Falar agora",
+    "secondary": "Ver projetos primeiro"
   },
 
-  "popup": {
-    "projectDetails": "Detalhes do projeto",
-    "close": "Fechar",
-    "openProject": "Abrir projeto",
-    "technologies": "Tecnologias",
-    "description": "Descrição"
+  "ctaSecondary": {
+    "title": "Empresa já existe e travou?",
+    "highlight": "Vamos destravar.",
+    "description": "Diagnóstico estratégico em 1h. Saio com 3 oportunidades concretas pra você atacar essa semana.",
+    "button": "Agendar diagnóstico"
   },
 
   "about": {
-    "badge": "Sobre Nós",
-    "agencyName": "Fronnexus",
-    "agencyTagline": "Agência Digital — Operações Globais",
-    "agencyDescription1": "A Fronnexus é uma agência digital fundada na crença de que ótima tecnologia deve ser acessível a todos os negócios. Somos especializados em desenvolvimento front-end, design UI/UX, análise de dados e garantia de qualidade — entregando soluções completas que ajudam empresas a estabelecer uma presença online poderosa.",
-    "agencyDescription2": "Nossa equipe multicultural atua globalmente, trazendo perspectivas diversas para cada projeto. Trabalhamos com startups lançando seu primeiro produto e empresas consolidadas que buscam modernizar sua experiência digital. Precisão, criatividade e resultados mensuráveis definem tudo o que fazemos.",
-    "github": "GitHub",
-    "linkedin": "LinkedIn",
-    "instagram": "Instagram",
-    "loadingTeam": "Carregando equipe...",
-    "teamMember": "Membro da equipe"
+    "label": "Sobre",
+    "title": "Boutique pequena,",
+    "highlight": "cuidado grande.",
+    "intro": "Fronnexus nasceu da junção de duas palavras: front (frontend) e conexus (conexão). É exatamente isso — a ponte entre código bem feito e gente real.",
+    "story": {
+      "title": "A história curta",
+      "p1": "Comecei freelance, entregando site pra restaurante e salão. Vi que o problema raramente era só técnico — era estratégia, posicionamento, falta de quem olhasse o todo.",
+      "p2": "Hoje a Fronnexus faz quatro frentes: web, marketing, consultoria e dados. Tudo na mesma porta, com a mesma pessoa cuidando — sem repassar pra terceiro nem desaparecer depois do contrato.",
+      "p3": "Trabalho com PMEs no Brasil e fora — já entreguei pra clientes em Portugal, Holanda e Brasil. Tom é o mesmo: falar reto, entregar inteiro, ficar disponível depois."
+    },
+    "values": {
+      "title": "Como a gente trabalha",
+      "items": [
+        {
+          "title": "Falar reto",
+          "description": "Sem jargão de agência. Se algo não vai funcionar, eu falo. Se você está pedindo a coisa errada, eu redireciono."
+        },
+        {
+          "title": "Cuidado de boutique",
+          "description": "Você fala com uma pessoa — não com um time de atendimento. Cada projeto tem prioridade real, não fila."
+        },
+        {
+          "title": "Stack moderna, sem hype",
+          "description": "Next.js, React, Supabase, Vercel. Tecnologia escolhida porque resolve — não porque está na moda."
+        },
+        {
+          "title": "Continuidade",
+          "description": "Entrego e fico. Ajuste pós-lançamento, manutenção, próximos passos. A relação é longa, não transação."
+        }
+      ]
+    }
   },
 
   "contact": {
-    "badge": "Fale Conosco",
-    "title": "Vamos Construir Algo Incrível Juntos",
-    "description": "Seja para criar um site do zero, redesenhar o atual ou desenvolver uma solução digital personalizada, nossa equipe está pronta para dar vida à sua visão. Conte-nos sobre seu projeto e retornaremos em até 24 horas.",
+    "label": "Vamos conversar",
+    "title": "Tem ideia, projeto",
+    "highlight": "ou problema?",
+    "after": " Manda aqui.",
+    "intro": "Respondo em até 24h. Se for urgente, fala no Whatsapp. Se for grande, marca uma call.",
     "labels": {
       "firstName": "Nome",
       "lastName": "Sobrenome",
-      "email": "Endereço de E-mail",
+      "email": "E-mail",
       "phone": "Telefone",
       "phoneOptional": "(opcional)",
+      "company": "Empresa",
+      "companyOptional": "(opcional)",
       "country": "País",
-      "preferredLanguage": "Idioma Preferido",
-      "projectDetails": "Detalhes do Projeto",
-      "servicesLegend": "Como podemos ajudá-lo?",
-      "servicesHint": "Selecione todos os serviços que se aplicam ao seu projeto."
+      "preferredLanguage": "Idioma preferido",
+      "projectType": "Tipo de projeto",
+      "projectTypeHint": "Selecione o que mais combina.",
+      "projectDetails": "Conte sobre o projeto",
+      "projectDetailsHint": "Quanto mais detalhe, melhor a primeira resposta.",
+      "budget": "Orçamento estimado",
+      "budgetOptional": "(opcional, ajuda a alinhar)",
+      "submit": "Enviar mensagem",
+      "submitting": "Enviando…"
+    },
+    "projectTypes": {
+      "web": "Site ou aplicação web",
+      "marketing": "Marketing digital",
+      "consulting": "Consultoria de crescimento",
+      "analysis": "Análise & dados",
+      "other": "Outro / não tenho certeza"
+    },
+    "budgets": {
+      "small": "Até R$ 5.000",
+      "medium": "R$ 5.000 – R$ 15.000",
+      "large": "R$ 15.000 – R$ 40.000",
+      "enterprise": "R$ 40.000+",
+      "tbd": "Ainda definindo"
     },
     "placeholders": {
-      "firstName": "ex. João",
-      "lastName": "ex. Silva",
+      "firstName": "Maria",
+      "lastName": "Silva",
       "email": "voce@empresa.com",
-      "phone": "+55 (11) 90000-0000",
-      "country": "Onde você está localizado?",
-      "language": "Como devemos nos comunicar?",
-      "message": "Descreva seu projeto, objetivos, prazo e quaisquer requisitos específicos. Quanto mais detalhes você fornecer, melhor poderemos personalizar nossa resposta às suas necessidades."
-    },
-    "languages": {
-      "english": "Inglês",
-      "spanish": "Espanhol",
-      "portuguese": "Português"
-    },
-    "services": {
-      "frontend": {
-        "label": "Desenvolvimento Front-End",
-        "desc": "React, Next.js, UI responsiva"
-      },
-      "data": {
-        "label": "Análise de Dados",
-        "desc": "Dashboards, insights, relatórios"
-      },
-      "webdesign": {
-        "label": "Web Design",
-        "desc": "UI/UX, branding, protótipos"
-      },
-      "qa": {
-        "label": "Garantia de Qualidade",
-        "desc": "Testes, auditorias, otimização"
-      },
-      "fullstack": {
-        "label": "Solução Full-Stack",
-        "desc": "Desenvolvimento completo"
-      },
-      "other": {
-        "label": "Outro",
-        "desc": "Nos conte na sua mensagem"
-      }
-    },
-    "terms": {
-      "prefix": "Eu concordo com os",
-      "linkText": "Termos de Serviço e Política de Privacidade",
-      "suffix": "e autorizo a Fronnexus a processar meus dados para responder a esta solicitação."
+      "phone": "(11) 9 9999-9999",
+      "company": "Nome da empresa",
+      "details": "Quero um site novo para minha clínica, com agendamento online e blog. Já tenho identidade visual mas o site atual está parado…"
     },
     "success": {
-      "title": "Mensagem enviada com sucesso!",
-      "message": "Obrigado por entrar em contato. Nossa equipe analisará sua solicitação e retornará em até 24 horas."
+      "title": "Mensagem recebida",
+      "body": "Volto em até 24h com próximos passos. Se for urgente, manda no Whatsapp."
     },
     "error": {
-      "title": "Algo deu errado.",
-      "message": "Por favor, tente novamente ou entre em contato diretamente pelo e-mail erickyhenriquesd@gmail.com"
+      "title": "Algo deu errado",
+      "body": "Tenta de novo, ou manda direto pro e-mail abaixo."
     },
-    "submitButton": "Enviar Mensagem",
-    "submitting": "Enviando...",
-    "disclaimer": "Normalmente respondemos em até 1 dia útil. Suas informações são mantidas em sigilo."
-  },
-
-  "validation": {
-    "firstNameRequired": "O nome é obrigatório.",
-    "firstNameMin": "O nome deve ter pelo menos 2 caracteres.",
-    "lastNameRequired": "O sobrenome é obrigatório.",
-    "lastNameMin": "O sobrenome deve ter pelo menos 2 caracteres.",
-    "emailRequired": "O e-mail é obrigatório.",
-    "emailInvalid": "O formato do e-mail é inválido.",
-    "phoneInvalid": "Informe um número de telefone válido (mínimo de 8 dígitos).",
-    "countryRequired": "Selecione um país.",
-    "languageRequired": "Selecione um idioma.",
-    "serviceRequired": "Selecione um serviço.",
-    "messageMin": "A mensagem deve ter pelo menos 10 caracteres.",
-    "termsRequired": "Você deve aceitar os termos para continuar."
-  },
-
-  "cta": {
-    "primeira": {
-      "card1Title": "Ericky",
-      "card1Text": "Seu conteúdo aqui",
-      "card2Title": "Card 2",
-      "card2Text": "Seu conteúdo aqui",
-      "card3Title": "Card 3",
-      "card3Text": "Seu conteúdo aqui"
-    },
-    "segunda": {
-      "defaultTitle": "Vamos Criar Algo",
-      "defaultHighlight": "Incrível Juntos",
-      "defaultSubtitle": "Da estratégia ao lançamento, nossa equipe está pronta para ajudá-lo a construir uma presença digital que se destaca e entrega resultados reais.",
-      "defaultButton": "Fale Conosco"
-    },
-    "home1": {
-      "title": "Transforme sua ideia em",
-      "subtitle": "realidade digital.",
-      "buttonText": "Inicie Seu Projeto"
-    },
-    "home2": {
-      "title": "Pronto para expandir sua",
-      "subtitle": "presença online?",
-      "buttonText": "Vamos Conversar"
-    },
-    "about": {
-      "title": "Quer fazer parte da nossa equipe ou",
-      "subtitle": "iniciar um projeto?",
-      "buttonText": "Fale Conosco"
-    },
-    "projects": {
-      "title": "Tem um projeto em mente?",
-      "subtitle": "Vamos discutir como podemos dar vida a ele com estratégia, design e código.",
-      "buttonText": "Iniciar uma Conversa"
+    "info": {
+      "email": "contato@fronnexus.org",
+      "responseTime": "Resposta em até 24h",
+      "based": "Baseado no Brasil — atendimento global",
+      "whatsappLabel": "Falar no WhatsApp",
+      "whatsappHint": "Mais rápido que e-mail"
     }
   },
 
   "footer": {
-    "logoAlt": "Logo da Fronnexus",
-    "brandDescription": "Somos uma agência digital global que cria sites de alta performance, aplicativos e soluções orientadas por dados. Do conceito ao lançamento, a Fronnexus transforma suas ideias em experiências digitais fluidas que impulsionam o crescimento real do seu negócio.",
-    "navigationTitle": "Navegação",
-    "connectTitle": "Conecte-se Conosco",
-    "socialFollowText": "Siga-nos para atualizações sobre novos projetos, dicas de design e conteúdo dos bastidores.",
-    "copyright": "Fronnexus. Todos os direitos reservados.",
-    "termsLink": "Termos & Privacidade",
-    "social": {
-      "github": "GitHub",
-      "linkedin": "LinkedIn",
-      "instagram": "Instagram"
-    }
+    "tagline": "Boutique digital — desenvolvimento, marketing e crescimento.",
+    "navTitle": "Navegação",
+    "servicesTitle": "Serviços",
+    "contactTitle": "Contato",
+    "social": "Social",
+    "rights": "Todos os direitos reservados.",
+    "made": "Feito com cuidado em",
+    "terms": "Termos",
+    "privacy": "Privacidade",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram"
   },
 
   "terms": {
-    "pageTitle": "Termos de Responsabilidade e Proteção de Dados",
-    "lastUpdated": "Última atualização:",
-    "section1": {
-      "title": "1. Introdução",
-      "content": "A Fronnexus tem o compromisso de manter a transparência e a responsabilidade em todos os seus projetos de desenvolvimento e parcerias. Este documento define os princípios de responsabilidade, uso ético e proteção de dados aplicados a todos os serviços e produtos digitais desenvolvidos pela nossa equipe."
-    },
-    "section2": {
-      "title": "2. Responsabilidade do Desenvolvedor",
-      "content": "A equipe da Fronnexus garante que cada projeto é desenvolvido de acordo com as melhores práticas da indústria em performance, acessibilidade e segurança. Todo código e recursos fornecidos estão sujeitos a revisão periódica, garantindo conformidade com padrões legais e éticos."
-    },
-    "section3": {
-      "title": "3. Proteção de Dados e Privacidade",
-      "content1": "A Fronnexus cumpre rigorosamente a legislação vigente de proteção de dados, incluindo a Lei Geral de Proteção de Dados (LGPD) e o GDPR, quando aplicável. A coleta e o uso de informações dos usuários são limitados ao essencial para o funcionamento e a melhoria dos nossos serviços.",
-      "content2": "Os dados pessoais são armazenados de forma segura e jamais compartilhados com terceiros sem o consentimento explícito do usuário."
-    },
-    "section4": {
-      "title": "4. Propriedade Intelectual",
-      "content": "Todo código-fonte, design e identidade visual produzidos pela Fronnexus são propriedade intelectual da empresa ou de seus clientes, conforme definido no contrato do projeto. A reprodução ou distribuição não autorizada é expressamente proibida."
-    },
-    "section5": {
-      "title": "5. Limitação de Responsabilidade",
-      "content": "A Fronnexus não se responsabiliza por danos ou prejuízos decorrentes do uso indevido das soluções desenvolvidas ou de integrações com terceiros não aprovadas pela equipe. Cada cliente é responsável por manter suas credenciais de segurança e cumprir a finalidade prevista do produto."
-    },
-    "section6": {
-      "title": "6. Alterações nos Termos",
-      "content": "A Fronnexus reserva-se o direito de modificar estes Termos de Responsabilidade a qualquer momento, com aviso prévio em nossos canais oficiais de comunicação. A data da última atualização será sempre exibida no topo deste documento."
-    },
-    "section7": {
-      "title": "7. Contato",
-      "content": "Se você tiver qualquer dúvida sobre este documento ou sobre como a Fronnexus trata suas informações, entre em contato com nossa equipe de suporte através de:",
-      "emailLabel": "E-mail: support@fronnexus.com",
-      "websiteLabel": "Website: https://fronnexus.com"
-    },
-    "footerCopyright": "Fronnexus. Todos os direitos reservados."
-  },
-
-  "meta": {
-    "home": {
-      "title": "Fronnexus — Agência Digital",
-      "description": "A Fronnexus cria experiências digitais fluidas com precisão e criatividade. Desenvolvimento front-end, web design, análise de dados e QA."
-    }
-  },
-
-  "skills": {
-    "tailwind": "Tailwind CSS",
-    "figma": "Figma",
-    "react": "React",
-    "nextjs": "Next.js",
-    "nodejs": "Node.js",
-    "typescript": "TypeScript",
-    "supabase": "Supabase",
-    "git": "Git"
+    "label": "Termos & Privacidade",
+    "title": "Como tratamos seus dados",
+    "lastUpdate": "Última atualização: abril de 2026",
+    "sections": [
+      {
+        "title": "Quem somos",
+        "body": "A Fronnexus é uma boutique digital operada por Ericky Dias (CNPJ a divulgar mediante contrato), com base no Brasil e atendimento global."
+      },
+      {
+        "title": "Dados que coletamos",
+        "body": "Coletamos apenas o necessário para responder você e prestar o serviço contratado: nome, e-mail, telefone, empresa, e os detalhes do projeto que você nos envia. Não vendemos, não compartilhamos com terceiros."
+      },
+      {
+        "title": "Como usamos",
+        "body": "Para responder sua mensagem, enviar proposta, executar o projeto e — se você autorizar — incluir o caso na vitrine do site. Nunca para spam."
+      },
+      {
+        "title": "LGPD",
+        "body": "Você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento. Basta enviar e-mail para contato@fronnexus.org."
+      },
+      {
+        "title": "Cookies",
+        "body": "Usamos apenas cookies essenciais (idioma preferido). Não rastreamos comportamento entre sites."
+      }
+    ]
   }
 }

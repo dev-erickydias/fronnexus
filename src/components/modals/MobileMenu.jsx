@@ -7,23 +7,20 @@ export default function MobileMenu({ isOpen, onClose, navItems }) {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        onClose();
-      }
+    if (!isOpen) return undefined;
+
+    function onClickOutside(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) onClose();
     }
-    function handleEscapeKey(event) {
-      if (event.key === 'Escape') {
-        onClose();
-      }
+    function onEscape(e) {
+      if (e.key === 'Escape') onClose();
     }
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('keydown', handleEscapeKey);
-    }
+
+    document.addEventListener('mousedown', onClickOutside);
+    document.addEventListener('keydown', onEscape);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener('mousedown', onClickOutside);
+      document.removeEventListener('keydown', onEscape);
     };
   }, [isOpen, onClose]);
 
@@ -32,16 +29,27 @@ export default function MobileMenu({ isOpen, onClose, navItems }) {
   return (
     <div
       ref={menuRef}
-      className="fixed z-40 top-[60px] right-4 sm:right-7 p-2 rounded-xl border border-[var(--stroke-container-divider)] bg-[var(--glass-bg)] backdrop-blur-xl shadow-xl transition-all duration-300"
+      id="mobile-menu"
+      className="fixed top-[68px] right-4 sm:right-7 z-40 p-2 rounded-2xl min-w-[220px]"
+      style={{
+        background: 'rgba(10, 14, 20, 0.92)',
+        backdropFilter: 'blur(18px) saturate(160%)',
+        WebkitBackdropFilter: 'blur(18px) saturate(160%)',
+        border: '1px solid var(--border-soft)',
+        boxShadow: '0 18px 40px rgba(0,0,0,0.5), 0 0 32px rgba(94,234,212,0.06)',
+      }}
     >
       <nav>
-        <ul className="divide-y divide-[var(--stroke-container-divider)]">
+        <ul>
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="block py-2.5 px-4 text-sm text-primary font-medium rounded-lg hover:bg-[rgba(139,92,246,0.08)] transition-colors"
                 onClick={onClose}
+                className="block py-2.5 px-4 text-sm font-medium rounded-xl transition-colors"
+                style={{
+                  color: item.isCta ? 'var(--teal-500)' : 'var(--mist-100)',
+                }}
               >
                 {item.name}
               </Link>

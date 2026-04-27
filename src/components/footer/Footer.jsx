@@ -1,128 +1,138 @@
 'use client';
-
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useI18n } from '../../i18n/I18nContext';
 
-function usePrefersDark() {
-  const [isDark, setIsDark] = useState(false);
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return;
-    const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e) => setIsDark(e.matches);
-    setIsDark(mq.matches);
-    if (mq.addEventListener) mq.addEventListener('change', handleChange);
-    else mq.addListener(handleChange);
-    return () => {
-      if (mq.removeEventListener) mq.removeEventListener('change', handleChange);
-      else mq.removeListener(handleChange);
-    };
-  }, []);
-  return isDark;
-}
-
-function iconPath(name, isDark) {
-  return `/assets/icons/${name}${isDark ? 'Dark' : ''}.svg`;
-}
-
 const SOCIAL = [
-  { name: 'github', label: 'GitHub', href: 'https://github.com/Fronnexu' },
-  { name: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/company/fronnexus' },
-  { name: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/fronnexus' },
+  {
+    name: 'github',
+    label: 'GitHub',
+    href: 'https://github.com/dev-erickydias',
+  },
+  {
+    name: 'linkedin',
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/fronnexus',
+  },
+  {
+    name: 'instagram',
+    label: 'Instagram',
+    href: 'https://www.instagram.com/fronnexus',
+  },
 ];
 
 export default function Footer() {
-  const isDark = usePrefersDark();
   const { t } = useI18n();
+  const year = new Date().getFullYear();
 
-  const footerLinks = [
+  const navLinks = [
     { name: t('nav.home'), href: '/' },
-    { name: t('nav.aboutUs'), href: '/about' },
+    { name: t('nav.about'), href: '/about' },
     { name: t('nav.projects'), href: '/projects' },
-    { name: t('nav.getInTouch'), href: '/contact' },
+    { name: t('nav.contact'), href: '/contact' },
   ];
 
+  const serviceLinks = (t('services.items') || [])
+    .filter((i) => typeof i === 'object' && i.title)
+    .map((i) => ({ name: i.title, href: '/#services' }));
+
   return (
-    <footer className="border-t border-[var(--stroke-container-divider)] bg-background">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+    <footer
+      className="relative mt-20 border-t"
+      style={{ borderColor: 'var(--border-soft)' }}
+    >
+      <div className="container-wide py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Brand */}
-          <div>
-            <Image
-              src="/assets/icons/logo.svg"
-              alt="Fronnexus Logo"
-              width={130}
-              height={36}
-              className="h-auto w-auto mb-4"
-              priority
-            />
-            <p className="text-sm text-primary-70 max-w-xs leading-relaxed">
-              {t('footer.brandDescription')}
+          <div className="md:col-span-5">
+            <Link href="/" aria-label="Fronnexus — home" className="inline-block">
+              <span className="font-display text-2xl font-semibold tracking-tight">
+                Fronnexus<span className="text-[var(--teal-500)]">.</span>
+              </span>
+            </Link>
+            <p className="mt-4 text-[var(--mist-300)] text-sm leading-relaxed max-w-sm text-pretty">
+              {t('footer.tagline')}
             </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {SOCIAL.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="text-xs uppercase tracking-[0.22em] px-3 py-1.5 rounded-full border transition-all duration-300"
+                  style={{
+                    color: 'var(--mist-300)',
+                    borderColor: 'var(--border-soft)',
+                    background: 'rgba(20, 27, 45, 0.4)',
+                  }}
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <p className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
-              {t('footer.navigationTitle')}
+          {/* Nav */}
+          <div className="md:col-span-3">
+            <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[var(--teal-500)] mb-4">
+              {t('footer.navTitle')}
             </p>
             <ul className="space-y-2.5">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
+              {navLinks.map((l) => (
+                <li key={l.href}>
                   <Link
-                    href={link.href}
-                    className="text-sm text-primary hover:text-[#8b5cf6] transition-colors"
+                    href={l.href}
+                    className="text-sm text-[var(--mist-200)] hover:text-[var(--teal-500)] transition-colors"
                   >
-                    {link.name}
+                    {l.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Social */}
-          <div>
-            <p className="text-xs uppercase tracking-wider text-primary-70 mb-4 font-semibold">
-              {t('footer.connectTitle')}
+          {/* Services */}
+          <div className="md:col-span-4">
+            <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[var(--coral-500)] mb-4">
+              {t('footer.servicesTitle')}
             </p>
-            <div className="flex flex-wrap gap-3">
-              {SOCIAL.map((s) => (
-                <Link
-                  key={s.name}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-9 h-9 rounded-lg border border-[var(--stroke-container-divider)] bg-[var(--surface-subtle)] flex items-center justify-center hover:border-[rgba(139,92,246,0.3)] hover:bg-[rgba(139,92,246,0.05)] transition-all"
-                >
-                  <Image
-                    src={iconPath(s.name, isDark)}
-                    alt={s.label}
-                    width={18}
-                    height={18}
-                    className="size-[18px]"
-                  />
-                </Link>
+            <ul className="space-y-2.5">
+              {serviceLinks.map((s) => (
+                <li key={s.name}>
+                  <Link
+                    href={s.href}
+                    className="text-sm text-[var(--mist-200)] hover:text-[var(--coral-500)] transition-colors"
+                  >
+                    {s.name}
+                  </Link>
+                </li>
               ))}
-            </div>
-            <p className="text-xs text-primary-70 mt-4 leading-relaxed">
-              {t('footer.socialFollowText')}
-            </p>
+            </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-[var(--stroke-container-divider)] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-primary-70">
-            &copy; {new Date().getFullYear()} {t('footer.copyright')}
+        <div
+          className="mt-12 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-3"
+          style={{ borderColor: 'var(--border-soft)' }}
+        >
+          <p className="text-xs text-[var(--mist-400)]">
+            © {year} Fronnexus. {t('footer.rights')}
           </p>
-          <Link
-            href="/terms/responsability"
-            className="text-xs text-primary-70 hover:text-[#8b5cf6] transition-colors"
-          >
-            {t('footer.termsLink')}
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/terms/responsability"
+              className="text-xs text-[var(--mist-400)] hover:text-[var(--mist-100)] transition-colors"
+            >
+              {t('footer.terms')}
+            </Link>
+            <span className="text-xs text-[var(--mist-500)]">·</span>
+            <span className="text-xs text-[var(--mist-400)]">
+              {t('footer.made')} <span className="text-coral">Brasil</span>
+            </span>
+          </div>
         </div>
       </div>
     </footer>
