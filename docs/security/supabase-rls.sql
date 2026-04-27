@@ -58,17 +58,35 @@ drop policy if exists "Allow anon update" on public.contact_submissions;
 drop policy if exists "Allow anon delete" on public.contact_submissions;
 drop policy if exists "Public insert"     on public.contact_submissions;
 
--- ─── Policy: anon may INSERT, nothing else ────────────────────────
--- The form route uses the NEXT_PUBLIC_SUPABASE_ANON_KEY, which is
--- safe to ship to the client because of THIS policy — it can only
--- write, never read.
-create policy "Public insert"
-  on public.contact_submissions
-  for insert
-  to anon, authenticated
-  with check (
-    -- Server-side cap on payload size as a belt-and-suspenders
-    -- fallback to the Node-side validator
+-- ─── Policy: NOBODY writes via anon ─────────────────────────────
+-- v3.2 hardening: the contact API route now uses the SERVICE ROLE
+-- key (server-only env var, bypasses RLS), so we can deny all anon
+-- writes entirely. This closes the direct-Supabase-bypass attack:
+-- even if an attacker harvests the anon key from the client bundle,
+-- they cannot INSERT into this table — they have to hit our
+-- rate-limited, origin-checked, honeypot-guarded /api/send-email
+-- route instead.
+--
+-- (No anon insert policy — denied by default once RLS is enabled.)
+--
+-- The Service Role key automatically bypasses RLS, so the contact
+-- route still works. The Supabase Studio dashboard (postgres role)
+-- likewise bypasses RLS, so you can still view leads in the UI.
+
+-- ─── Grants (defense in depth) ──────────────────────────────────
+-- Revoke any privilege the public/anon roles might have inherited
+-- from earlier permissive policies or default Postgres setup.
+revoke all on public.contact_submissions from anon, authenticated, public;
+
+-- ─── Defense in depth: enforce size caps at the database tier ──
+-- Even if a misconfigured key is added later or service role is
+-- used incorrectly, the DB itself rejects oversized rows.
+alter table public.contact_submissions
+  drop constraint if exists contact_submissions_size_check;
+
+alter table public.contact_submissions
+  add constraint contact_submissions_size_check
+  check (
     char_length(coalesce(first_name, '')) between 1 and 60
     and char_length(coalesce(email, '')) between 3 and 254
     and char_length(coalesce(message, '')) between 10 and 4000
@@ -78,14 +96,6 @@ create policy "Public insert"
     and char_length(coalesce(project_type, '')) <= 24
     and char_length(coalesce(budget,   '')) <= 24
   );
-
--- Reading, updating, deleting are NOT granted to anon. The Service
--- Role (in your Supabase Studio dashboard) bypasses RLS entirely,
--- so you can always view leads from the dashboard / SQL editor.
-
--- ─── Grants (defense in depth) ──────────────────────────────────
-revoke all on public.contact_submissions from anon, authenticated;
-grant insert on public.contact_submissions to anon, authenticated;
 
 -- ════════════════════════════════════════════════════════════════
 --  Optional: rate-limit at the database tier too

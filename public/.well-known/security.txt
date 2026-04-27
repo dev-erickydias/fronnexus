@@ -1,0 +1,19 @@
+# RFC 9116 — Responsible disclosure
+# https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:contato@fronnexus.org
+Expires: 2027-04-27T00:00:00.000Z
+Preferred-Languages: pt-BR, en
+Canonical: https://fronnexus.org/.well-known/security.txt
+Policy: https://fronnexus.org/terms/privacy
+Acknowledgments: https://fronnexus.org/terms
+
+# If you found a security issue, email the address above with:
+# - A clear description of the vulnerability
+# - Steps to reproduce
+# - Affected URL or endpoint
+# - Your name (for credit, optional)
+#
+# We respond within 72 hours and aim to fix critical issues
+# within 7 days. We will not pursue legal action against
+# good-faith researchers who follow this policy.
