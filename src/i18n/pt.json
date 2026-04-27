@@ -408,31 +408,84 @@
     "instagram": "Instagram"
   },
 
-  "terms": {
-    "label": "Termos & Privacidade",
-    "title": "Como tratamos seus dados",
+  "termsIndex": {
+    "label": "Documentos legais",
+    "title": "Termos &",
+    "highlight": "Privacidade",
+    "intro": "Documentação completa que rege a relação entre você e a Fronnexus. Leia o que se aplica ao seu caso — qualquer dúvida, fale com a gente.",
     "lastUpdate": "Última atualização: abril de 2026",
-    "sections": [
-      {
-        "title": "Quem somos",
-        "body": "A Fronnexus é uma boutique digital operada por Ericky Dias (CNPJ a divulgar mediante contrato), com base no Brasil e atendimento global."
-      },
-      {
-        "title": "Dados que coletamos",
-        "body": "Coletamos apenas o necessário para responder você e prestar o serviço contratado: nome, e-mail, telefone, empresa, e os detalhes do projeto que você nos envia. Não vendemos, não compartilhamos com terceiros."
-      },
-      {
-        "title": "Como usamos",
-        "body": "Para responder sua mensagem, enviar proposta, executar o projeto e — se você autorizar — incluir o caso na vitrine do site. Nunca para spam."
-      },
-      {
-        "title": "LGPD",
-        "body": "Você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento. Basta enviar e-mail para contato@fronnexus.org."
-      },
-      {
-        "title": "Cookies",
-        "body": "Usamos apenas cookies essenciais (idioma preferido). Não rastreamos comportamento entre sites."
-      }
+    "cards": [
+      { "id": "use", "title": "Termos de Uso", "summary": "Como funciona contratar, executar e encerrar projetos com a Fronnexus.", "href": "/terms/use" },
+      { "id": "privacy", "title": "Política de Privacidade", "summary": "Quais dados coletamos, por que, com quem compartilhamos e seus direitos sob LGPD/GDPR.", "href": "/terms/privacy" },
+      { "id": "cookies", "title": "Política de Cookies", "summary": "Quais cookies o site usa e como controlar.", "href": "/terms/cookies" }
     ]
+  },
+  "termsUse": {
+    "label": "Termos de Uso",
+    "title": "Termos de Uso",
+    "lastUpdate": "Última atualização: abril de 2026",
+    "intro": "Estes Termos regem a relação comercial entre você (\"Cliente\") e a Fronnexus, operada por Ericky Henrique Dias, com sede no Brasil (\"Prestadora\"), referente aos serviços de desenvolvimento web, marketing digital, consultoria de crescimento e análise de dados (\"Serviços\"). Ao contratar a Fronnexus, você concorda integralmente com estes Termos.",
+    "sections": [
+      { "title": "1. Definições", "body": "Cliente: pessoa física ou jurídica que contrata os Serviços. Prestadora: Fronnexus, marca operada por Ericky Henrique Dias. Serviços: desenvolvimento, marketing, consultoria e análise contratados via proposta formal aceita. Entregáveis: artefatos finais entregues ao Cliente (código-fonte, arquivos de design, relatórios, dashboards). Proposta: documento que detalha escopo, prazo, valor e condições, válido por 15 dias após emissão." },
+      { "title": "2. Escopo dos Serviços", "body": "Os Serviços a serem executados estão estritamente definidos na Proposta aceita. Qualquer alteração de escopo (\"Change Request\") exige aprovação por escrito da Prestadora, com possível impacto em prazo e/ou valor — a ser formalizado em aditivo. Trabalhos fora do escopo original não são executados sem novo acordo." },
+      { "title": "3. Aceitação e Início", "body": "O contrato é considerado firmado mediante: (a) aceite formal da Proposta por e-mail ou assinatura eletrônica; (b) pagamento da entrada definida em Proposta. O início efetivo dos trabalhos ocorre após a confirmação do pagamento da entrada." },
+      { "title": "4. Pagamento", "body": "Forma: PIX, transferência bancária, cartão (via gateway Stripe), Wise para clientes internacionais. Estrutura padrão: 50% de entrada + 50% na entrega, ou parcelas por marcos para projetos acima de R$ 12.000. Atraso: pagamentos em atraso superior a 5 dias suspendem a execução. Atrasos superiores a 30 dias permitem rescisão por parte da Prestadora, com retenção dos valores pagos a título de cobertura de horas trabalhadas. Reembolsos: valores pagos não são reembolsáveis após início dos trabalhos, exceto em caso de descumprimento comprovado da Prestadora." },
+      { "title": "5. Prazos e Entregas", "body": "Prazos definidos em Proposta são estimativas baseadas no escopo apresentado. Atrasos causados por: (a) falta de feedback do Cliente em até 5 dias úteis; (b) mudanças de escopo; (c) terceiros sob responsabilidade do Cliente (hosting, conteúdo, integrações externas); (d) força maior — não geram penalidade para a Prestadora e estendem o prazo proporcionalmente." },
+      { "title": "6. Propriedade Intelectual", "body": "Pré-existente: ferramentas, frameworks, templates internos e bibliotecas pré-existentes da Prestadora permanecem de sua propriedade exclusiva. Específico do Cliente: código, design e conteúdo desenvolvidos exclusivamente para o projeto do Cliente são transferidos a este após pagamento integral. Terceiros: dependências de software (Next.js, React, etc.) seguem suas respectivas licenças. Portfólio: a Prestadora reserva-se o direito de exibir o trabalho realizado em portfólio público (incluindo screenshots e descrição), salvo restrição expressa em contrato (NDA)." },
+      { "title": "7. Confidencialidade", "body": "Ambas as partes obrigam-se a manter sigilo sobre informações confidenciais trocadas durante a execução. Esta obrigação persiste por 5 anos após o término do contrato. Não são consideradas confidenciais informações já públicas, conhecidas previamente sem dever de sigilo, ou exigidas por lei/ordem judicial." },
+      { "title": "8. Garantias", "body": "Defeitos: por 30 dias após a entrega final, a Prestadora corrige sem custo adicional bugs comprovadamente decorrentes de sua execução. Não cobre: alterações solicitadas pelo Cliente, falhas em serviços de terceiros, mudanças no ambiente de produção, ou pedidos de novas funcionalidades. Performance: os Serviços são entregues conforme especificações combinadas. Não há garantia de resultados de negócio (vendas, tráfego, conversão, ranking de busca), uma vez que dependem de fatores externos." },
+      { "title": "9. Limitação de Responsabilidade", "body": "Em nenhuma hipótese a responsabilidade total da Prestadora excederá o valor pago pelo Cliente nos 12 meses anteriores ao evento que originou a reclamação. A Prestadora não responde por: (a) danos indiretos, lucros cessantes ou perda de oportunidade; (b) indisponibilidade de serviços de terceiros (Vercel, Supabase, GitHub, Resend); (c) ataques cibernéticos não decorrentes de negligência comprovada da Prestadora; (d) uso indevido dos Entregáveis pelo Cliente." },
+      { "title": "10. Indenização", "body": "O Cliente indenizará a Prestadora por qualquer dano, multa ou ação decorrente de: (a) conteúdo (textos, imagens, marcas) fornecido pelo Cliente que viole direitos de terceiros; (b) uso ilegal dos Entregáveis; (c) declarações falsas sobre a autoria ou propriedade do material entregue à Prestadora." },
+      { "title": "11. Rescisão", "body": "Por qualquer das partes: com aviso prévio por escrito de 15 dias, sem necessidade de justificativa. Os valores referentes a horas trabalhadas e despesas incorridas serão devidos. Por inadimplência: imediata, sem reembolso dos valores já pagos. Por força maior: suspende o contrato sem ônus para qualquer parte por até 60 dias; após, qualquer parte pode rescindir." },
+      { "title": "12. Manutenção e Suporte", "body": "Manutenção e suporte contínuo NÃO estão incluídos no contrato de desenvolvimento, salvo previsão expressa. Pacotes de retainer mensal são contratados separadamente. Após os 30 dias de garantia, ajustes são cobrados conforme tabela de hora-consultoria vigente (R$ 350/h)." },
+      { "title": "13. Foro e Lei Aplicável", "body": "Este contrato é regido pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca da sede da Prestadora à época do litígio para dirimir quaisquer controvérsias, com renúncia expressa a qualquer outro, por mais privilegiado que seja. Para clientes internacionais, eventuais disputas serão resolvidas via mediação online por câmara independente, com fallback para arbitragem em português conforme Lei 9.307/96." },
+      { "title": "14. Alterações destes Termos", "body": "A Prestadora pode atualizar estes Termos a qualquer momento. Alterações materiais serão comunicadas com 30 dias de antecedência aos Clientes ativos. O uso continuado dos Serviços após a comunicação implica aceitação. Contratos em andamento permanecem regidos pela versão vigente na data do aceite." },
+      { "title": "15. Disposições Gerais", "body": "Independência das cláusulas: a invalidade de qualquer cláusula não afeta as demais. Acordo integral: estes Termos, junto com a Proposta aceita, constituem o entendimento integral entre as partes. Notificações: enviadas para o e-mail de contato registrado de cada parte. Cessão: o Cliente não pode ceder este contrato sem consentimento escrito da Prestadora." }
+    ],
+    "contactBlurb": "Dúvidas sobre estes Termos? Escreve pra contato@fronnexus.org."
+  },
+  "termsPrivacy": {
+    "label": "Política de Privacidade",
+    "title": "Política de Privacidade",
+    "lastUpdate": "Última atualização: abril de 2026",
+    "intro": "Esta Política descreve como a Fronnexus coleta, usa, armazena, compartilha e protege seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei 13.709/2018, Brasil) e o Regulamento Geral sobre a Proteção de Dados (GDPR — UE 2016/679).",
+    "sections": [
+      { "title": "1. Controlador dos Dados", "body": "A Fronnexus, operada por Ericky Henrique Dias (\"Controlador\"), com base no Brasil, é responsável pelo tratamento dos seus dados pessoais. Para qualquer questão relacionada a privacidade, entre em contato pelo e-mail contato@fronnexus.org." },
+      { "title": "2. Dados que Coletamos", "body": "(a) Dados de identificação: nome, sobrenome, e-mail, telefone (opcional), empresa (opcional), país de origem. (b) Dados do projeto: tipo de projeto, faixa de orçamento, descrição do problema/objetivo enviada pelo Cliente. (c) Dados técnicos: endereço IP (apenas para rate-limit, não armazenado de forma persistente), idioma preferido (cookie), métricas anônimas de uso (Vercel Analytics). Não coletamos: CPF, RG, dados financeiros sensíveis, documentos de identidade, informações de saúde, dados de menores de 12 anos." },
+      { "title": "3. Bases Legais (LGPD/GDPR)", "body": "Tratamos seus dados com base em: Consentimento (art. 7º I LGPD / art. 6(1)(a) GDPR) — para envio de mensagem via formulário. Execução de contrato (art. 7º V LGPD / art. 6(1)(b) GDPR) — para prestar o serviço contratado. Legítimo interesse (art. 7º IX LGPD / art. 6(1)(f) GDPR) — para análise de funcionamento do site (logs de erro, métricas anônimas) e prevenção de fraude (rate-limit, anti-bot)." },
+      { "title": "4. Finalidades de Uso", "body": "Usamos seus dados exclusivamente para: responder sua mensagem e enviar proposta comercial; executar o contrato firmado; comunicar-nos durante o projeto; cumprir obrigações legais e fiscais; manter histórico para suporte pós-entrega; quando autorizado expressamente, incluir o trabalho em portfólio público. Nunca usaremos seus dados para spam, venda a terceiros, perfilamento publicitário ou marketing não solicitado." },
+      { "title": "5. Compartilhamento com Terceiros", "body": "Compartilhamos dados estritamente com sub-processadores necessários à operação: Vercel Inc. (EUA) — hospedagem do site e funções serverless. Resend Inc. (EUA) — envio do e-mail de notificação. Supabase Inc. (EUA, infra UE/US) — armazenamento backup com RLS ativo. GitHub Inc. (EUA) — exibição de projetos públicos via API. Todos os sub-processadores assinaram acordos de tratamento de dados. Não compartilhamos com agências de marketing, brokers ou terceiros não-essenciais." },
+      { "title": "6. Transferência Internacional", "body": "Por usarmos serviços de empresas com sede nos EUA, seus dados podem ser transferidos para fora do Brasil/UE. Garantimos que: (a) os fornecedores aderem a Cláusulas Contratuais Padrão da UE (SCCs); (b) Vercel, Resend e Supabase atendem a níveis de proteção considerados adequados pela ANPD/EDPB; (c) usamos sempre conexões criptografadas (TLS 1.3)." },
+      { "title": "7. Tempo de Retenção", "body": "Mensagens de contato: 24 meses após o último contato, exceto se você solicitar exclusão antes. Dados contratuais e fiscais: pelo prazo legal de 5 anos após encerramento do contrato (art. 173 CTN). Logs técnicos: 30 dias. Cookies: conforme tabela na Política de Cookies. Após esses prazos, os dados são apagados ou anonimizados de forma irreversível." },
+      { "title": "8. Seus Direitos", "body": "Sob LGPD (art. 18) e GDPR (arts. 15-22), você tem direito a: confirmação de existência de tratamento e acesso aos dados; correção de dados incompletos, inexatos ou desatualizados; exclusão dos dados (\"direito ao esquecimento\"), salvo retenção legal obrigatória; portabilidade — receber cópia em formato estruturado; oposição ao tratamento baseado em legítimo interesse; revogação do consentimento a qualquer momento; reclamação à ANPD (Brasil) ou autoridade nacional de proteção de dados (UE)." },
+      { "title": "9. Como Exercer seus Direitos", "body": "Envie e-mail para contato@fronnexus.org identificando-se e descrevendo o pedido. Respondemos em até 15 dias úteis (LGPD) ou 30 dias (GDPR). Não cobramos por essas solicitações, exceto em caso de pedidos manifestamente abusivos ou repetitivos." },
+      { "title": "10. Segurança dos Dados", "body": "Implementamos medidas técnicas e organizacionais proporcionais ao risco: conexão TLS 1.3 obrigatória em todo o site; headers HSTS, CSP, COOP/CORP, X-Frame-Options; rate-limit nas APIs públicas; validação rigorosa de input, escape de HTML, honeypot anti-bot; banco de dados Supabase com Row-Level Security (anon = INSERT only); princípio do menor privilégio em todos os tokens e serviços; backup criptografado. Em caso de incidente que envolva risco a seus dados, comunicaremos você e a ANPD nos prazos legais." },
+      { "title": "11. Crianças e Adolescentes", "body": "O site não é direcionado a menores de 18 anos. Não coletamos conscientemente dados de crianças. Se você é responsável legal e identifica que coletamos dados de menor sob seus cuidados, contate-nos para exclusão imediata." },
+      { "title": "12. Alterações desta Política", "body": "Esta Política pode ser atualizada para refletir mudanças nos serviços, na lei ou em boas práticas. Alterações significativas serão comunicadas por e-mail aos Clientes ativos com 30 dias de antecedência. A versão vigente sempre estará disponível em /terms/privacy." }
+    ],
+    "anpdNotice": "Reclamações sobre tratamento podem ser dirigidas à Autoridade Nacional de Proteção de Dados — ANPD: gov.br/anpd",
+    "contactBlurb": "Dúvidas sobre privacidade? Escreve pra contato@fronnexus.org."
+  },
+  "termsCookies": {
+    "label": "Política de Cookies",
+    "title": "Política de Cookies",
+    "lastUpdate": "Última atualização: abril de 2026",
+    "intro": "Cookies são pequenos arquivos armazenados pelo seu navegador. Esta Política descreve quais cookies usamos no fronnexus.org e como controlá-los.",
+    "tableTitle": "Cookies que usamos",
+    "table": [
+      { "name": "fronnexus_lang", "type": "Essencial", "purpose": "Lembra o idioma escolhido (PT ou EN) entre visitas.", "duration": "Persistente — até você limpar o navegador", "thirdParty": "Não" },
+      { "name": "_vercel_*", "type": "Analytics anônimo", "purpose": "Métricas agregadas de visualização de página, sem identificação individual (Vercel Analytics).", "duration": "Sessão", "thirdParty": "Vercel Inc." }
+    ],
+    "noticeTitle": "Como controlar cookies",
+    "noticeBody": "Você pode bloquear ou apagar cookies a qualquer momento via configurações do navegador. Isso pode afetar a preferência de idioma (você terá que reescolher cada visita), mas não compromete o funcionamento básico do site. Não usamos cookies de publicidade, retargeting ou perfilamento. Não temos pixel do Facebook, Google Ads, TikTok ou similares.",
+    "browserLinks": "Para instruções por navegador: Chrome, Firefox, Safari, Edge — pesquise \"limpar cookies\" + nome do navegador.",
+    "contactBlurb": "Dúvidas? Escreve pra contato@fronnexus.org."
+  },
+  "consent": {
+    "label": "Consentimento",
+    "checkbox": "Li e concordo com os Termos de Uso e a Política de Privacidade.",
+    "termsLink": "Termos de Uso",
+    "privacyLink": "Política de Privacidade",
+    "required": "Você precisa concordar com os Termos para enviar."
   }
 }

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import { useI18n } from '../../i18n/I18nContext';
 import Reveal from '../Animation/Reveal';
 import SplitWords from '../Animation/SplitWords';
@@ -32,7 +33,7 @@ export default function ContactForm() {
   const { t } = useI18n();
   const [state, setState] = useState({ status: 'idle', error: null });
 
-  const [form, setForm] = useState({
+  const initialForm = {
     firstName: '',
     lastName: '',
     email: '',
@@ -41,10 +42,12 @@ export default function ContactForm() {
     projectType: '',
     budget: '',
     details: '',
+    consent: false,
     // Honeypot — hidden from real users via CSS, irresistible to bots.
     // The API silently 200s if this is filled, so the bot moves on.
     website: '',
-  });
+  };
+  const [form, setForm] = useState(initialForm);
 
   function update(name, value) {
     setForm((f) => ({ ...f, [name]: value }));
@@ -62,6 +65,11 @@ export default function ContactForm() {
       return;
     }
 
+    if (!form.consent) {
+      setState({ status: 'error', error: 'consent' });
+      return;
+    }
+
     setState({ status: 'sending', error: null });
 
     try {
@@ -72,16 +80,8 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setState({ status: 'sent', error: null });
-      setForm({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        company: '',
-        projectType: '',
-        budget: '',
-        details: '',
-      });
+      // Full reset including honeypot AND consent — QA-3 fix
+      setForm(initialForm);
     } catch (err) {
       setState({ status: 'error', error: err.message });
     }
@@ -323,6 +323,42 @@ export default function ContactForm() {
               </Field>
             </Reveal>
 
+            {/* Consent checkbox — required by LGPD/GDPR. Cannot
+                submit without explicit affirmative action. */}
+            <Reveal delay={680}>
+              <label className="flex items-start gap-3 cursor-pointer group select-none">
+                <input
+                  type="checkbox"
+                  className="mt-1 w-4 h-4 rounded cursor-pointer flex-shrink-0"
+                  style={{
+                    accentColor: 'var(--teal-500)',
+                  }}
+                  checked={form.consent}
+                  onChange={(e) => update('consent', e.target.checked)}
+                  required
+                />
+                <span className="text-sm text-[var(--mist-300)] leading-relaxed">
+                  Li e concordo com os{' '}
+                  <Link
+                    href="/terms/use"
+                    target="_blank"
+                    className="text-[var(--teal-500)] underline hover:text-[var(--mist-50)]"
+                  >
+                    {t('consent.termsLink')}
+                  </Link>{' '}
+                  e a{' '}
+                  <Link
+                    href="/terms/privacy"
+                    target="_blank"
+                    className="text-[var(--teal-500)] underline hover:text-[var(--mist-50)]"
+                  >
+                    {t('consent.privacyLink')}
+                  </Link>
+                  .
+                </span>
+              </label>
+            </Reveal>
+
             {state.status === 'error' && (
               <Reveal>
                 <div
@@ -333,7 +369,9 @@ export default function ContactForm() {
                     color: 'var(--coral-300)',
                   }}
                 >
-                  {t('contact.error.title')} — {t('contact.error.body')}
+                  {state.error === 'consent'
+                    ? t('consent.required')
+                    : `${t('contact.error.title')} — ${t('contact.error.body')}`}
                 </div>
               </Reveal>
             )}
@@ -343,10 +381,16 @@ export default function ContactForm() {
                 <button
                   type="submit"
                   className="btn-bridge"
-                  disabled={state.status === 'sending'}
+                  disabled={state.status === 'sending' || !form.consent}
                   style={{
-                    opacity: state.status === 'sending' ? 0.6 : 1,
-                    cursor: state.status === 'sending' ? 'wait' : 'pointer',
+                    opacity:
+                      state.status === 'sending' || !form.consent ? 0.5 : 1,
+                    cursor:
+                      state.status === 'sending'
+                        ? 'wait'
+                        : !form.consent
+                          ? 'not-allowed'
+                          : 'pointer',
                   }}
                 >
                   {state.status === 'sending'
@@ -357,7 +401,7 @@ export default function ContactForm() {
 
                 <div className="text-sm text-[var(--mist-400)] flex flex-col sm:flex-row sm:items-center sm:gap-3">
                   <a
-                    href={`mailto:${t('contact.info.email')}`}
+                    href={`mailto:${encodeURIComponent(t('contact.info.email'))}`}
                     className="text-[var(--teal-500)] hover:text-[var(--mist-50)]"
                   >
                     {t('contact.info.email')}

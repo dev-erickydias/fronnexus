@@ -53,16 +53,38 @@ export function takeToken(key, max, windowMs) {
 }
 
 /**
- * Best-effort client IP extraction. Vercel's edge sets x-forwarded-for
- * and x-real-ip; we trust them only because we know we're behind
- * Vercel's edge proxy. Don't trust these on a self-hosted setup
- * without verifying the connecting IP first.
+ * Best-effort client IP extraction.
+ *
+ * Vercel's edge prepends the true edge IP to x-forwarded-for AFTER
+ * any client-supplied chain — so we MUST read the TRAILING entry,
+ * not the leading one. Naive `split(',')[0]` reads the client's
+ * claim, letting attackers rotate fake `X-Forwarded-For: 1.2.3.4`
+ * values to bypass per-IP buckets. (QA finding 2026-04, hardening.)
+ *
+ * Order of preference:
+ *   1. x-vercel-forwarded-for / x-real-ip — already cleansed by edge
+ *   2. trailing entry of x-forwarded-for chain
+ *   3. literal "unknown" (rate-bucketed together — fail-closed)
  */
 export function clientIp(req) {
-  const forwarded =
-    req.headers.get?.('x-forwarded-for') ||
-    req.headers.get?.('x-real-ip') ||
-    '';
-  const first = forwarded.split(',')[0]?.trim();
-  return first || 'unknown';
+  const headers = req.headers;
+  if (!headers || typeof headers.get !== 'function') return 'unknown';
+
+  // Vercel-specific headers — most trusted, set by the edge after
+  // stripping any client-supplied X-Forwarded-For values.
+  const vercelXff =
+    headers.get('x-vercel-forwarded-for') || headers.get('x-real-ip') || '';
+  if (vercelXff) {
+    const first = vercelXff.split(',')[0]?.trim();
+    if (first) return first;
+  }
+
+  // Fallback: x-forwarded-for chain. Read TRAILING entry (the closest
+  // proxy = the edge), never the leading one (the client's claim).
+  const forwarded = headers.get('x-forwarded-for') || '';
+  const chain = forwarded
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return chain[chain.length - 1] || 'unknown';
 }

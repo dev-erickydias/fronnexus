@@ -46,15 +46,51 @@ export default function BridgeOrb({ className = '' }) {
     );
     camera.position.set(0, 0, 4.6);
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
-      powerPreference: 'high-performance',
-    });
+    // WebGL init can throw on Safari iOS under memory pressure,
+    // browsers with WebGL disabled, or headless envs. Fail soft so
+    // the rest of the hero (text, CTAs) keeps rendering.
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance',
+        failIfMajorPerformanceCaveat: false,
+      });
+    } catch (err) {
+      console.warn(
+        '[BridgeOrb] WebGL unavailable, skipping 3D scene:',
+        err?.message,
+      );
+      return undefined;
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, PIXEL_RATIO_CAP));
     renderer.setSize(mount.clientWidth, mount.clientHeight);
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
+
+    // GPU context loss handling — when the OS evicts our context
+    // (tab backgrounded, mobile memory pressure) we pause the loop;
+    // when restored we resume. Prevents the canvas from going black
+    // permanently on long sessions.
+    let contextLost = false;
+    const onContextLost = (e) => {
+      e.preventDefault();
+      contextLost = true;
+    };
+    const onContextRestored = () => {
+      contextLost = false;
+    };
+    renderer.domElement.addEventListener(
+      'webglcontextlost',
+      onContextLost,
+      false,
+    );
+    renderer.domElement.addEventListener(
+      'webglcontextrestored',
+      onContextRestored,
+      false,
+    );
 
     // ── Wireframe icosahedron — the "core" of the bridge ──────
     const coreGeo = new THREE.IcosahedronGeometry(1.35, 1);
@@ -180,8 +216,10 @@ export default function BridgeOrb({ className = '' }) {
     const clock = new THREE.Clock();
 
     function tick() {
-      if (!inView) {
-        // Schedule another check, but skip the per-frame work
+      if (!inView || contextLost) {
+        // Schedule another check, but skip the per-frame work.
+        // contextLost guard prevents calling .render() on a dead
+        // GPU context (which throws and breaks the loop).
         frameId = requestAnimationFrame(tick);
         return;
       }
@@ -230,6 +268,14 @@ export default function BridgeOrb({ className = '' }) {
       cancelAnimationFrame(frameId);
       if (!isMobile) window.removeEventListener('mousemove', onMouse);
       if (visibilityObserver) visibilityObserver.disconnect();
+      renderer.domElement.removeEventListener(
+        'webglcontextlost',
+        onContextLost,
+      );
+      renderer.domElement.removeEventListener(
+        'webglcontextrestored',
+        onContextRestored,
+      );
       ro.disconnect();
       coreGeo.dispose();
       coreMat.dispose();

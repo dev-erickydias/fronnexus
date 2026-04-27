@@ -160,6 +160,13 @@ const nextConfig = {
         destination: 'https://fronnexus.org/:path*',
         permanent: true,
       },
+      // Legacy /terms/responsability — redirect to the new /terms
+      // index. 308 preserves search-engine equity from old links.
+      {
+        source: '/terms/responsability',
+        destination: '/terms',
+        permanent: true,
+      },
     ];
   },
 

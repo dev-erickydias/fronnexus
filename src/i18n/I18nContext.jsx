@@ -13,17 +13,33 @@ export function I18nProvider({ children }) {
   const [lang, setLang] = useState(defaultLang);
 
   useEffect(() => {
-    const stored = localStorage.getItem("fronnexus_lang");
-    if (stored && supportedLangs.includes(stored)) {
-      setLang(stored);
-      document.documentElement.lang = stored;
+    // Safari private mode + some embedded webviews throw on
+    // localStorage access. Wrap all reads/writes in try/catch so
+    // the language preference fails open (default lang) instead
+    // of crashing the entire provider tree.
+    try {
+      const stored = localStorage.getItem("fronnexus_lang");
+      if (stored && supportedLangs.includes(stored)) {
+        setLang(stored);
+        if (typeof document !== 'undefined') {
+          document.documentElement.lang = stored;
+        }
+      }
+    } catch {
+      // localStorage unavailable — silent fallback to default lang
     }
   }, []);
 
   const changeLang = useCallback((code) => {
-    if (supportedLangs.includes(code)) {
-      setLang(code);
+    if (!supportedLangs.includes(code)) return;
+    setLang(code);
+    try {
       localStorage.setItem("fronnexus_lang", code);
+    } catch {
+      // session-only persistence still works (state stays); future
+      // visits will revert to default — acceptable degradation
+    }
+    if (typeof document !== 'undefined') {
       document.documentElement.lang = code;
     }
   }, []);

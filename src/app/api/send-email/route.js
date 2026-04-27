@@ -274,16 +274,25 @@ export async function POST(req) {
   }
 
   // ─── Path 2: Supabase persistence (backup) ───────────────────
-  if (
-    process.env.NEXT_PUBLIC_SUPABASE_URL &&
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  ) {
+  // Prefer SERVICE_ROLE_KEY (server-only, bypasses RLS) over the
+  // public anon key. Reasoning:
+  //   1. The anon key sits in the client bundle — anyone could hit
+  //      Supabase REST directly, bypassing all the defenses on
+  //      this route (origin check, rate limit, honeypot)
+  //   2. With service-role here we can tighten RLS to deny ALL
+  //      anon writes (see docs/security/supabase-rls.sql)
+  // The service key MUST stay server-side — the missing
+  // NEXT_PUBLIC_ prefix enforces that.
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY; // fallback while migrating
+  if (supabaseUrl && supabaseKey) {
     try {
       const { createClient } = await import('@supabase/supabase-js');
-      const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-      );
+      const supabase = createClient(supabaseUrl, supabaseKey, {
+        auth: { persistSession: false, autoRefreshToken: false },
+      });
 
       const { error } = await supabase.from('contact_submissions').insert({
         first_name: d.firstName,
