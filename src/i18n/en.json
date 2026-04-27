@@ -408,31 +408,84 @@
     "instagram": "Instagram"
   },
 
-  "terms": {
-    "label": "Terms & Privacy",
-    "title": "How we handle your data",
+  "termsIndex": {
+    "label": "Legal documents",
+    "title": "Terms &",
+    "highlight": "Privacy",
+    "intro": "The full set of documents that govern our relationship. Read what applies to your case — any question, just ask.",
     "lastUpdate": "Last updated: April 2026",
-    "sections": [
-      {
-        "title": "Who we are",
-        "body": "Fronnexus is a boutique digital studio operated by Ericky Dias, based in Brazil with global delivery."
-      },
-      {
-        "title": "Data we collect",
-        "body": "Only what's needed to reply to you and run the service: name, email, phone, company, and the project details you send. We don't sell or share with third parties."
-      },
-      {
-        "title": "How we use it",
-        "body": "To respond, send proposals, run the project, and — only with permission — include the case in our showcase. Never spam."
-      },
-      {
-        "title": "GDPR / LGPD",
-        "body": "You can request access, correction, or deletion of your data at any time. Just email hello@fronnexus.org."
-      },
-      {
-        "title": "Cookies",
-        "body": "Only essential cookies (preferred language). We don't track you across sites."
-      }
+    "cards": [
+      { "id": "use", "title": "Terms of Use", "summary": "How engaging, executing, and ending projects with Fronnexus works.", "href": "/terms/use" },
+      { "id": "privacy", "title": "Privacy Policy", "summary": "What data we collect, why, who we share with, and your rights under GDPR/LGPD.", "href": "/terms/privacy" },
+      { "id": "cookies", "title": "Cookie Policy", "summary": "Which cookies the site uses and how to control them.", "href": "/terms/cookies" }
     ]
+  },
+  "termsUse": {
+    "label": "Terms of Use",
+    "title": "Terms of Use",
+    "lastUpdate": "Last updated: April 2026",
+    "intro": "These Terms govern the commercial relationship between you (\"Client\") and Fronnexus, operated by Ericky Henrique Dias, based in Brazil (\"Provider\"), regarding web development, digital marketing, growth consulting, and data analytics services (\"Services\"). By engaging Fronnexus, you fully agree to these Terms.",
+    "sections": [
+      { "title": "1. Definitions", "body": "Client: individual or legal entity engaging the Services. Provider: Fronnexus, a brand operated by Ericky Henrique Dias. Services: development, marketing, consulting, and analytics engagements contracted via accepted formal proposal. Deliverables: final artifacts handed to the Client (source code, design files, reports, dashboards). Proposal: document detailing scope, timeline, fee, and conditions, valid for 15 days after issuance." },
+      { "title": "2. Scope of Services", "body": "The Services to be performed are strictly defined in the accepted Proposal. Any scope change (\"Change Request\") requires written approval from the Provider, with possible impact on timeline and/or fee — to be formalized in an addendum. Work outside the original scope is not performed without a new agreement." },
+      { "title": "3. Acceptance and Start", "body": "The agreement is considered formed by: (a) formal acceptance of the Proposal via email or electronic signature; (b) payment of the deposit defined in the Proposal. Effective work begins after deposit confirmation." },
+      { "title": "4. Payment", "body": "Method: PIX, bank transfer, card (via Stripe gateway), Wise for international clients. Standard structure: 50% deposit + 50% on delivery, or milestone installments for projects above USD 3,000. Late: payments overdue by more than 5 days suspend execution. Delays exceeding 30 days allow termination by the Provider, with retention of paid amounts to cover hours worked. Refunds: amounts paid are non-refundable after work begins, except in case of proven default by the Provider." },
+      { "title": "5. Timelines and Delivery", "body": "Timelines stated in Proposals are estimates based on the presented scope. Delays caused by: (a) lack of Client feedback within 5 business days; (b) scope changes; (c) third parties under Client's responsibility (hosting, content, external integrations); (d) force majeure — incur no penalty for the Provider and proportionally extend the timeline." },
+      { "title": "6. Intellectual Property", "body": "Pre-existing: tools, frameworks, internal templates, and pre-existing libraries owned by the Provider remain its exclusive property. Client-specific: code, design, and content developed exclusively for the Client's project transfer to the Client upon full payment. Third-party: software dependencies (Next.js, React, etc.) follow their respective licenses. Portfolio: the Provider reserves the right to display delivered work in public portfolio (including screenshots and description), unless expressly restricted by NDA." },
+      { "title": "7. Confidentiality", "body": "Both parties agree to keep confidential information exchanged during the engagement secret. This obligation persists for 5 years after termination. Information already public, previously known without a duty of confidentiality, or required by law/judicial order is not considered confidential." },
+      { "title": "8. Warranties", "body": "Defects: for 30 days after final delivery, the Provider fixes at no additional cost bugs proven to result from its execution. Does not cover: changes requested by the Client, third-party service failures, production environment changes, or new feature requests. Performance: Services are delivered per agreed specifications. No business-outcome guarantees (sales, traffic, conversion, search ranking) are made, as these depend on external factors." },
+      { "title": "9. Limitation of Liability", "body": "Under no circumstances shall the Provider's total liability exceed the amount paid by the Client in the 12 months prior to the event giving rise to the claim. The Provider is not liable for: (a) indirect damages, lost profits, or lost opportunities; (b) third-party service unavailability (Vercel, Supabase, GitHub, Resend); (c) cyberattacks not arising from proven negligence by the Provider; (d) Client's misuse of Deliverables." },
+      { "title": "10. Indemnification", "body": "The Client shall indemnify the Provider for any damage, fine, or action arising from: (a) content (texts, images, trademarks) provided by the Client that violates third-party rights; (b) illegal use of Deliverables; (c) false statements about authorship or ownership of material delivered to the Provider." },
+      { "title": "11. Termination", "body": "By either party: with 15 days written notice, no justification required. Amounts for hours worked and expenses incurred are due. For default: immediate, no refund of amounts already paid. Force majeure: suspends the agreement at no cost to either party for up to 60 days; thereafter, either party may terminate." },
+      { "title": "12. Maintenance and Support", "body": "Continuous maintenance and support are NOT included in the development contract unless expressly stated. Monthly retainer packages are contracted separately. After the 30-day warranty, adjustments are billed per the current consulting rate (USD 90/hr)." },
+      { "title": "13. Jurisdiction and Governing Law", "body": "This agreement is governed by the laws of the Federative Republic of Brazil. The forum of the Provider's headquarters at the time of dispute is elected to settle any controversies, with express waiver of any other, however privileged. For international clients, disputes will be resolved via online mediation by an independent chamber, with fallback to arbitration in Portuguese under Brazilian Law 9.307/96." },
+      { "title": "14. Changes to These Terms", "body": "The Provider may update these Terms at any time. Material changes will be communicated 30 days in advance to active Clients. Continued use of Services after notice implies acceptance. Ongoing contracts remain governed by the version in force on the date of acceptance." },
+      { "title": "15. General Provisions", "body": "Independence of clauses: the invalidity of any clause does not affect the others. Entire agreement: these Terms together with the accepted Proposal constitute the entire understanding between the parties. Notices: sent to each party's registered contact email. Assignment: the Client cannot assign this contract without written consent of the Provider." }
+    ],
+    "contactBlurb": "Questions about these Terms? Drop a line to hello@fronnexus.org."
+  },
+  "termsPrivacy": {
+    "label": "Privacy Policy",
+    "title": "Privacy Policy",
+    "lastUpdate": "Last updated: April 2026",
+    "intro": "This Policy describes how Fronnexus collects, uses, stores, shares, and protects your personal data, in compliance with the Brazilian General Data Protection Law (LGPD — Law 13.709/2018) and the EU General Data Protection Regulation (GDPR — 2016/679).",
+    "sections": [
+      { "title": "1. Data Controller", "body": "Fronnexus, operated by Ericky Henrique Dias (\"Controller\"), based in Brazil, is responsible for processing your personal data. For any privacy-related question, contact hello@fronnexus.org." },
+      { "title": "2. Data We Collect", "body": "(a) Identification data: first name, last name, email, phone (optional), company (optional), country. (b) Project data: project type, budget range, problem/objective description sent by the Client. (c) Technical data: IP address (rate-limit only, not persistently stored), preferred language (cookie), anonymous usage metrics (Vercel Analytics). We do NOT collect: government IDs, sensitive financial data, identity documents, health information, data of children under 12." },
+      { "title": "3. Legal Bases (LGPD/GDPR)", "body": "We process your data under: Consent (LGPD art. 7-I / GDPR 6(1)(a)) — for sending a message via the form. Contract performance (LGPD art. 7-V / GDPR 6(1)(b)) — to deliver the contracted service. Legitimate interest (LGPD art. 7-IX / GDPR 6(1)(f)) — for site analytics (error logs, anonymous metrics) and fraud prevention (rate-limit, anti-bot)." },
+      { "title": "4. Purposes of Use", "body": "We use your data exclusively to: respond to your message and send commercial proposals; perform the signed contract; communicate during the project; comply with legal and tax obligations; keep history for post-delivery support; when expressly authorized, include the work in our public portfolio. We will never use your data for spam, third-party sales, advertising profiling, or unsolicited marketing." },
+      { "title": "5. Sharing with Third Parties", "body": "We share data strictly with sub-processors necessary to operations: Vercel Inc. (US) — site hosting and serverless functions. Resend Inc. (US) — sending the contact notification email. Supabase Inc. (US, EU/US infra) — message backup storage with RLS active. GitHub Inc. (US) — public project display via API. All sub-processors signed data processing agreements. We do not share with marketing agencies, brokers, or non-essential third parties." },
+      { "title": "6. International Transfer", "body": "Because we use services from US-based companies, your data may be transferred outside Brazil/EU. We ensure that: (a) providers adhere to EU Standard Contractual Clauses (SCCs); (b) Vercel, Resend, and Supabase meet protection levels deemed adequate by ANPD/EDPB; (c) we always use encrypted connections (TLS 1.3)." },
+      { "title": "7. Retention Period", "body": "Contact messages: 24 months after last contact, unless you request earlier deletion. Contractual and tax data: legal retention period of 5 years after contract end (Brazilian Tax Code art. 173). Technical logs: 30 days. Cookies: per the Cookie Policy table. After these periods, data is deleted or irreversibly anonymized." },
+      { "title": "8. Your Rights", "body": "Under LGPD (art. 18) and GDPR (arts. 15-22), you have the right to: confirmation of processing existence and access to data; correction of incomplete, inaccurate, or outdated data; deletion (\"right to erasure\"), except for mandatory legal retention; portability — receive a structured copy; objection to processing based on legitimate interest; withdrawal of consent at any time; complaint to ANPD (Brazil) or your national data protection authority (EU)." },
+      { "title": "9. How to Exercise Your Rights", "body": "Email hello@fronnexus.org identifying yourself and describing your request. We respond within 15 business days (LGPD) or 30 days (GDPR). We do not charge for such requests, except in cases of manifestly abusive or repetitive demands." },
+      { "title": "10. Data Security", "body": "We implement technical and organizational measures proportional to the risk: mandatory TLS 1.3 site-wide; HSTS, CSP, COOP/CORP, X-Frame-Options headers; rate-limit on public APIs; strict input validation, HTML escaping, anti-bot honeypot; Supabase database with Row-Level Security (anon = INSERT only); least-privilege principle on all tokens and services; encrypted backups. In case of an incident affecting your data, we will notify you and the relevant authority within legal deadlines." },
+      { "title": "11. Children and Minors", "body": "The site is not directed to those under 18. We do not knowingly collect children's data. If you are a legal guardian and identify that we collected data of a minor under your care, contact us for immediate deletion." },
+      { "title": "12. Changes to This Policy", "body": "This Policy may be updated to reflect changes in services, law, or best practices. Significant changes will be communicated by email to active Clients 30 days in advance. The current version is always available at /terms/privacy." }
+    ],
+    "anpdNotice": "Processing complaints can be filed with the Brazilian Data Protection Authority — ANPD: gov.br/anpd",
+    "contactBlurb": "Questions about privacy? Drop a line to hello@fronnexus.org."
+  },
+  "termsCookies": {
+    "label": "Cookie Policy",
+    "title": "Cookie Policy",
+    "lastUpdate": "Last updated: April 2026",
+    "intro": "Cookies are small files stored by your browser. This Policy describes which cookies we use on fronnexus.org and how to control them.",
+    "tableTitle": "Cookies we use",
+    "table": [
+      { "name": "fronnexus_lang", "type": "Essential", "purpose": "Remembers your chosen language (PT or EN) across visits.", "duration": "Persistent — until you clear your browser", "thirdParty": "No" },
+      { "name": "_vercel_*", "type": "Anonymous analytics", "purpose": "Aggregated page-view metrics, no individual identification (Vercel Analytics).", "duration": "Session", "thirdParty": "Vercel Inc." }
+    ],
+    "noticeTitle": "How to control cookies",
+    "noticeBody": "You can block or delete cookies at any time via your browser settings. This may affect language preference (you'll need to choose each visit), but does not break basic site functionality. We do NOT use advertising, retargeting, or profiling cookies. We have no Facebook Pixel, Google Ads, TikTok, or similar trackers.",
+    "browserLinks": "For browser-specific instructions: Chrome, Firefox, Safari, Edge — search \"clear cookies\" + browser name.",
+    "contactBlurb": "Questions? Drop a line to hello@fronnexus.org."
+  },
+  "consent": {
+    "label": "Consent",
+    "checkbox": "I have read and agree to the Terms of Use and Privacy Policy.",
+    "termsLink": "Terms of Use",
+    "privacyLink": "Privacy Policy",
+    "required": "You need to agree to the Terms to send."
   }
 }

@@ -121,12 +121,26 @@ export default function Footer() {
           <p className="text-xs text-[var(--mist-400)]">
             © {year} Fronnexus. {t('footer.rights')}
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 flex-wrap">
             <Link
-              href="/terms/responsability"
+              href="/terms/use"
               className="text-xs text-[var(--mist-400)] hover:text-[var(--mist-100)] transition-colors"
             >
               {t('footer.terms')}
+            </Link>
+            <span className="text-xs text-[var(--mist-500)]">·</span>
+            <Link
+              href="/terms/privacy"
+              className="text-xs text-[var(--mist-400)] hover:text-[var(--mist-100)] transition-colors"
+            >
+              {t('footer.privacy')}
+            </Link>
+            <span className="text-xs text-[var(--mist-500)]">·</span>
+            <Link
+              href="/terms/cookies"
+              className="text-xs text-[var(--mist-400)] hover:text-[var(--mist-100)] transition-colors"
+            >
+              Cookies
             </Link>
             <span className="text-xs text-[var(--mist-500)]">·</span>
             <span className="text-xs text-[var(--mist-400)]">
