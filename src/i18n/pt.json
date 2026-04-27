@@ -248,9 +248,11 @@
       "body": "Tenta de novo, ou manda direto pro e-mail abaixo."
     },
     "info": {
-      "email": "contato@fronnexus.com",
+      "email": "contato@fronnexus.org",
       "responseTime": "Resposta em até 24h",
-      "based": "Baseado no Brasil — atendimento global"
+      "based": "Baseado no Brasil — atendimento global",
+      "whatsappLabel": "Falar no WhatsApp",
+      "whatsappHint": "Mais rápido que e-mail"
     }
   },
 
@@ -288,7 +290,7 @@
       },
       {
         "title": "LGPD",
-        "body": "Você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento. Basta enviar e-mail para contato@fronnexus.com."
+        "body": "Você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento. Basta enviar e-mail para contato@fronnexus.org."
       },
       {
         "title": "Cookies",

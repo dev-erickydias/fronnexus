@@ -248,9 +248,11 @@
       "body": "Try again, or email the address below directly."
     },
     "info": {
-      "email": "hello@fronnexus.com",
+      "email": "hello@fronnexus.org",
       "responseTime": "Reply within 24h",
-      "based": "Based in Brazil — global delivery"
+      "based": "Based in Brazil — global delivery",
+      "whatsappLabel": "Chat on WhatsApp",
+      "whatsappHint": "Faster than email"
     }
   },
 
@@ -288,7 +290,7 @@
       },
       {
         "title": "GDPR / LGPD",
-        "body": "You can request access, correction, or deletion of your data at any time. Just email hello@fronnexus.com."
+        "body": "You can request access, correction, or deletion of your data at any time. Just email hello@fronnexus.org."
       },
       {
         "title": "Cookies",
