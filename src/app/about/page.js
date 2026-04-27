@@ -56,9 +56,11 @@ export default function AboutPage() {
 
           <h1 className="display-xl font-display mb-6 max-w-4xl text-balance">
             <SplitWords text={t('about.title')} />{' '}
-            <span className="text-bridge">
-              <SplitWords text={t('about.highlight')} delay={120} />
-            </span>
+            <SplitWords
+              text={t('about.highlight')}
+              splitClassName="text-bridge"
+              delay={120}
+            />
           </h1>
 
           <Reveal delay={300}>

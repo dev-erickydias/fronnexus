@@ -104,9 +104,11 @@ export default function ContactForm() {
 
         <h1 className="display-xl font-display mb-6 text-balance">
           <SplitWords text={t('contact.title')} />{' '}
-          <span className="text-bridge">
-            <SplitWords text={t('contact.highlight')} delay={120} />
-          </span>
+          <SplitWords
+            text={t('contact.highlight')}
+            splitClassName="text-bridge"
+            delay={120}
+          />
           <SplitWords text={t('contact.after')} delay={240} />
         </h1>
 

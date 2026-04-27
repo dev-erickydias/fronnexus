@@ -47,9 +47,11 @@ export default function ServicesSection() {
 
         <h2 className="display-lg font-display mb-6 text-balance">
           <SplitWords text={t('services.title')} />{' '}
-          <span className="text-bridge">
-            <SplitWords text={t('services.highlight')} delay={120} />
-          </span>
+          <SplitWords
+            text={t('services.highlight')}
+            splitClassName="text-bridge"
+            delay={120}
+          />
           <SplitWords text={t('services.after')} delay={240} />
         </h2>
 

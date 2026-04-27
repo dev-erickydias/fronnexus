@@ -41,9 +41,11 @@ export default function CtaPrimary() {
               className="display-lg font-display mb-6 text-balance"
             >
               <SplitWords text={t('ctaPrimary.title')} />{' '}
-              <span className="text-bridge">
-                <SplitWords text={t('ctaPrimary.highlight')} delay={120} />
-              </span>
+              <SplitWords
+                text={t('ctaPrimary.highlight')}
+                splitClassName="text-bridge"
+                delay={120}
+              />
             </h2>
 
             <Reveal delay={300}>

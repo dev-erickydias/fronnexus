@@ -213,13 +213,20 @@ body::after {
   font-style: italic;
 }
 
-/* Gradient text */
+/* Gradient text — applied per-element. When combined with
+   <SplitWords>, pass splitClassName="text-bridge" so each word
+   independently owns the gradient (otherwise inline-block children
+   break background-clip:text on the parent). */
 .text-bridge {
   background: var(--gradient-bridge);
+  background-size: 100% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  /* Prevent the colored fallback from flashing during webfont swap */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .text-aurora {
   background: var(--gradient-aurora);

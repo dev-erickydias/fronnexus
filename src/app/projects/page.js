@@ -58,9 +58,11 @@ export default function ProjectsPage() {
 
           <h1 className="display-xl font-display mb-6 max-w-4xl text-balance">
             <SplitWords text={t('showcase.title')} />{' '}
-            <span className="text-bridge">
-              <SplitWords text={t('showcase.highlight')} delay={120} />
-            </span>
+            <SplitWords
+              text={t('showcase.highlight')}
+              splitClassName="text-bridge"
+              delay={120}
+            />
             <SplitWords text={t('showcase.after')} delay={240} />
           </h1>
 

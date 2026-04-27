@@ -69,7 +69,7 @@ export default function Hero() {
               <SplitWords
                 text={t('hero.highlight')}
                 as="span"
-                className="text-bridge"
+                splitClassName="text-bridge"
                 delay={150}
               />
               <span className="text-[var(--mist-50)]">{t('hero.after')}</span>

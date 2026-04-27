@@ -129,9 +129,11 @@ export default function PricingPage() {
 
           <h1 className="display-xl font-display mb-6 max-w-4xl text-balance">
             <SplitWords text={t('pricing.title')} />{' '}
-            <span className="text-bridge">
-              <SplitWords text={t('pricing.highlight')} delay={120} />
-            </span>
+            <SplitWords
+              text={t('pricing.highlight')}
+              splitClassName="text-bridge"
+              delay={120}
+            />
             <SplitWords text={t('pricing.after')} delay={240} />
           </h1>
 
