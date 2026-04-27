@@ -1,7 +1,10 @@
 import { Geist, Geist_Mono, Fraunces } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from '../components/Header/Header';
 import Footer from '../components/footer/Footer';
 import Providers from '../components/providers/Providers';
+import StructuredData from '../components/seo/StructuredData';
 import './globals.css';
 
 // ────────────────────────────────────────────────────────────────
@@ -30,12 +33,13 @@ const fraunces = Fraunces({
   variable: '--font-accent',
 });
 
-const SITE_URL = 'https://fronnexus.vercel.app';
+const SITE_URL = 'https://fronnexus.org';
 const SITE_NAME = 'Fronnexus';
 const SITE_DESCRIPTION =
   'Boutique digital — desenvolvimento web, marketing digital e consultoria de crescimento para empresas e profissionais que querem se expandir online.';
 const SITE_DESCRIPTION_EN =
   'Boutique digital studio — web development, digital marketing, and growth consulting for businesses and individuals ready to scale online.';
+const DEFAULT_OG = `${SITE_URL}/api/og?title=${encodeURIComponent('Conectamos código com gente real')}&label=${encodeURIComponent('Boutique digital')}`;
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -72,12 +76,14 @@ export const metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} — Boutique Digital`,
     description: SITE_DESCRIPTION,
+    images: [{ url: DEFAULT_OG, width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${SITE_NAME} — Boutique Digital`,
     description: SITE_DESCRIPTION_EN,
     creator: '@dev_erickydias',
+    images: [DEFAULT_OG],
   },
   robots: {
     index: true,
@@ -109,6 +115,9 @@ export default function RootLayout({ children }) {
       className={`${geist.variable} ${geistBody.variable} ${geistMono.variable} ${fraunces.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <StructuredData />
+      </head>
       <body className="font-body antialiased">
         <a href="#main" className="skip-nav">Pular para o conteúdo</a>
         <Providers>
@@ -118,6 +127,8 @@ export default function RootLayout({ children }) {
           </main>
           <Footer />
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
