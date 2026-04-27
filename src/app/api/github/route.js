@@ -1,8 +1,19 @@
+import { takeToken, clientIp } from '@/lib/rateLimit';
+
 // ────────────────────────────────────────────────────────────────
 // GET /api/github
 // Returns the curated showcase: ALL public repos owned by GITHUB_USER
 // that carry the topic GITHUB_TOPIC (default: "fronnexus-showcase").
 // Cached for 1h via ISR — no auth required for public repos.
+//
+// Defenses:
+// - Per-IP soft rate limit (60/h) so a misbehaving client can't
+//   stampede the GitHub upstream and burn our 60/h or 5000/h budget
+// - Cache-Control: public, s-maxage=3600, swr=300 keeps Vercel's
+//   edge serving the cached body even if the route lambda dies
+// - Output is shaped (no full GitHub payload) → no info leak
+// - Hardened upstream: if GitHub returns 403/429, we degrade to
+//   cached fallback list rather than 502'ing the consumer
 //
 // Env vars (all optional):
 //   GITHUB_USER       default: "dev-erickydias"
@@ -15,10 +26,13 @@
 const SHOWCASE_USER = process.env.GITHUB_USER || 'dev-erickydias';
 const SHOWCASE_TOPIC = process.env.GITHUB_TOPIC || 'fronnexus-showcase';
 
-// Re-validate at the route level so successive requests share the cache.
-// Next.js requires this to be a static literal (1 hour = 3600s).
+// Public ISR — Next.js requires a literal value here.
 export const revalidate = 3600;
 const REVALIDATE_SECONDS = 3600;
+
+// Soft per-IP cap to keep abusive clients from chewing our quota.
+const RATE_LIMIT_MAX = 60;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 
 function buildHeaders() {
   const headers = {
@@ -95,7 +109,33 @@ function readFallback() {
     }));
 }
 
-export async function GET() {
+export async function GET(req) {
+  // Per-IP soft limit. We still serve the cached body when over —
+  // we just don't let anybody trigger fresh upstream calls.
+  const ip = clientIp(req);
+  const limit = takeToken(
+    `github:${ip}`,
+    RATE_LIMIT_MAX,
+    RATE_LIMIT_WINDOW_MS,
+  );
+  if (!limit.ok) {
+    const fallback = readFallback();
+    return Response.json(
+      {
+        source: fallback.length ? 'fallback' : 'rate-limited',
+        warning: 'rate-limited',
+        items: fallback,
+      },
+      {
+        status: fallback.length ? 200 : 429,
+        headers: {
+          'Retry-After': String(limit.retryAfterSeconds),
+          'Cache-Control': 'public, s-maxage=60',
+        },
+      },
+    );
+  }
+
   const url = `https://api.github.com/search/repositories?q=user:${encodeURIComponent(
     SHOWCASE_USER,
   )}+topic:${encodeURIComponent(SHOWCASE_TOPIC)}&sort=updated&order=desc&per_page=30`;

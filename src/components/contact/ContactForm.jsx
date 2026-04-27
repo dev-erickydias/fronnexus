@@ -41,6 +41,9 @@ export default function ContactForm() {
     projectType: '',
     budget: '',
     details: '',
+    // Honeypot — hidden from real users via CSS, irresistible to bots.
+    // The API silently 200s if this is filled, so the bot moves on.
+    website: '',
   });
 
   function update(name, value) {
@@ -165,7 +168,31 @@ export default function ContactForm() {
             </div>
           </Reveal>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+            {/* Honeypot — hidden from humans, bots fill it. */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                left: '-9999px',
+                width: '1px',
+                height: '1px',
+                overflow: 'hidden',
+              }}
+            >
+              <label htmlFor="website-field">
+                Website (leave empty)
+                <input
+                  id="website-field"
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.website}
+                  onChange={(e) => update('website', e.target.value)}
+                />
+              </label>
+            </div>
             <Reveal delay={400}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label={t('contact.labels.firstName')} required>
